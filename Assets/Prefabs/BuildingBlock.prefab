@@ -47,6 +47,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cubePrefab: {fileID: 5055607393679895339, guid: 217ab05eac726994f823b107709c1029, type: 3}
+  sprites:
+  - {fileID: 21300000, guid: 74e465c0a93d59941bd4e972a2f51375, type: 3}
+  - {fileID: 21300000, guid: 1f4ec5336d74dd7418ed7b7738fe1f1b, type: 3}
+  - {fileID: 21300000, guid: e467e1958e696584b8a5ea9f859a54ba, type: 3}
+  - {fileID: 21300000, guid: 9b6306d20d0472c4bb6565cfac20fad9, type: 3}
+  - {fileID: 21300000, guid: e78f3c65004bd0847ac26c35a71fbb19, type: 3}
+  - {fileID: 21300000, guid: 3e198658464dca64abad8f7d1ddc4a99, type: 3}
+  - {fileID: 21300000, guid: 541e6ccd480a0dd428293d833a81e516, type: 3}
+  - {fileID: 21300000, guid: ec10b4d51dc1c244785a6ff48dbef7f2, type: 3}
+  - {fileID: 21300000, guid: e0e24bea99d47c449a130a39af514f06, type: 3}
+  - {fileID: 21300000, guid: 046ef9f9e49fccb4ea706eb8bcef2c5f, type: 3}
+  - {fileID: 21300000, guid: 5afd7649ea3f41d4b9862bcda2805218, type: 3}
+  - {fileID: 21300000, guid: 9a523d736cd10da4b87c03a252834138, type: 3}
+  - {fileID: 21300000, guid: 022f4e50b6a2eef4a9f9dc3268bb8e0b, type: 3}
+  - {fileID: 21300000, guid: 6580ac4ab9a364b4a9c89b30f924494b, type: 3}
+  - {fileID: 21300000, guid: b0d92d82de2ae5e4587af03e34437992, type: 3}
 --- !u!50 &7881227437780812312
 Rigidbody2D:
   serializedVersion: 4
