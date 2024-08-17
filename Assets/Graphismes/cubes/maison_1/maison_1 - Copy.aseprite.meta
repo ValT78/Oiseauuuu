@@ -95,7 +95,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638595057729319034
+  platformSettingsDirtyTick: 638595210906031096
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -462,8 +462,8 @@ ScriptedImporter:
   spriteSheetImportData:
   - name: TopBottomRight
     originalName: 
-    pivot: {x: 0, y: 1}
-    alignment: 1
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -482,8 +482,8 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: TopLeftRight
     originalName: 
-    pivot: {x: 0, y: 1}
-    alignment: 1
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -502,8 +502,8 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: LeftBottom
     originalName: 
-    pivot: {x: 0, y: 1}
-    alignment: 1
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -522,8 +522,8 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: TopRight
     originalName: 
-    pivot: {x: 0, y: 1}
-    alignment: 1
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -542,8 +542,8 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: Top
     originalName: 
-    pivot: {x: 0, y: 1}
-    alignment: 1
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -562,8 +562,8 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: LeftBottomRight
     originalName: 
-    pivot: {x: 0, y: 1}
-    alignment: 1
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -582,8 +582,8 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: Bottom
     originalName: 
-    pivot: {x: 0, y: 1}
-    alignment: 1
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -602,8 +602,8 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: Left
     originalName: 
-    pivot: {x: 0, y: 1}
-    alignment: 1
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -622,8 +622,8 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: BottomRight
     originalName: 
-    pivot: {x: 0, y: 1}
-    alignment: 1
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -642,8 +642,8 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: Fenetre
     originalName: 
-    pivot: {x: 0, y: 1}
-    alignment: 1
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -662,8 +662,8 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: Right
     originalName: 
-    pivot: {x: 0, y: 1}
-    alignment: 1
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -682,8 +682,8 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: TopBottom
     originalName: 
-    pivot: {x: 0, y: 1}
-    alignment: 1
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -702,8 +702,8 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: TopLeftBottom
     originalName: 
-    pivot: {x: 0, y: 1}
-    alignment: 1
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -722,8 +722,8 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: Door
     originalName: 
-    pivot: {x: 0, y: 1}
-    alignment: 1
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -742,8 +742,8 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: LeftRight
     originalName: 
-    pivot: {x: 0, y: 1}
-    alignment: 1
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -762,8 +762,8 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: Neutre
     originalName: 
-    pivot: {x: 0, y: 1}
-    alignment: 1
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -782,8 +782,8 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: TopLeft
     originalName: 
-    pivot: {x: 0, y: 1}
-    alignment: 1
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
