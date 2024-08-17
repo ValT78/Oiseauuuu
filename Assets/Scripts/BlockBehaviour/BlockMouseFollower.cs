@@ -13,7 +13,6 @@ public class BlockMouseFollower : MonoBehaviour
     private BlockGenerator blockGenerator;
 
     [Header("Block Settings")]
-    private float blockHeigth;
 
     [Header("Block Movement")]
     [SerializeField] private float moveUnit;
@@ -25,7 +24,6 @@ public class BlockMouseFollower : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         colliders = GetComponentsInChildren<Collider2D>();
         blockGenerator = GetComponent<BlockGenerator>();
-        blockHeigth = GameManager.Instance.towerHeigth + GameManager.Instance.blockSpawnOffset;
     }
 
     void Update()
@@ -69,6 +67,8 @@ public class BlockMouseFollower : MonoBehaviour
                 {
                     collider.isTrigger = true; // Désactiver les collisions physiques
                 }
+                blockGenerator.SetInitialPosition(transform.position);
+
             }
         }
         if (isFalling)
@@ -104,7 +104,7 @@ public class BlockMouseFollower : MonoBehaviour
                 isFollowing = true;
 
                 // Position de spawn fixe
-                transform.position = new Vector2(GameManager.Instance.buildPositionX, blockHeigth);
+                transform.position = new Vector2(GameManager.Instance.buildPositionX, GameManager.Instance.GetSPawnBlockHeight());
             }
         }
     }
@@ -121,6 +121,8 @@ public class BlockMouseFollower : MonoBehaviour
                 collider.isTrigger = false; // Activer les collisions physiques
             }
             transform.position = new Vector2(transform.position.x, Mathf.Round(transform.position.y) + moveUnit);
+            blockGenerator.isPlaced = true;
+
         }
     }
 
@@ -128,6 +130,21 @@ public class BlockMouseFollower : MonoBehaviour
     {
         transform.RotateAround(transform.position, Vector3.forward, angle);
         blockGenerator.UpdateSprites();
+    }
+
+    public float GetHighestBlockHeight()
+    {
+        float highestY = float.MinValue;
+
+        foreach (Transform child in transform)
+        {
+            if (child.position.y > highestY)
+            {
+                highestY = child.position.y;
+            }
+        }
+
+        return highestY;
     }
 }
 

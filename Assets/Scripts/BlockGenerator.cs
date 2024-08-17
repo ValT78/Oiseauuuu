@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Timeline;
 
 
 public class BlockGenerator : MonoBehaviour
@@ -14,16 +15,19 @@ public class BlockGenerator : MonoBehaviour
     private float angle;
     private int surfaceArea;
     private int numberOfCubesInBlock;
+    [HideInInspector] public bool isPlaced;
 
     public int woolCost;
     public int woodCost;
     public int compostCost;
 
     private Vector2 initialPosition;
+
     private List<GameObject> cubes = new();
 
     private void Start()
     {
+        GameManager.Instance.blockList.Add(this);
         numberOfCubesInBlock = GameManager.Instance.numberOfCubesInBlock;
         GenerateBlock(numberOfCubesInBlock);
     }
@@ -100,8 +104,6 @@ public class BlockGenerator : MonoBehaviour
             {
                 spriteRenderer = cube.AddComponent<SpriteRenderer>();
             }
-            print(cube.transform.position);
-            print(neighborCode);
             spriteRenderer.sprite = sprites[neighborCode - 1]; // Utiliser neighborCode comme index
         }
     }
@@ -131,6 +133,26 @@ public class BlockGenerator : MonoBehaviour
     {
         Vector2 direction = initialPosition - (Vector2)transform.position;
         return Vector2.Angle(Vector2.up, direction);
+    }
+
+    public float GetHighestObjectHeight()
+    {
+        float highestY = float.MinValue;
+
+        foreach (Transform child in transform)
+        {
+            if (child.position.y > highestY)
+            {
+                highestY = child.position.y;
+            }
+        }
+
+        return highestY;
+    }
+
+    public void SetInitialPosition(Vector2 position)
+    {
+        initialPosition = position;
     }
 
 }
