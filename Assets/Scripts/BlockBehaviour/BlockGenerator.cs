@@ -1,7 +1,8 @@
 using System.Collections.Generic;
 using System.Linq;
+using Unity.Mathematics;
 using UnityEngine;
-using UnityEngine.Timeline;
+using Random = UnityEngine.Random;
 
 
 public class BlockGenerator : MonoBehaviour
@@ -11,15 +12,27 @@ public class BlockGenerator : MonoBehaviour
     [Tooltip("Commence par ceux qui ont 1 voisin, pour finir avec celui qui en a 4.\nOn ajoute dans cet ordre : Top, Bottom, Left, Right")]
     [SerializeField] private Sprite[] sprites = new Sprite[15] ; // Tableau de 15 sprites nommés
 
+    enum BuildingType
+    {
+        House = 0,
+        CropFields = 1,
+        WoolFactory = 2,
+        WoodFactory = 3,
+        CompostFactory = 4,
+        Wall = 5
+
+    }
+
+    private BuildingType buildingType;
 
     private float angle;
     private int surfaceArea;
     private int numberOfCubesInBlock;
     [HideInInspector] public bool isPlaced;
 
-    public int woolCost;
-    public int woodCost;
-    public int compostCost;
+    [HideInInspector] public int woolCost;
+    [HideInInspector] public int woodCost;
+    [HideInInspector] public int compostCost;
 
     private Vector2 initialPosition;
 
@@ -29,12 +42,27 @@ public class BlockGenerator : MonoBehaviour
     {
         GameManager.Instance.blockList.Add(this);
         numberOfCubesInBlock = GameManager.Instance.numberOfCubesInBlock;
+
+        woodCost = GetNewPrice();
+        woolCost = GetNewPrice();
+        compostCost = GetNewPrice();
+
         GenerateBlock(numberOfCubesInBlock);
     }
 
     private void Update()
     {
         angle = CalculateAngle(initialPosition);
+    }
+
+    float GetRandomFloat(float min, float max)
+    {
+        System.Random random = new System.Random();
+        return (float)(random.NextDouble() * (max - min) + min);
+    }
+    int GetNewPrice()
+    {
+        return (int)math.max(0, math.round(numberOfCubesInBlock * GameManager.Instance.coastPerCube * GetRandomFloat(GameManager.Instance.variance, 1 / GameManager.Instance.variance) - GameManager.Instance.coastOffset)); ;
     }
 
     public void GenerateBlock(int numberOfCubes)
@@ -155,4 +183,27 @@ public class BlockGenerator : MonoBehaviour
         initialPosition = position;
     }
 
+    public void ProduceRessouces()
+    {
+        switch (buildingType)
+        {
+            case BuildingType.House:
+                GameManager.Instance.population += numberOfCubesInBlock;
+                break;
+            case BuildingType.CropFields:
+                GameManager.Instance.food += surfaceArea;
+                break;
+            case BuildingType.WoolFactory:
+                GameManager.Instance.wool += woolCost;
+                break;
+            case BuildingType.WoodFactory:
+                GameManager.Instance.wood += woodCost;
+                break;
+            case BuildingType.CompostFactory:
+                GameManager.Instance.compost += compostCost;
+                break;
+            case BuildingType.Wall:
+                break;
+        }
+    }
 }

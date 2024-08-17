@@ -21,6 +21,11 @@ public class GameManager : MonoBehaviour
     public int wool;
     public int compost;
 
+    [Header("Compute coast")]
+    public float coastOffset;
+    public float coastPerCube;
+    public float variance;
+
     [Header("Pause")]
     [SerializeField] private GameObject PauseMenu;
     public bool isPaused = false;
@@ -51,6 +56,19 @@ public class GameManager : MonoBehaviour
             }
         }
         return towerHeigth + blockSpawnOffset;
+    }
+
+    public void UpdateRessources()
+    {
+        this.population = 0;
+        this.food = 0;
+        foreach (BlockGenerator block in blockList)
+        {
+            if (block.isPlaced)
+            {
+                block.ProduceRessouces();
+            }
+        }
     }
 
     public void PauseGame()
