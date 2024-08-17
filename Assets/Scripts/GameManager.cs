@@ -41,7 +41,6 @@ public class GameManager : MonoBehaviour
             if (block.isPlaced)
             {
                 float blockHeight = block.GetHighestObjectHeight();
-                print(blockHeight);
                 if (blockHeight > towerHeigth)
                     towerHeigth = blockHeight;
             }
