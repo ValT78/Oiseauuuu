@@ -63,8 +63,7 @@ public class BlockGenerator : MonoBehaviour
     {
         return (int)math.max(0, math.round(numberOfCubesInBlock * GameManager.Instance.coastPerCube * GetRandomFloat(GameManager.Instance.variance, 1 / GameManager.Instance.variance) - GameManager.Instance.coastOffset)); ;
     }
-
-    public void GenerateBlock(int numberOfCubes)
+     
     public virtual void GenerateBlock(int numberOfCubes)
     {
         GameObject blockParent = this.gameObject; // Utiliser l'objet actuel comme parent
