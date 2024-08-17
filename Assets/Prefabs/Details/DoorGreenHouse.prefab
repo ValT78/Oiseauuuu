@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6757319471693253340}
   - component: {fileID: 8591818899258511803}
   m_Layer: 0
-  m_Name: DoorHouse
+  m_Name: DoorGreenHouse
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -73,12 +73,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -4768894186164508147, guid: f7ed3b5a3824dbf47a76b9a7cbbf0ebc, type: 3}
+  m_Sprite: {fileID: -1007952042658145237, guid: abf1f073653fdb3419b169a90d481277, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.4375, y: 1}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

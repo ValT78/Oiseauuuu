@@ -1,0 +1,111 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &3668968438413182925
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1889613377739255431, guid: 9dcf1f7ce64334548803860febbbe61f, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4482894308170066203, guid: 9dcf1f7ce64334548803860febbbe61f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 22.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4482894308170066203, guid: 9dcf1f7ce64334548803860febbbe61f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.5887551
+      objectReference: {fileID: 0}
+    - target: {fileID: 4482894308170066203, guid: 9dcf1f7ce64334548803860febbbe61f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4482894308170066203, guid: 9dcf1f7ce64334548803860febbbe61f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4482894308170066203, guid: 9dcf1f7ce64334548803860febbbe61f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4482894308170066203, guid: 9dcf1f7ce64334548803860febbbe61f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4482894308170066203, guid: 9dcf1f7ce64334548803860febbbe61f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4482894308170066203, guid: 9dcf1f7ce64334548803860febbbe61f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4482894308170066203, guid: 9dcf1f7ce64334548803860febbbe61f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4482894308170066203, guid: 9dcf1f7ce64334548803860febbbe61f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4557172850673400055, guid: 9dcf1f7ce64334548803860febbbe61f, type: 3}
+      propertyPath: m_Name
+      value: GreenHouseBuildingBlock Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 8777412168806078610, guid: 9dcf1f7ce64334548803860febbbe61f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4557172850673400055, guid: 9dcf1f7ce64334548803860febbbe61f, type: 3}
+      insertIndex: 1
+      addedObject: {fileID: 1146314229424956272}
+  m_SourcePrefab: {fileID: 100100000, guid: 9dcf1f7ce64334548803860febbbe61f, type: 3}
+--- !u!1 &996597112316493626 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4557172850673400055, guid: 9dcf1f7ce64334548803860febbbe61f, type: 3}
+  m_PrefabInstance: {fileID: 3668968438413182925}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1146314229424956272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 996597112316493626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6e6adcd8e09db64f8e28748e64028de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cubePrefab: {fileID: 5055607393679895339, guid: 217ab05eac726994f823b107709c1029, type: 3}
+  sprites:
+  - {fileID: -3989876960406033661, guid: abf1f073653fdb3419b169a90d481277, type: 3}
+  - {fileID: -3202708031508943793, guid: abf1f073653fdb3419b169a90d481277, type: 3}
+  - {fileID: -3989876960406033661, guid: abf1f073653fdb3419b169a90d481277, type: 3}
+  - {fileID: -6739086567902359157, guid: abf1f073653fdb3419b169a90d481277, type: 3}
+  - {fileID: -6766506101204754158, guid: abf1f073653fdb3419b169a90d481277, type: 3}
+  - {fileID: -6739086567902359157, guid: abf1f073653fdb3419b169a90d481277, type: 3}
+  - {fileID: -6766506101204754158, guid: abf1f073653fdb3419b169a90d481277, type: 3}
+  - {fileID: -1359136302393569256, guid: abf1f073653fdb3419b169a90d481277, type: 3}
+  - {fileID: -4050904327443943072, guid: abf1f073653fdb3419b169a90d481277, type: 3}
+  - {fileID: -1359136302393569256, guid: abf1f073653fdb3419b169a90d481277, type: 3}
+  - {fileID: -4050904327443943072, guid: abf1f073653fdb3419b169a90d481277, type: 3}
+  - {fileID: -8180044962281953906, guid: abf1f073653fdb3419b169a90d481277, type: 3}
+  - {fileID: -4775927454076893923, guid: abf1f073653fdb3419b169a90d481277, type: 3}
+  - {fileID: -8180044962281953906, guid: abf1f073653fdb3419b169a90d481277, type: 3}
+  - {fileID: -4775927454076893923, guid: abf1f073653fdb3419b169a90d481277, type: 3}
+  isPlaced: 0
+  woolCost: 0
+  woodCost: 0
+  compostCost: 0
+  tree1: {fileID: 5055607393679895339, guid: 02f560b0869c0304b8ce00b77f53a096, type: 3}
+  tree2: {fileID: 5055607393679895339, guid: ae06af2fc92bc4f418cfee0dd414a2e8, type: 3}
+  doorPrefab: {fileID: 5055607393679895339, guid: 032bc73461ef55943adf7e7304dffac6, type: 3}
