@@ -482,6 +482,12 @@ MonoBehaviour:
   text_wool: {fileID: 1630872382959161095}
   text_wood: {fileID: 4826115328431123346}
   text_compost: {fileID: 4346645713724454133}
+  rectTransform: {fileID: 341271450601720230}
+  blockGenerator: {fileID: 4557172850673400055, guid: 9dcf1f7ce64334548803860febbbe61f, type: 3}
+  inOutAnimationDuration: 1
+  inOutEndPosition: {x: 0, y: 0, z: 0}
+  scaleFactor: 0
+  selectDuration: 0.5
 --- !u!1 &8060779354882488636
 GameObject:
   m_ObjectHideFlags: 0

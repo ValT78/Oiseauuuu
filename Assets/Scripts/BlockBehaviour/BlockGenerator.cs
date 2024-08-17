@@ -64,7 +64,6 @@ public class BlockGenerator : MonoBehaviour
         return (int)math.max(0, math.round(numberOfCubesInBlock * GameManager.Instance.coastPerCube * GetRandomFloat(GameManager.Instance.variance, 1 / GameManager.Instance.variance) - GameManager.Instance.coastOffset)); ;
     }
 
-    public void GenerateBlock(int numberOfCubes)
     public virtual void GenerateBlock(int numberOfCubes)
     {
         GameObject blockParent = this.gameObject; // Utiliser l'objet actuel comme parent
@@ -95,10 +94,13 @@ public class BlockGenerator : MonoBehaviour
         foreach (Vector2 position in positions)
         {
             GameObject cube = Instantiate(cubePrefab, position, Quaternion.identity, blockParent.transform);
-            PolygonCollider2D polyCollider = cube.AddComponent<PolygonCollider2D>();
-            polyCollider.usedByComposite = true;
-            polyCollider.isTrigger = true; // D�sactiver les collisions physiques
 
+            if (!cube.TryGetComponent<PolygonCollider2D>(out _))
+            {
+                PolygonCollider2D polyCollider = cube.AddComponent<PolygonCollider2D>();
+                polyCollider.usedByComposite = true;
+                polyCollider.isTrigger = true; // D�sactiver les collisions physiques
+            }
             cubes.Add(cube);
         }
 

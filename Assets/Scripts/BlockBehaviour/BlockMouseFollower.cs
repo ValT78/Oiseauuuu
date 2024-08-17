@@ -7,7 +7,6 @@ public class BlockMouseFollower : MonoBehaviour
 {
     private bool isFollowing = false;
     private bool isFalling;
-    private int clickCount = 0;
     private Rigidbody2D rb;
     private Collider2D[] colliders;
     private BlockGenerator blockGenerator;
@@ -65,7 +64,7 @@ public class BlockMouseFollower : MonoBehaviour
                 rb.gravityScale = 0; // Désactiver la gravité
                 foreach (var collider in colliders)
                 {
-                    collider.isTrigger = true; // Désactiver les collisions physiques
+                    collider.isTrigger = false; // Désactiver les collisions physiques
                 }
                 blockGenerator.SetInitialPosition(transform.position);
 
@@ -86,26 +85,28 @@ public class BlockMouseFollower : MonoBehaviour
         }
     }
 
-    void OnMouseDown()
+    private void OnMouseEnter()
     {
-        if (clickCount == 0)
-        {
-            if (blockGenerator.woodCost > GameManager.Instance.wood || blockGenerator.woolCost > GameManager.Instance.wool || blockGenerator.compostCost > GameManager.Instance.compost)
-            {
-                Debug.Log("Not enough resources");
-                return;
-            }
-            else
-            {
-                GameManager.Instance.wood -= blockGenerator.woodCost;
-                GameManager.Instance.wool -= blockGenerator.woolCost;
-                GameManager.Instance.compost -= blockGenerator.compostCost;
-                clickCount++;
-                isFollowing = true;
+        TryBuyCard();
+    }
 
-                // Position de spawn fixe
-                transform.position = new Vector2(GameManager.Instance.buildPositionX, GameManager.Instance.GetSPawnBlockHeight());
-            }
+    public bool TryBuyCard()
+    {
+        if (blockGenerator.woodCost > GameManager.Instance.wood || blockGenerator.woolCost > GameManager.Instance.wool || blockGenerator.compostCost > GameManager.Instance.compost)
+        {
+            Debug.Log("Not enough resources");
+            return false;
+        }
+        else
+        {
+            GameManager.Instance.wood -= blockGenerator.woodCost;
+            GameManager.Instance.wool -= blockGenerator.woolCost;
+            GameManager.Instance.compost -= blockGenerator.compostCost;
+            isFollowing = true;
+
+            // Position de spawn fixe
+            transform.position = new Vector2(GameManager.Instance.buildPositionX, GameManager.Instance.GetSPawnBlockHeight());
+            return true;
         }
     }
 
@@ -120,8 +121,8 @@ public class BlockMouseFollower : MonoBehaviour
             {
                 collider.isTrigger = false; // Activer les collisions physiques
             }
-/*            transform.position = new Vector2(transform.position.x, Mathf.Round(transform.position.y) + moveUnit);
-*/          blockGenerator.isPlaced = true;
+            blockGenerator.isPlaced = true;
+            ShopManager.Instance.InitializeShop();
             Destroy(this);
 
         }

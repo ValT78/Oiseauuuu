@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
 
     public List<BlockGenerator> blockList = new();
 
+    public List<ShopCard> shopCards = new();
+
     [Header("Block Generation")]
     public int numberOfCubesInBlock;
     public float baseHeigth;
