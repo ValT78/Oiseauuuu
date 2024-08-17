@@ -25,10 +25,10 @@ public class CamMouvement : MonoBehaviour
         if (transform.position.y < 0) transform.Translate(new Vector3(0, -movement.y * speed * Time.deltaTime, 0)); ;
 
         // Background x paralax
-        transform_bg1.Translate(new Vector3(movement.x * speed * Time.deltaTime * 1.1f, 0, 0));
-        transform_bg2.Translate(new Vector3(movement.x * speed * Time.deltaTime * 1.075f, 0, 0));
-        transform_bg3.Translate(new Vector3(movement.x * speed * Time.deltaTime * 1.05f, 0, 0));
-        transform_bg4.Translate(new Vector3(movement.x * speed * Time.deltaTime * 1.025f, 0, 0));
+        transform_bg4.Translate(new Vector3(movement.x * speed * Time.deltaTime * 1.1f, 0, 0));
+        transform_bg3.Translate(new Vector3(movement.x * speed * Time.deltaTime * 1.075f, 0, 0));
+        transform_bg2.Translate(new Vector3(movement.x * speed * Time.deltaTime * 1.05f, 0, 0));
+        transform_bg1.Translate(new Vector3(movement.x * speed * Time.deltaTime * 1.025f, 0, 0));
 
         if (transform.position.y < 0) transform.Translate(new Vector3(0, - movement.y * speed * Time.deltaTime, 0)); ;
     }
