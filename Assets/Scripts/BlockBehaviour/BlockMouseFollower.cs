@@ -120,8 +120,9 @@ public class BlockMouseFollower : MonoBehaviour
             {
                 collider.isTrigger = false; // Activer les collisions physiques
             }
-            transform.position = new Vector2(transform.position.x, Mathf.Round(transform.position.y) + moveUnit);
-            blockGenerator.isPlaced = true;
+/*            transform.position = new Vector2(transform.position.x, Mathf.Round(transform.position.y) + moveUnit);
+*/          blockGenerator.isPlaced = true;
+            Destroy(this);
 
         }
     }
@@ -130,21 +131,6 @@ public class BlockMouseFollower : MonoBehaviour
     {
         transform.RotateAround(transform.position, Vector3.forward, angle);
         blockGenerator.UpdateSprites();
-    }
-
-    public float GetHighestBlockHeight()
-    {
-        float highestY = float.MinValue;
-
-        foreach (Transform child in transform)
-        {
-            if (child.position.y > highestY)
-            {
-                highestY = child.position.y;
-            }
-        }
-
-        return highestY;
     }
 }
 
