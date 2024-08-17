@@ -53,11 +53,11 @@ public class BlockMouseFollower : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.A))
             {
-                RotateBlock(-90);
+                RotateBlock(90);
             }
             else if (Input.GetKeyDown(KeyCode.E))
             {
-                RotateBlock(90);
+                RotateBlock(-90);
             }
             else if (Input.GetKeyDown(KeyCode.Space))
             {
@@ -79,7 +79,7 @@ public class BlockMouseFollower : MonoBehaviour
             {
                 fallSpeed *= fallSpeedIncreaseFactor;
             }
-            else if (Input.GetKeyDown(KeyCode.S))
+            else if (Input.GetKeyUp(KeyCode.S))
             {
                 fallSpeed /= fallSpeedIncreaseFactor;
             }
@@ -120,6 +120,7 @@ public class BlockMouseFollower : MonoBehaviour
             {
                 collider.isTrigger = false; // Activer les collisions physiques
             }
+            transform.position = new Vector2(transform.position.x, Mathf.Round(transform.position.y) + moveUnit);
         }
     }
 
