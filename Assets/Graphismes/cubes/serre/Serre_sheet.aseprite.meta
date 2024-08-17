@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 03134598933a17a4f8ec70afe1652473
+guid: abf1f073653fdb3419b169a90d481277
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -35,7 +35,7 @@ ScriptedImporter:
     spriteMeshType: 1
     alignment: 0
     spritePivot: {x: 0.5, y: 0.5}
-    spritePixelsToUnits: 100
+    spritePixelsToUnits: 32
     spriteBorder: {x: 0, y: 0, z: 0, w: 0}
     spriteGenerateFallbackPhysicsShape: 0
     generateCubemap: 6
@@ -95,7 +95,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638594980783690450
+  platformSettingsDirtyTick: 638595132422841997
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -119,7 +119,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: maison_1 - Copy-Sheet_Frame_0
+  - name: Serre_sheet_Frame_0
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -130,7 +130,7 @@ ScriptedImporter:
       y: 4
       width: 32
       height: 32
-    spriteID: 07f8ee51cf3afa14caf0a9de1e4fcf94
+    spriteID: 7ad68514f5c28814589fb9bec8daa6d2
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -139,7 +139,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
-  - name: maison_1 - Copy-Sheet_Frame_1
+  - name: Serre_sheet_Frame_1
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -150,7 +150,7 @@ ScriptedImporter:
       y: 44
       width: 32
       height: 32
-    spriteID: 6831a3e010050f24aa97a297a9dcc542
+    spriteID: c5bfd06714823a74391238f3c910aade
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -159,7 +159,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 44}
-  - name: maison_1 - Copy-Sheet_Frame_2
+  - name: Serre_sheet_Frame_2
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -170,7 +170,7 @@ ScriptedImporter:
       y: 84
       width: 32
       height: 32
-    spriteID: 04ed25f4aff5767428f461722999823e
+    spriteID: 97c8e55753d228f4c8a0fb28847dfebc
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -179,18 +179,18 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 84}
-  - name: maison_1 - Copy-Sheet_Frame_3
+  - name: Serre_sheet_Frame_3
     originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.36842105, y: -0.04}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 124
-      width: 32
-      height: 32
-    spriteID: 9f04fd994f9140f4fa51e39ba1e8551f
+      x: 84
+      y: 38
+      width: 19
+      height: 25
+    spriteID: 78654a51fbdf5c84c95bd078b52f053c
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -198,48 +198,8 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 124}
-  - name: maison_1 - Copy-Sheet_Frame_4
-    originalName: 
-    pivot: {x: 0.5, y: 0}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 164
-      width: 32
-      height: 32
-    spriteID: 7586d358be1ea3f4ea7f24ff6a2942bf
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 164}
-  - name: maison_1 - Copy-Sheet_Frame_5
-    originalName: 
-    pivot: {x: 0.5, y: 0}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 204
-      width: 32
-      height: 32
-    spriteID: 5010974e11b9c13488f034d8add839e0
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 204}
-  - name: maison_1 - Copy-Sheet_Frame_6
+    uvTransform: {x: 75, y: 37}
+  - name: Serre_sheet_Frame_4
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -250,7 +210,7 @@ ScriptedImporter:
       y: 4
       width: 32
       height: 32
-    spriteID: 74cf627c56d310f4e855c137a1dc60d9
+    spriteID: f21df81ec8fd1464693e28c238851cd3
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -259,7 +219,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 44, y: 4}
-  - name: maison_1 - Copy-Sheet_Frame_7
+  - name: Serre_sheet_Frame_5
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -270,7 +230,7 @@ ScriptedImporter:
       y: 44
       width: 32
       height: 32
-    spriteID: c80fa62876c10344cb526acd5dbc308d
+    spriteID: 3519c59dcfa83f642b396b13e2f8e3f5
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -279,7 +239,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 44, y: 44}
-  - name: maison_1 - Copy-Sheet_Frame_8
+  - name: Serre_sheet_Frame_6
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -290,7 +250,7 @@ ScriptedImporter:
       y: 84
       width: 32
       height: 32
-    spriteID: 15f3259070b284443a42d884e5d0ff01
+    spriteID: 5d8a2deace3bd16438512065a7fdefc5
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -299,78 +259,18 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 44, y: 84}
-  - name: maison_1 - Copy-Sheet_Frame_9
+  - name: Serre_sheet_Frame_7
     originalName: 
-    pivot: {x: 0.5, y: 0}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 44
-      y: 124
-      width: 32
-      height: 32
-    spriteID: fe73b04fb873f8f4ea817ce423725a24
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 44, y: 124}
-  - name: maison_1 - Copy-Sheet_Frame_10
-    originalName: 
-    pivot: {x: 0.5, y: 0}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 44
-      y: 164
-      width: 32
-      height: 32
-    spriteID: 7c2300d14fc3a0749a49b98ceac58738
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 44, y: 164}
-  - name: maison_1 - Copy-Sheet_Frame_11
-    originalName: 
-    pivot: {x: 0.5, y: 0}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 44
-      y: 204
-      width: 32
-      height: 32
-    spriteID: 338139b42f5270c4fba6d1f07dbb8ba1
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 44, y: 204}
-  - name: maison_1 - Copy-Sheet_Frame_12
-    originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.65000004, y: -0.03846154}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 84
       y: 4
-      width: 32
-      height: 32
-    spriteID: 2543d69de615d924f8acbd725af89973
+      width: 20
+      height: 26
+    spriteID: 6bf7aad254cc4d94d82ede460813fb6b
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -378,8 +278,8 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 84, y: 4}
-  - name: maison_1 - Copy-Sheet_Frame_13
+    uvTransform: {x: 81, y: 3}
+  - name: Serre_sheet_Frame_8
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -387,10 +287,10 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 84
-      y: 44
-      width: 32
-      height: 32
-    spriteID: 6831b0ce993bbf5438f857c1b95bc14f
+      y: 71
+      width: 14
+      height: 21
+    spriteID: 21a9fc185f466f141a6b35d689e3a1a0
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -398,229 +298,9 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 84, y: 44}
-  - name: maison_1 - Copy-Sheet_Frame_14
-    originalName: 
-    pivot: {x: 0.5, y: 0}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 84
-      y: 84
-      width: 32
-      height: 32
-    spriteID: 3a559eeb9a7a26c48b15212facd0e2ba
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 84, y: 84}
-  - name: maison_1 - Copy-Sheet_Frame_15
-    originalName: 
-    pivot: {x: 0.5, y: 0}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 84
-      y: 124
-      width: 32
-      height: 32
-    spriteID: a1494515c19707444a027e8e4367618c
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 84, y: 124}
-  - name: maison_1 - Copy-Sheet_Frame_16
-    originalName: 
-    pivot: {x: 0.5, y: 0}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 84
-      y: 164
-      width: 32
-      height: 32
-    spriteID: cd134187d73a3254f9ba2f3f1a1044b2
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 84, y: 164}
+    uvTransform: {x: 75, y: 71}
   spriteSheetImportData:
-  - name: Left
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 204
-      width: 32
-      height: 32
-    spriteID: 69354cb8d887e864b93c39443934ab90
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 0, y: 0}
-  - name: Bottom
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 44
-      y: 204
-      width: 32
-      height: 32
-    spriteID: 8ed5fb4b8c82e0a438e8dc3721c4e3b3
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 0, y: 0}
-  - name: Right Top
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 164
-      width: 32
-      height: 32
-    spriteID: d100d8e5e427e8f429fc37f1187139eb
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 0, y: 0}
-  - name: Left Bottom
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 44
-      y: 164
-      width: 32
-      height: 32
-    spriteID: b8f54107f60d9f148b9fc701e06d556d
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 0, y: 0}
-  - name: Left Bottom Right
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 84
-      y: 164
-      width: 32
-      height: 32
-    spriteID: 087be509f1ea0bd4382129101de213ad
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 0, y: 0}
-  - name: Top
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 124
-      width: 32
-      height: 32
-    spriteID: 091933b67a97aeb4094077867c0ef698
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 0, y: 0}
-  - name: Left Right Top
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 44
-      y: 124
-      width: 32
-      height: 32
-    spriteID: 3e9e238b42229564fbe741bbb39d8d6a
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 0, y: 0}
-  - name: Bottom Right Top
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 84
-      y: 124
-      width: 32
-      height: 32
-    spriteID: e0c13a71aab1f034196b2fe0ae94ebb7
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 0, y: 0}
-  - name: Left Top
+  - name: LeftBottom
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -631,7 +311,7 @@ ScriptedImporter:
       y: 84
       width: 32
       height: 32
-    spriteID: ddd62f9ce1eed1b4597c6a47c156ff30
+    spriteID: 719c358812b24ad478f7cfdebf05077a
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -640,7 +320,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: Fenetre
+  - name: TopLeftBottom
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -651,7 +331,7 @@ ScriptedImporter:
       y: 84
       width: 32
       height: 32
-    spriteID: 297e4cf1a0ea25e47a228d683057172c
+    spriteID: 7efe60f7ce5f68f4c8a47d0796d368d2
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -660,7 +340,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: Left Bottom Top
+  - name: Door
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -668,10 +348,10 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 84
-      y: 84
-      width: 32
+      y: 71
+      width: 14
       height: 32
-    spriteID: 64ff2c701d0c7dc44b2e55eafd5c4c7f
+    spriteID: 76fd38cc3f789c84c8f6387d42a4652f
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -680,7 +360,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: Left Right
+  - name: LeftBottomRight
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -691,7 +371,7 @@ ScriptedImporter:
       y: 44
       width: 32
       height: 32
-    spriteID: 50c8101e69dab324982785120bb49167
+    spriteID: 991b6143a44973b4f9365eaffc57f1e7
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -711,7 +391,7 @@ ScriptedImporter:
       y: 44
       width: 32
       height: 32
-    spriteID: 81da6bab70430c54f882b91e705bf028
+    spriteID: 65f44c8c7e73ac244b6c25b21d1a804c
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -720,18 +400,18 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: Door
+  - name: Tree1
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 84
-      y: 44
+      x: 79
+      y: 38
       width: 32
       height: 32
-    spriteID: d2d96ba16db23c240b245532a5c5bb9a
+    spriteID: 6e9535ffc8d0dd74cb6a6452eb179bf9
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -740,7 +420,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: Bottom Top
+  - name: BottomRight
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -751,7 +431,7 @@ ScriptedImporter:
       y: 4
       width: 32
       height: 32
-    spriteID: 37dc017db086ce54fadf442bcd910b69
+    spriteID: 9fbe5062cc0ab994e95915bbf5a44b14
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -760,7 +440,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: maison_1 - Copy-Sheet_15
+  - name: TopBottomRight
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -771,7 +451,7 @@ ScriptedImporter:
       y: 4
       width: 32
       height: 32
-    spriteID: f26bce00ecb1f95459fc27f9094b4fca
+    spriteID: 6f5ecfc2f876eb844bb0fc0b2f70f949
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -780,18 +460,18 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: maison_1 - Copy-Sheet_16
+  - name: Tree2
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 84
+      x: 79
       y: 4
       width: 32
       height: 32
-    spriteID: e9120582f77b9274ebab70b84a023f89
+    spriteID: 6543e43208dbd9d478afedae7eb1ce16
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -802,148 +482,84 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   asepriteLayers:
   - layerIndex: 0
-    guid: -1717009737
-    name: maison_1 - Copy-Sheet
+    guid: -1014967865
+    name: Serre_sheet
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: maison_1 - Copy-Sheet_Frame_0
+    - name: Serre_sheet_Frame_0
       frameIndex: 0
       cellRect:
         x: 0
         y: 0
         width: 32
         height: 32
-      spriteId: 07f8ee51cf3afa14caf0a9de1e4fcf94
-    - name: maison_1 - Copy-Sheet_Frame_1
+      spriteId: 7ad68514f5c28814589fb9bec8daa6d2
+    - name: Serre_sheet_Frame_1
       frameIndex: 1
       cellRect:
         x: 0
         y: 0
         width: 32
         height: 32
-      spriteId: 6831a3e010050f24aa97a297a9dcc542
-    - name: maison_1 - Copy-Sheet_Frame_2
+      spriteId: c5bfd06714823a74391238f3c910aade
+    - name: Serre_sheet_Frame_2
       frameIndex: 2
       cellRect:
         x: 0
         y: 0
         width: 32
         height: 32
-      spriteId: 04ed25f4aff5767428f461722999823e
-    - name: maison_1 - Copy-Sheet_Frame_3
+      spriteId: 97c8e55753d228f4c8a0fb28847dfebc
+    - name: Serre_sheet_Frame_3
       frameIndex: 3
       cellRect:
         x: 0
         y: 0
         width: 32
         height: 32
-      spriteId: 9f04fd994f9140f4fa51e39ba1e8551f
-    - name: maison_1 - Copy-Sheet_Frame_4
+      spriteId: 78654a51fbdf5c84c95bd078b52f053c
+    - name: Serre_sheet_Frame_4
       frameIndex: 4
       cellRect:
         x: 0
         y: 0
         width: 32
         height: 32
-      spriteId: 7586d358be1ea3f4ea7f24ff6a2942bf
-    - name: maison_1 - Copy-Sheet_Frame_5
+      spriteId: f21df81ec8fd1464693e28c238851cd3
+    - name: Serre_sheet_Frame_5
       frameIndex: 5
       cellRect:
         x: 0
         y: 0
         width: 32
         height: 32
-      spriteId: 5010974e11b9c13488f034d8add839e0
-    - name: maison_1 - Copy-Sheet_Frame_6
+      spriteId: 3519c59dcfa83f642b396b13e2f8e3f5
+    - name: Serre_sheet_Frame_6
       frameIndex: 6
       cellRect:
         x: 0
         y: 0
         width: 32
         height: 32
-      spriteId: 74cf627c56d310f4e855c137a1dc60d9
-    - name: maison_1 - Copy-Sheet_Frame_7
+      spriteId: 5d8a2deace3bd16438512065a7fdefc5
+    - name: Serre_sheet_Frame_7
       frameIndex: 7
       cellRect:
         x: 0
         y: 0
         width: 32
         height: 32
-      spriteId: c80fa62876c10344cb526acd5dbc308d
-    - name: maison_1 - Copy-Sheet_Frame_8
+      spriteId: 6bf7aad254cc4d94d82ede460813fb6b
+    - name: Serre_sheet_Frame_8
       frameIndex: 8
       cellRect:
         x: 0
         y: 0
         width: 32
         height: 32
-      spriteId: 15f3259070b284443a42d884e5d0ff01
-    - name: maison_1 - Copy-Sheet_Frame_9
-      frameIndex: 9
-      cellRect:
-        x: 0
-        y: 0
-        width: 32
-        height: 32
-      spriteId: fe73b04fb873f8f4ea817ce423725a24
-    - name: maison_1 - Copy-Sheet_Frame_10
-      frameIndex: 10
-      cellRect:
-        x: 0
-        y: 0
-        width: 32
-        height: 32
-      spriteId: 7c2300d14fc3a0749a49b98ceac58738
-    - name: maison_1 - Copy-Sheet_Frame_11
-      frameIndex: 11
-      cellRect:
-        x: 0
-        y: 0
-        width: 32
-        height: 32
-      spriteId: 338139b42f5270c4fba6d1f07dbb8ba1
-    - name: maison_1 - Copy-Sheet_Frame_12
-      frameIndex: 12
-      cellRect:
-        x: 0
-        y: 0
-        width: 32
-        height: 32
-      spriteId: 2543d69de615d924f8acbd725af89973
-    - name: maison_1 - Copy-Sheet_Frame_13
-      frameIndex: 13
-      cellRect:
-        x: 0
-        y: 0
-        width: 32
-        height: 32
-      spriteId: 6831b0ce993bbf5438f857c1b95bc14f
-    - name: maison_1 - Copy-Sheet_Frame_14
-      frameIndex: 14
-      cellRect:
-        x: 0
-        y: 0
-        width: 32
-        height: 32
-      spriteId: 3a559eeb9a7a26c48b15212facd0e2ba
-    - name: maison_1 - Copy-Sheet_Frame_15
-      frameIndex: 15
-      cellRect:
-        x: 0
-        y: 0
-        width: 32
-        height: 32
-      spriteId: a1494515c19707444a027e8e4367618c
-    - name: maison_1 - Copy-Sheet_Frame_16
-      frameIndex: 16
-      cellRect:
-        x: 0
-        y: 0
-        width: 32
-        height: 32
-      spriteId: cd134187d73a3254f9ba2f3f1a1044b2
+      spriteId: 21a9fc185f466f141a6b35d689e3a1a0
     linkedCells: []
     parentIndex: -1
   platformSettings:

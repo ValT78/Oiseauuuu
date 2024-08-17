@@ -6,10 +6,10 @@ using UnityEngine.Timeline;
 
 public class BlockGenerator : MonoBehaviour
 {
-    [SerializeField] private GameObject cubePrefab; // Le cube qui sert à générer les blocs
+    [SerializeField] private GameObject cubePrefab; // Le cube qui sert ï¿½ gï¿½nï¿½rer les blocs
 
     [Tooltip("Commence par ceux qui ont 1 voisin, pour finir avec celui qui en a 4.\nOn ajoute dans cet ordre : Top, Bottom, Left, Right")]
-    [SerializeField] private Sprite[] sprites = new Sprite[15] ; // Tableau de 15 sprites nommés
+    [SerializeField] private Sprite[] sprites = new Sprite[15] ; // Tableau de 15 sprites nommï¿½s
 
 
     private float angle;
@@ -22,8 +22,7 @@ public class BlockGenerator : MonoBehaviour
     public int compostCost;
 
     private Vector2 initialPosition;
-
-    private List<GameObject> cubes = new();
+    protected List<GameObject> cubes = new();
 
     private void Start()
     {
@@ -37,15 +36,15 @@ public class BlockGenerator : MonoBehaviour
         angle = CalculateAngle(initialPosition);
     }
 
-    public void GenerateBlock(int numberOfCubes)
+    public virtual void GenerateBlock(int numberOfCubes)
     {
         GameObject blockParent = this.gameObject; // Utiliser l'objet actuel comme parent
         if (!blockParent.TryGetComponent<Rigidbody2D>(out Rigidbody2D rb))
         {
             rb = blockParent.AddComponent<Rigidbody2D>();
         }
-        rb.isKinematic = true; // Désactiver la physique
-        rb.gravityScale = 0; // Désactiver la gravité
+        rb.isKinematic = true; // Dï¿½sactiver la physique
+        rb.gravityScale = 0; // Dï¿½sactiver la gravitï¿½
 
         if (!blockParent.TryGetComponent<CompositeCollider2D>(out _))
         {
@@ -69,7 +68,7 @@ public class BlockGenerator : MonoBehaviour
             GameObject cube = Instantiate(cubePrefab, position, Quaternion.identity, blockParent.transform);
             PolygonCollider2D polyCollider = cube.AddComponent<PolygonCollider2D>();
             polyCollider.usedByComposite = true;
-            polyCollider.isTrigger = true; // Désactiver les collisions physiques
+            polyCollider.isTrigger = true; // Dï¿½sactiver les collisions physiques
 
             cubes.Add(cube);
         }
@@ -89,7 +88,7 @@ public class BlockGenerator : MonoBehaviour
         {
             Vector2 position = cube.transform.position;
             int neighborCode = 0;
-            float tolerance = 0.1f; // Tolérance pour la comparaison des positions
+            float tolerance = 0.1f; // Tolï¿½rance pour la comparaison des positions
 
             if (positions.Any(p => Vector2.Distance(p, position + Vector2.up) < tolerance))
             {
@@ -122,10 +121,10 @@ public class BlockGenerator : MonoBehaviour
             possiblePositions.Add(pos + Vector2.right);
         }
 
-        // Filtrer les positions déjà occupées
+        // Filtrer les positions dï¿½jï¿½ occupï¿½es
         possiblePositions.RemoveAll(pos => existingPositions.Contains(pos));
 
-        // Choisir une position aléatoire parmi les positions possibles
+        // Choisir une position alï¿½atoire parmi les positions possibles
         return possiblePositions[Random.Range(0, possiblePositions.Count)];
     }
 
