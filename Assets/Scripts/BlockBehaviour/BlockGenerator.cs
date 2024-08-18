@@ -115,6 +115,7 @@ public class BlockGenerator : MonoBehaviour
         foreach (GameObject cube in cubes)
         {
             localPositions.Add(cube.transform.position);
+            // Tourne les petits cubes pour qu'ils aient toujours la tête en haut (-rotation du parent)
             // Rotation toujours un multiple de 90 degres, Unity est bizzare donc on doit arrondir
             cube.transform.rotation = Quaternion.Euler(0, 0, Mathf.Round(-transform.rotation.z/90)*90);
 
