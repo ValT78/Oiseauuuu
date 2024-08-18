@@ -35,7 +35,6 @@ public class ShopCard : MonoBehaviour
     Bounds GetBounds(GameObject obj)
     {
         var bounds = new Bounds(obj.transform.position, Vector3.zero);
-        Renderer[] renderers = obj.GetComponentsInChildren<Renderer>();
         foreach (Renderer renderer in obj.GetComponentsInChildren<Renderer>())
         {
             bounds.Encapsulate(renderer.bounds);
@@ -46,10 +45,6 @@ public class ShopCard : MonoBehaviour
     void Start()
     {
         // Instancier l'objet BlockGenerator et le placer au centre de la carte
-        blockGenerator = Instantiate(GenerateRandomBlockType());
-        blockGenerator.GetComponent<BlockGenerator>().canBeDestroyed = false;
-        blockGenerator.transform.localPosition = Vector3.zero;
-        boundsBlockGenerator = GetBounds(blockGenerator);
         
 
         StartCoroutine(LateStart());
@@ -65,8 +60,10 @@ public class ShopCard : MonoBehaviour
         yield return new WaitForEndOfFrame();
         
         blockGenerator.transform.localPosition = Vector3.zero;
-        currentBlockGenerator = blockGenerator;
-        BlockGenerator component = blockGenerator.GetComponent<BlockGenerator>();
+        blockGenerator.GetComponent<BlockGenerator>().canBeDestroyed = false;
+
+/*        currentBlockGenerator = blockGenerator;
+*/        BlockGenerator component = blockGenerator.GetComponent<BlockGenerator>();
         boundsBlockGenerator = GetBounds(blockGenerator);
         float maxDimension = Mathf.Max(boundsBlockGenerator.size.x, boundsBlockGenerator.size.y);
 
@@ -161,7 +158,7 @@ public class ShopCard : MonoBehaviour
 
         while (elapsedTime < inOutAnimationDuration)
         {
-            if (isGoing || isChosen)
+            if (isChosen)
             {
                 Destroy(blockGenerator);
                 Destroy(gameObject);
@@ -199,7 +196,7 @@ public class ShopCard : MonoBehaviour
         rectTransform.anchoredPosition = endPosition;
     }
 
-    public IEnumerator AnimateChoose()
+    public IEnumerator AnimateChoose(Vector2 centerPosition)
     {
         
         isChosen = true;
@@ -209,7 +206,7 @@ public class ShopCard : MonoBehaviour
         // Phase de croissance
         while (elapsedTime < growDuration)
         {
-            if (isChosen || isGoing)
+            if (isGoing)
             {
                 UpdateBlockSize(1);
                 Destroy(gameObject);
@@ -227,7 +224,7 @@ public class ShopCard : MonoBehaviour
         // Phase de r�tr�cissement
         while (elapsedTime < shrinkDuration)
         {
-            if (isChosen || isGoing)
+            if (isGoing)
             {
                 UpdateBlockSize(1);
                 Destroy(gameObject);
@@ -235,11 +232,14 @@ public class ShopCard : MonoBehaviour
             }
             float t = elapsedTime / shrinkDuration;
             rectTransform.localScale = Vector3.Lerp(new Vector3(1.5f, 1.5f, 1), Vector3.zero, t);
-            UpdateBlockSize(rectTransform.localScale.x);
+            blockGenerator.transform.position = Vector2.Lerp(centerPosition, new Vector2(GameManager.Instance.buildPositionX, GameManager.Instance.GetSpawnBlockHeight()), t);
+
+            /*            UpdateBlockSize(rectTransform.localScale.x);
+            */
             elapsedTime += Time.deltaTime;
             yield return null;
         }
-
+        blockGenerator.transform.position = new Vector2(GameManager.Instance.buildPositionX, GameManager.Instance.GetSpawnBlockHeight());
         UpdateBlockSize(1);
 
         // D�truire le GameObject apr�s l'animation

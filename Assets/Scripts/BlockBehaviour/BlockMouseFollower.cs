@@ -65,7 +65,6 @@ public class BlockMouseFollower : MonoBehaviour
             isFollowing = true;
 
             // Position de spawn fixe
-            transform.position = new Vector2(GameManager.Instance.buildPositionX, GameManager.Instance.GetSpawnBlockHeight());
             return true;
         }
     }

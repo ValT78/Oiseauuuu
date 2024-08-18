@@ -54,7 +54,7 @@ public class ShopManager : MonoBehaviour
     void Start()
     {
         cardHeight = shopCardPrefab.GetComponent<RectTransform>().rect.height;
-        centerPosition = new(cardHeight * 2, 0);
+        centerPosition = new(960-cardHeight * 1.5f, 0);
         InitializeShop(); // Exemple d'initialisation avec 5 cartes
     }
 
@@ -120,7 +120,7 @@ public class ShopManager : MonoBehaviour
             {
                 card.blockGenerator.GetComponent<BlockGenerator>().canBeDestroyed = true;
                 isBuyable = false;
-                StartCoroutine(card.AnimateChoose());
+                StartCoroutine(card.AnimateChoose(centerPosition));
                 foreach (ShopCard shopCard in shopCards)
                 {
                     if (shopCard != card)

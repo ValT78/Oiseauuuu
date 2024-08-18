@@ -82,7 +82,6 @@ public class GameManager : MonoBehaviour
                     towerHeigth = blockHeight;
             }
         }
-        print(towerHeigth);
         return towerHeigth + blockSpawnOffset;
     }
 
