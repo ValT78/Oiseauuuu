@@ -20,7 +20,7 @@ public class ShopManager : MonoBehaviour
 
     [Header("Selected Card Parameters")]
     [SerializeField] private float selectedCardScale; // Échelle de la carte sélectionnée
-    [SerializeField] private Vector2 centerPosition; // Position centrale de l'écran
+    private Vector2 centerPosition; // Position centrale de l'écran
     private ShopCard selectedCard = null;
 
 
@@ -54,7 +54,7 @@ public class ShopManager : MonoBehaviour
     void Start()
     {
         cardHeight = shopCardPrefab.GetComponent<RectTransform>().rect.height;
-        cardScale = ((1080 - cardSpacing) / numberOfCards - cardSpacing) / cardHeight;
+        centerPosition = new(cardHeight * 2, 0);
         InitializeShop(); // Exemple d'initialisation avec 5 cartes
     }
 
@@ -80,19 +80,28 @@ public class ShopManager : MonoBehaviour
     public void InitializeShop()
     {
         shopCards.Clear();
+        cardScale = ((1080 - cardSpacing) / numberOfCards - cardSpacing) / cardHeight;
+
         float startY = 540 - cardSpacing - cardHeight*cardScale / 2; // Position de départ en haut de l'écran
 
         for (int i = 0; i < numberOfCards; i++)
         {
             GameObject newCard = Instantiate(shopCardPrefab, parentTransform);
+            if(i == numberOfCards-1)
+            {
+                newCard.GetComponent<ShopCard>().Initialize(true);
+            }
+            else
+            {
+                newCard.GetComponent<ShopCard>().Initialize(false);
+            }
             RectTransform cardRectTransform = newCard.GetComponent<RectTransform>();
             
-
             // Ajustez l'échelle de la carte
             cardRectTransform.localScale = new Vector3(cardScale, cardScale, 1);
 
             float posY = startY - i * (cardHeight * cardScale + cardSpacing);
-            cardRectTransform.anchoredPosition = new Vector2(Screen.width, posY); // Position de départ hors écran
+            cardRectTransform.anchoredPosition = new Vector2(Screen.width + cardHeight * cardScale, posY); // Position de départ hors écran
 
             ShopCard shopCard = newCard.GetComponent<ShopCard>();
             shopCard.SetAnimationParameters(new Vector3(Screen.width + cardHeight * cardScale, posY, 0), new Vector3(Screen.width - cardHeight * cardScale/2, posY, 0));
@@ -109,6 +118,7 @@ public class ShopManager : MonoBehaviour
         {
             if(card.blockGenerator.GetComponent<BlockMouseFollower>().TryBuyCard())
             {
+                card.blockGenerator.GetComponent<BlockGenerator>().canBeDestroyed = true;
                 isBuyable = false;
                 StartCoroutine(card.AnimateChoose());
                 foreach (ShopCard shopCard in shopCards)

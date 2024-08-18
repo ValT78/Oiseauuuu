@@ -492,8 +492,8 @@ MonoBehaviour:
   inOutEndPosition: {x: 0, y: 0, z: 0}
   selectDuration: 0.5
   previewScale: 3
-  growDuration: 0
-  shrinkDuration: 0
+  growDuration: 0.3
+  shrinkDuration: 0.7
 --- !u!1 &8060779354882488636
 GameObject:
   m_ObjectHideFlags: 0
