@@ -74,9 +74,11 @@ public class BlockMouseFollower : MonoBehaviour
     {
         if (isFalling)
         {
-            collision.gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-            collision.transform.position = new Vector2(Mathf.Round(collision.transform.position.x / currentMoveUnit), Mathf.Round(collision.transform.position.y / currentMoveUnit)) * currentMoveUnit;
-
+            if(collision.gameObject.TryGetComponent<BlockGenerator>(out _))
+            {
+                collision.gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+                collision.transform.position = new Vector2(Mathf.Round(collision.transform.position.x / currentMoveUnit), Mathf.Round(collision.transform.position.y / currentMoveUnit)) * currentMoveUnit;
+            }
             foreach (var collider in colliders)
             {
                 collider.points = new Vector2[] {

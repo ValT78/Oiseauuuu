@@ -175,7 +175,6 @@ public class BlockGenerator : MonoBehaviour
             Vector2 localPosition = cube.transform.position;
             int neighborCode = 0;
             float tolerance = 0.1f; // Tolérance pour la comparaison des positions
-            print(cube.transform.up);
 
 
             if (localPositions.Any(p => Vector2.Distance(p, localPosition +  (Vector2) cube.transform.up) < tolerance))

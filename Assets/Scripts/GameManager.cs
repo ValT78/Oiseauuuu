@@ -102,7 +102,10 @@ public class GameManager : MonoBehaviour
         }
         feededPopulation = math.min(population, food);
         int totalProduction = woodProduction + woolProduction + compostProduction;
-        if(totalProduction >= feededPopulation)
+        if (totalProduction == 0)
+        {
+        }
+        else if(totalProduction >= feededPopulation)
         {
             wood += woodProduction;
             wool += woolProduction;
