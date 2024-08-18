@@ -52,6 +52,7 @@ public class RessourceDisplay : MonoBehaviour
         text_foodCount.text = food.ToString();
     }
 
+    [System.Obsolete]
     public void ToggleWarning(RessourceType type)
     {
         switch (type)

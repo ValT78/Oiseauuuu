@@ -12,6 +12,7 @@ public class ShopCard : MonoBehaviour
     public RectTransform rectTransform;
     [SerializeField] private List<GameObject> buildingPrefabs; // Référence à l'objet BlockGenerator
     [HideInInspector] public GameObject blockGenerator; // Référence à l'objet BlockGenerator
+    private bool isDirt;
 
     [Header("Animation Parameters")]
     [SerializeField] private float inOutAnimationDuration;
@@ -47,16 +48,22 @@ public class ShopCard : MonoBehaviour
     void Start()
     {
         // Instancier l'objet BlockGenerator et le placer au centre de la carte
-        blockGenerator = Instantiate(GenerateRandomBlockType());
-        blockGenerator.transform.localPosition = Vector3.zero;
-        currentBlockGenerator = blockGenerator;
+        
         
         StartCoroutine(LateStart());
     }
 
+    public void Initialize(bool isDirt)
+    {
+        blockGenerator = Instantiate(GenerateRandomBlockType(isDirt));
+        this.isDirt = isDirt;
+    }
     private IEnumerator LateStart()
     {
         yield return new WaitForEndOfFrame();
+        
+        blockGenerator.transform.localPosition = Vector3.zero;
+        currentBlockGenerator = blockGenerator;
         BlockGenerator component = blockGenerator.GetComponent<BlockGenerator>();
 
         Bounds bounds = GetBounds(blockGenerator);
@@ -75,13 +82,20 @@ public class ShopCard : MonoBehaviour
             // Mettre à jour la position de l'objet BlockGenerator pour qu'il reste centré sur la carte
             Vector3 screenPoint = rectTransform.TransformPoint(rectTransform.rect.center);
             screenPoint.z = 0; // Assurez-vous que l'objet reste sur le plan XY
-            blockGenerator.transform.position = screenPoint;
+            if (blockGenerator != null)
+            {
+                blockGenerator.transform.position = screenPoint;
+            }
         }
     }
 
-    private GameObject GenerateRandomBlockType()
+    private GameObject GenerateRandomBlockType(bool isDirt)
     {
-        return buildingPrefabs[Random.Range(0, buildingPrefabs.Count)];
+        if (isDirt)
+        {
+            return buildingPrefabs[buildingPrefabs.Count-1];
+        }
+        return buildingPrefabs[Random.Range(0, buildingPrefabs.Count-1)];
         
     }
 

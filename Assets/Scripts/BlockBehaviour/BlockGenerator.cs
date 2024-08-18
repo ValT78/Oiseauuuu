@@ -74,6 +74,8 @@ public class BlockGenerator : MonoBehaviour
         GenerateBlock(numberOfCubesInBlock);
     }
 
+
+
     private void Update()
     {
 /*        ToleranceMovement();
