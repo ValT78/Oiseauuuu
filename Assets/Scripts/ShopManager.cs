@@ -24,7 +24,7 @@ public class ShopManager : MonoBehaviour
     private ShopCard selectedCard = null;
 
 
-    private Dictionary<KeyCode, int> keyToCardIndex = new Dictionary<KeyCode, int>
+    private readonly Dictionary<KeyCode, int> keyToCardIndex = new Dictionary<KeyCode, int>
     {
         { KeyCode.Q, 0 },
         { KeyCode.S, 1 },
