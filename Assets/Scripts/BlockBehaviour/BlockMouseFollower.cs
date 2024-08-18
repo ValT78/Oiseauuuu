@@ -109,11 +109,14 @@ public class BlockMouseFollower : MonoBehaviour
     {
         if (isFalling)
         {
+            collision.gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+
             isFalling = false;
             rb.isKinematic = false; // Activer la physique
             rb.gravityScale = 1; // Activer la gravité
+            rb.velocity = Vector2.zero;
             blockGenerator.isPlaced = true;
-            transform.position = new Vector2(Mathf.Round(transform.position.x), Mathf.Round(transform.position.y));
+            transform.position = new Vector2(Mathf.Round(transform.position.x/moveUnit), Mathf.Round(transform.position.y/moveUnit))*moveUnit;
             ShopManager.Instance.InitializeShop();
             Destroy(this);
 

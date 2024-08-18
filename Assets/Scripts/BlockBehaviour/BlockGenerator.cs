@@ -133,7 +133,7 @@ public class BlockGenerator : MonoBehaviour
             {
                 spriteRenderer = cube.AddComponent<SpriteRenderer>();
             }
-            spriteRenderer.sprite = sprites[neighborCode - 1]; // Utiliser neighborCode comme index
+            spriteRenderer.sprite = sprites[neighborCode - 1] ?? sprites[15]; // Utiliser neighborCode comme index
         }
     }
 
