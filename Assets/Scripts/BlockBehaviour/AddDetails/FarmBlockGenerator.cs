@@ -30,7 +30,7 @@ public class FarmBlockGenerator : BlockGenerator
         }
     }
 
-    public void RemoveCrops()
+    /*public void RemoveCrops()
     {
         foreach (GameObject cube in cubes)
         {
@@ -39,7 +39,7 @@ public class FarmBlockGenerator : BlockGenerator
                 Destroy(cube);
             }
         }
-    }
+    }*/
 
     public override void GenerateBlock(int numberOfCubes)
     {

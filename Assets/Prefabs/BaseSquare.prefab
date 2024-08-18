@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6757319471693253340}
   - component: {fileID: 8591818899258511803}
   - component: {fileID: 1438073493846160689}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: BaseSquare
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -129,8 +129,8 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.5, y: 0.5}
-      - {x: -0.5, y: -0.5}
-      - {x: 0.5, y: -0.5}
-      - {x: 0.5, y: 0.5}
+    - - {x: -0.4, y: 0.4}
+      - {x: -0.4, y: -0.4}
+      - {x: 0.4, y: -0.4}
+      - {x: 0.4, y: 0.4}
   m_UseDelaunayMesh: 0

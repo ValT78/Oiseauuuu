@@ -52,8 +52,8 @@ public class BlockGenerator : MonoBehaviour
 
     private void Update()
     {
-        ToleranceMovement();
-        angle = CalculateAngle(initialPosition);
+/*        ToleranceMovement();
+*/        angle = CalculateAngle(initialPosition);
     }
 
     float GetRandomFloat(float min, float max)
@@ -68,7 +68,7 @@ public class BlockGenerator : MonoBehaviour
     public virtual void GenerateBlock(int numberOfCubes)
     {
         GameObject blockParent = this.gameObject; // Utiliser l'objet actuel comme parent
-        if (!blockParent.TryGetComponent<Rigidbody2D>(out Rigidbody2D rb))
+        if (!blockParent.TryGetComponent(out Rigidbody2D rb))
         {
             rb = blockParent.AddComponent<Rigidbody2D>();
         }
