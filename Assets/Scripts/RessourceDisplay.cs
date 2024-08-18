@@ -6,6 +6,15 @@ using UnityEngine;
 
 public class RessourceDisplay : MonoBehaviour
 {
+    public enum RessourceType
+    {
+        WOOL,
+        WOOD,
+        COMPOSTE,
+        POPULATION,
+        FOOD
+    }
+
     public static RessourceDisplay Instance { get; private set; }
 
     // Start is called before the first frame update
@@ -14,6 +23,12 @@ public class RessourceDisplay : MonoBehaviour
     [SerializeField] private TMP_Text text_compostCount;
     [SerializeField] private TMP_Text text_populationCount;
     [SerializeField] private TMP_Text text_foodCount;
+
+    [SerializeField] private GameObject img_woolWarning;
+    [SerializeField] private GameObject img_woodWarning;
+    [SerializeField] private GameObject img_compostWarning;
+    [SerializeField] private GameObject img_populationWarning;
+    [SerializeField] private GameObject img_foodWarning;
 
     private void Awake()
     {
@@ -35,5 +50,27 @@ public class RessourceDisplay : MonoBehaviour
         text_compostCount.text = compost.ToString();
         text_populationCount.text = population.ToString();
         text_foodCount.text = food.ToString();
+    }
+
+    public void ToggleWarning(RessourceType type)
+    {
+        switch (type)
+        {
+            case RessourceType.WOOL:
+                img_woolWarning.SetActive(!img_woolWarning.active);
+                break;
+            case RessourceType.WOOD:
+                img_woodWarning.SetActive(!img_woodWarning.active);
+                break;
+            case RessourceType.COMPOSTE:
+                img_compostWarning.SetActive(!img_compostWarning.active);
+                break;
+            case RessourceType.POPULATION:
+                img_populationWarning.SetActive(!img_populationWarning.active);
+                break;
+            case RessourceType.FOOD:
+                img_foodWarning.SetActive(!img_foodWarning.active);
+                break;
+        }
     }
 }
