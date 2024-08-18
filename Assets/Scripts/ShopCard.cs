@@ -10,8 +10,8 @@ public class ShopCard : MonoBehaviour
     [SerializeField] private TMP_Text text_wood;
     [SerializeField] private TMP_Text text_compost;
     public RectTransform rectTransform;
-    [SerializeField] private List<GameObject> buildingPrefabs; // Référence à l'objet BlockGenerator
-    [HideInInspector] public GameObject blockGenerator; // Référence à l'objet BlockGenerator
+    [SerializeField] private List<GameObject> buildingPrefabs; // Rï¿½fï¿½rence ï¿½ l'objet BlockGenerator
+    [HideInInspector] public GameObject blockGenerator; // Rï¿½fï¿½rence ï¿½ l'objet BlockGenerator
     private bool isDirt;
 
     [Header("Animation Parameters")]
@@ -28,18 +28,16 @@ public class ShopCard : MonoBehaviour
     [SerializeField] private float growDuration;
     [SerializeField] private float shrinkDuration;
     private bool isChosen = false;
+    private Vector3 center_offset;
 
-    private GameObject currentBlockGenerator;
-
+    private Bounds boundsBlockGenerator;
 
     Bounds GetBounds(GameObject obj)
     {
         var bounds = new Bounds(obj.transform.position, Vector3.zero);
         Renderer[] renderers = obj.GetComponentsInChildren<Renderer>();
-        print("Renderers: " + renderers.Length);
         foreach (Renderer renderer in obj.GetComponentsInChildren<Renderer>())
         {
-            Debug.Log("Child renderer");
             bounds.Encapsulate(renderer.bounds);
         }
         return bounds;
@@ -48,8 +46,12 @@ public class ShopCard : MonoBehaviour
     void Start()
     {
         // Instancier l'objet BlockGenerator et le placer au centre de la carte
+        blockGenerator = Instantiate(GenerateRandomBlockType());
+        blockGenerator.GetComponent<BlockGenerator>().canBeDestroyed = false;
+        blockGenerator.transform.localPosition = Vector3.zero;
+        boundsBlockGenerator = GetBounds(blockGenerator);
         
-        
+
         StartCoroutine(LateStart());
     }
 
@@ -65,26 +67,26 @@ public class ShopCard : MonoBehaviour
         blockGenerator.transform.localPosition = Vector3.zero;
         currentBlockGenerator = blockGenerator;
         BlockGenerator component = blockGenerator.GetComponent<BlockGenerator>();
-
-        Bounds bounds = GetBounds(blockGenerator);
-
-        float maxDimension = Mathf.Max(bounds.size.x, bounds.size.y);
+        boundsBlockGenerator = GetBounds(blockGenerator);
+        float maxDimension = Mathf.Max(boundsBlockGenerator.size.x, boundsBlockGenerator.size.y);
 
         SetUpCard(((int)component.buildingType), component.woolCost, component.woodCost, component.compostCost);
         UpdateBlockSize(previewScale * rectTransform.localScale.x / maxDimension);
-        blockGenerator.transform.position = bounds.center;
+
+        center_offset = boundsBlockGenerator.center - blockGenerator.transform.position;
+        print("Center offset: " + center_offset);
     }
 
     void Update()
     {
         if (!isChosen)
         {
-            // Mettre à jour la position de l'objet BlockGenerator pour qu'il reste centré sur la carte
+            // Mettre ï¿½ jour la position de l'objet BlockGenerator pour qu'il reste centrï¿½ sur la carte
             Vector3 screenPoint = rectTransform.TransformPoint(rectTransform.rect.center);
             screenPoint.z = 0; // Assurez-vous que l'objet reste sur le plan XY
             if (blockGenerator != null)
             {
-                blockGenerator.transform.position = screenPoint;
+                blockGenerator.transform.position = screenPoint - center_offset;
             }
         }
     }
@@ -111,7 +113,7 @@ public class ShopCard : MonoBehaviour
         // Modifie la scale de l'objet
         blockGenerator.transform.localScale = new Vector3(size, size, 1);
 
-        // Réinitialise les positions locales des enfants
+        // Rï¿½initialise les positions locales des enfants
         for (int i = 0; i < blockGenerator.transform.childCount; i++)
         {
             blockGenerator.transform.GetChild(i).localPosition = childrenLocalPositions[i];
@@ -214,15 +216,15 @@ public class ShopCard : MonoBehaviour
                 yield break;
             }
             float t = elapsedTime / growDuration;
-            rectTransform.localScale = Vector3.Lerp(Vector3.one, new Vector3(1.5f, 1.5f, 1), t); // Ajustez 1.5f pour la taille de croissance souhaitée
+            rectTransform.localScale = Vector3.Lerp(Vector3.one, new Vector3(1.5f, 1.5f, 1), t); // Ajustez 1.5f pour la taille de croissance souhaitï¿½e
             elapsedTime += Time.deltaTime;
             yield return null;
         }
 
-        // Réinitialiser le temps écoulé pour la phase de rétrécissement
+        // Rï¿½initialiser le temps ï¿½coulï¿½ pour la phase de rï¿½trï¿½cissement
         elapsedTime = 0f;
 
-        // Phase de rétrécissement
+        // Phase de rï¿½trï¿½cissement
         while (elapsedTime < shrinkDuration)
         {
             if (isChosen || isGoing)
@@ -240,7 +242,8 @@ public class ShopCard : MonoBehaviour
 
         UpdateBlockSize(1);
 
-        // Détruire le GameObject après l'animation
+        // Dï¿½truire le GameObject aprï¿½s l'animation
         Destroy(gameObject);
+        
     }
 }
