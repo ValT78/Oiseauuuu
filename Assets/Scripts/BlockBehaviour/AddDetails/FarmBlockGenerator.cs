@@ -49,11 +49,6 @@ public class FarmBlockGenerator : BlockGenerator
         }
     }*/
 
-    public override void GenerateBlock(int numberOfCubes)
-    {
-        base.GenerateBlock(numberOfCubes);
-        AddCrops();
-    }
     public override void UpdateSprites()
     {
         base.UpdateSprites();
