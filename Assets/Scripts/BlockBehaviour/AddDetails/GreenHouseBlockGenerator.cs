@@ -10,9 +10,16 @@ public class GreenHouseBlockGenerator : BlockGenerator
     [SerializeField] private GameObject tree1;
     [SerializeField] private GameObject tree2;
     [SerializeField] private GameObject doorPrefab;
+    [SerializeField] private List<GameObject> detailsList;
 
     public void AddDetails()
     {
+        // Delete all existing details
+        foreach (GameObject detail in detailsList)
+        {
+            Destroy(detail);
+        }
+
         Boolean door_added = false;
         List<Vector2> positions = new List<Vector2>();
         foreach (GameObject cube in cubes)
@@ -35,6 +42,7 @@ public class GreenHouseBlockGenerator : BlockGenerator
                     GameObject door = Instantiate(doorPrefab, position, Quaternion.identity);
                     door.transform.parent = transform;
                     door_added = true;
+                    detailsList.Add(door);
                     continue; // On ne peut pas avoir de fenetre et de porte sur le meme cube
                 }
 
@@ -43,25 +51,27 @@ public class GreenHouseBlockGenerator : BlockGenerator
             // Add tree1 with 25% chance
             if (UnityEngine.Random.Range(0, 4) == 0)
             {
-                GameObject window = Instantiate(tree1, position, Quaternion.identity);
-                window.transform.parent = transform;
+                GameObject detail = Instantiate(tree1, position, Quaternion.identity);
+                detail.transform.parent = transform;
+                detailsList.Add(detail);
                 continue;
             }
 
             // Add tree2 with 25% chance
             if (UnityEngine.Random.Range(0, 4) == 0)
             {
-                GameObject window = Instantiate(tree2, position, Quaternion.identity);
-                window.transform.parent = transform;
+                GameObject detail = Instantiate(tree2, position, Quaternion.identity);
+                detail.transform.parent = transform;
+                detailsList.Add(detail);
                 continue;
             }
 
         }
     }
 
-    public override void GenerateBlock(int numberOfCubes)
+    public override void UpdateSprites()
     {
-        base.GenerateBlock(numberOfCubes);
+        base.UpdateSprites();
         AddDetails();
     }
 
