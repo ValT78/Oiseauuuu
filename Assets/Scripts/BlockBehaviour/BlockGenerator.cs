@@ -23,7 +23,7 @@ public class BlockGenerator : MonoBehaviour
 
     }
 
-    private BuildingType buildingType;
+    private readonly BuildingType buildingType;
 
     private float angle;
     private int surfaceArea;
@@ -56,7 +56,7 @@ public class BlockGenerator : MonoBehaviour
 
     float GetRandomFloat(float min, float max)
     {
-        System.Random random = new System.Random();
+        System.Random random = new();
         return (float)(random.NextDouble() * (max - min) + min);
     }
     int GetNewPrice()
@@ -108,7 +108,7 @@ public class BlockGenerator : MonoBehaviour
 
     public void UpdateSprites()
     {
-        List<Vector2> positions = new List<Vector2>();
+        List<Vector2> positions = new();
         foreach (GameObject cube in cubes)
         {
             positions.Add(cube.transform.position);

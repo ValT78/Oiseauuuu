@@ -82,6 +82,11 @@ public class ShopCard : MonoBehaviour
 
         while (elapsedTime < inOutAnimationDuration)
         {
+            if (isGoing || isChosen)
+            {
+                rectTransform.anchoredPosition = inOutEndPosition;
+                yield break;
+            }
             rectTransform.anchoredPosition = Vector3.Lerp(inOutStartPosition, inOutEndPosition, elapsedTime / inOutAnimationDuration);
             elapsedTime += Time.deltaTime;
             yield return null;
@@ -92,15 +97,18 @@ public class ShopCard : MonoBehaviour
 
     public IEnumerator AnimateCardOut()
     {
-        if(isGoing || isChosen)
-        {
-            yield break;
-        }
+        
         isGoing = true;
         float elapsedTime = 0f;
 
         while (elapsedTime < inOutAnimationDuration)
         {
+            if (isGoing || isChosen)
+            {
+                Destroy(blockGenerator);
+                Destroy(gameObject);
+                yield break;
+            }
             rectTransform.anchoredPosition = Vector3.Lerp(inOutEndPosition, inOutStartPosition, elapsedTime / inOutAnimationDuration);
             elapsedTime += Time.deltaTime;
             yield return null;
@@ -112,14 +120,15 @@ public class ShopCard : MonoBehaviour
 
     public IEnumerator AnimateSelectedCard(float startScale, float endScale, Vector2 startPosition, Vector2 endPosition)
     {
-        if(isGoing || isChosen)
-        {
-            yield break;
-        }
+        
         float elapsedTime = 0f;
 
         while (elapsedTime < selectDuration)
         {
+            if (isGoing || isChosen)
+            {
+                yield break;
+            }
             float t = elapsedTime / selectDuration;
             rectTransform.localScale = Vector3.Lerp(new Vector3(startScale, startScale, 1), new Vector3(endScale, endScale, 1), t);
             UpdateBlockSize(rectTransform.localScale.x);
@@ -134,10 +143,7 @@ public class ShopCard : MonoBehaviour
 
     public IEnumerator AnimateChoose()
     {
-        if(isChosen || isGoing)
-        {
-            yield break;
-        }
+        
         isChosen = true;
 
         float elapsedTime = 0f;
@@ -145,6 +151,11 @@ public class ShopCard : MonoBehaviour
         // Phase de croissance
         while (elapsedTime < growDuration)
         {
+            if (isChosen || isGoing)
+            {
+                Destroy(gameObject);
+                yield break;
+            }
             float t = elapsedTime / growDuration;
             rectTransform.localScale = Vector3.Lerp(Vector3.one, new Vector3(1.5f, 1.5f, 1), t); // Ajustez 1.5f pour la taille de croissance souhaitée
             elapsedTime += Time.deltaTime;
@@ -157,6 +168,11 @@ public class ShopCard : MonoBehaviour
         // Phase de rétrécissement
         while (elapsedTime < shrinkDuration)
         {
+            if (isChosen || isGoing)
+            {
+                Destroy(gameObject);
+                yield break;
+            }
             float t = elapsedTime / shrinkDuration;
             rectTransform.localScale = Vector3.Lerp(new Vector3(1.5f, 1.5f, 1), Vector3.zero, t);
             UpdateBlockSize(rectTransform.localScale.x);
