@@ -5,11 +5,18 @@ using UnityEngine;
 
 public class FarmBlockGenerator : BlockGenerator
 {
-    // Juste pour ajouter du blé en haut des blocks de farm
+    // Juste pour ajouter du blï¿½ en haut des blocks de farm
     [SerializeField] private GameObject cropsPrefab;
+    [SerializeField] private List<GameObject> detailsList;
 
-    public void AddCrops()
+    public void AddDetails()
     {
+        // Delete all existing details
+        foreach (GameObject detail in detailsList)
+        {
+            Destroy(detail);
+        }
+
         List<Vector2> positions = new List<Vector2>();
         foreach (GameObject cube in cubes)
         {
@@ -19,12 +26,13 @@ public class FarmBlockGenerator : BlockGenerator
         foreach (GameObject cube in cubes)
         {
             Vector2 position = cube.transform.position;
-            float tolerance = 0.1f; // Tolérance pour la comparaison des positions
+            float tolerance = 0.1f; // Tolï¿½rance pour la comparaison des positions
 
             if (positions.All(p => Vector2.Distance(p, position + Vector2.up) > tolerance))
             {
                 Vector2 cropsPosition = position + Vector2.up;
                 GameObject crops = Instantiate(cropsPrefab, cropsPosition, Quaternion.identity, cube.transform);
+                detailsList.Add(crops);
             }
             
         }
@@ -45,6 +53,11 @@ public class FarmBlockGenerator : BlockGenerator
     {
         base.GenerateBlock(numberOfCubes);
         AddCrops();
+    }
+    public override void UpdateSprites()
+    {
+        base.UpdateSprites();
+        AddDetails();
     }
 
 

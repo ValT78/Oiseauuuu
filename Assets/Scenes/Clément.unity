@@ -123,6 +123,26 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &11275868 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 996597112316493626, guid: 9cdb754a07c477144987ea8d033a668c, type: 3}
+  m_PrefabInstance: {fileID: 1132733298407634270}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &11275876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 11275868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a60c8dba6ec3e9843a9cd9f834daff55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveUnit: 0
+  fallSpeedIncreaseFactor: 0
+  baseFallSpeed: 0
 --- !u!1001 &858293220
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -482,7 +502,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: GreenHouseBuildingBlock Variant
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 3858268571220910403, guid: 9cdb754a07c477144987ea8d033a668c, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 944329060}
+    m_RemovedComponents:
+    - {fileID: 5414851259051827039, guid: 9cdb754a07c477144987ea8d033a668c, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -657,7 +682,10 @@ PrefabInstance:
     - {fileID: 5414851259051827039, guid: 9cdb754a07c477144987ea8d033a668c, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 996597112316493626, guid: 9cdb754a07c477144987ea8d033a668c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 11275876}
   m_SourcePrefab: {fileID: 100100000, guid: 9cdb754a07c477144987ea8d033a668c, type: 3}
 --- !u!1001 &2638410792473890498
 PrefabInstance:

@@ -9,9 +9,17 @@ public class HouseBlockGenerator : BlockGenerator
     // Juste pour ajouter les fenetres et les portes des maisons
     [SerializeField] private GameObject windowPrefab;
     [SerializeField] private GameObject doorPrefab;
+    [SerializeField] private List<GameObject> detailsList;
 
     public void AddDetails()
     {
+
+        // Delete all existing details
+        foreach (GameObject detail in detailsList)
+        {
+            Destroy(detail);
+        }
+
         Boolean door_added = false;
         List<Vector2> positions = new List<Vector2>();
         foreach (GameObject cube in cubes)
@@ -34,6 +42,7 @@ public class HouseBlockGenerator : BlockGenerator
                     GameObject door = Instantiate(doorPrefab, position, Quaternion.identity);
                     door.transform.parent = transform;
                     door_added = true;
+                    detailsList.Add(door);
                     continue; // On ne peut pas avoir de fenetre et de porte sur le meme cube
                 }
 
@@ -44,14 +53,15 @@ public class HouseBlockGenerator : BlockGenerator
             {
                 GameObject window = Instantiate(windowPrefab, position, Quaternion.identity);
                 window.transform.parent = transform;
+                detailsList.Add(window);
             }
 
         }
     }
 
-    public override void GenerateBlock(int numberOfCubes)
+    public override void UpdateSprites()
     {
-        base.GenerateBlock(numberOfCubes);
+        base.UpdateSprites();
         AddDetails();
     }
 

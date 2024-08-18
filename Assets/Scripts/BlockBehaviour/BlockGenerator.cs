@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Unity.Mathematics;
@@ -108,28 +109,34 @@ public class BlockGenerator : MonoBehaviour
         UpdateSprites();
     }
 
-    public void UpdateSprites()
+    public virtual void UpdateSprites()
     {
         List<Vector2> localPositions = new();
         foreach (GameObject cube in cubes)
         {
-            localPositions.Add(cube.transform.localPosition);
+            localPositions.Add(cube.transform.position);
+            // Tourne les petits cubes pour qu'ils aient toujours la tête en haut (-rotation du parent)
+            // Rotation toujours un multiple de 90 degres, Unity est bizzare donc on doit arrondir
+            cube.transform.rotation = Quaternion.Euler(0, 0, Mathf.Round(-transform.rotation.z/90)*90);
+
         }
 
         foreach (GameObject cube in cubes)
         {
-            Vector2 localPosition = cube.transform.localPosition;
+            Vector2 localPosition = cube.transform.position;
             int neighborCode = 0;
             float tolerance = 0.1f; // Tolérance pour la comparaison des positions
+            print(cube.transform.up);
 
-            if (localPositions.Any(p => Vector2.Distance(p, localPosition + Vector2.up) < tolerance))
+
+            if (localPositions.Any(p => Vector2.Distance(p, localPosition +  (Vector2) cube.transform.up) < tolerance))
             {
                 neighborCode |= 1;    // Haut
                 surfaceArea++;
             }
-            if (localPositions.Any(p => Vector2.Distance(p, localPosition + Vector2.down) < tolerance)) neighborCode |= 2;  // Bas
-            if (localPositions.Any(p => Vector2.Distance(p, localPosition + Vector2.left) < tolerance)) neighborCode |= 4;  // Gauche
-            if (localPositions.Any(p => Vector2.Distance(p, localPosition + Vector2.right) < tolerance)) neighborCode |= 8; // Droite
+            if (localPositions.Any(p => Vector2.Distance(p, localPosition + (Vector2) (-cube.transform.up)) < tolerance)) neighborCode |= 2;  // Bas
+            if (localPositions.Any(p => Vector2.Distance(p, localPosition + (Vector2) (-cube.transform.right)) < tolerance)) neighborCode |= 4;  // Gauche
+            if (localPositions.Any(p => Vector2.Distance(p, localPosition + (Vector2) (cube.transform.right)) < tolerance)) neighborCode |= 8; // Droite
 
             if (!cube.TryGetComponent<SpriteRenderer>(out var spriteRenderer))
             {
@@ -138,6 +145,8 @@ public class BlockGenerator : MonoBehaviour
             spriteRenderer.sprite = sprites[neighborCode - 1] ?? sprites[15]; // Utiliser neighborCode comme index
         }
     }
+
+
 
 
 
