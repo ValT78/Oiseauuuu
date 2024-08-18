@@ -51,18 +51,9 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "rotRight",
+                    "name": "rotate",
                     "type": "Button",
                     "id": "6e4f9e35-1014-45e3-ab74-d5c2b64cb100",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "rotLeft",
-                    "type": "Button",
-                    "id": "59eb1cd8-5504-438f-b78f-98b1c44c16cf",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -201,26 +192,37 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "",
-                    "id": "0f2da21f-c480-458e-a4a1-8918bc7b0d8c",
+                    "name": "1D Axis",
+                    "id": "990bad40-d80e-4745-b920-bac421258b94",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "rotate",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "d98a60e9-91f5-422d-804d-ee9b8bee2216",
                     "path": "<Keyboard>/q",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "rotRight",
+                    "action": "rotate",
                     "isComposite": false,
-                    "isPartOfComposite": false
+                    "isPartOfComposite": true
                 },
                 {
-                    "name": "",
-                    "id": "632bd4c4-cb85-4cb0-bb88-15b61b9dae19",
+                    "name": "positive",
+                    "id": "39d1ac8b-381c-4128-ace3-1d2e37b0e7c9",
                     "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "rotLeft",
+                    "action": "rotate",
                     "isComposite": false,
-                    "isPartOfComposite": false
+                    "isPartOfComposite": true
                 },
                 {
                     "name": "",

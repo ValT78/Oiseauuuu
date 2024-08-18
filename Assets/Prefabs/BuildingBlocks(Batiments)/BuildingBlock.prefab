@@ -189,13 +189,13 @@ MonoBehaviour:
     m_ActionName: New action map/pause[/Keyboard/escape]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4557172850673400055}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: -2141093964331696323}
+        m_TargetAssemblyTypeName: BlockMouseFollower, Assembly-CSharp
+        m_MethodName: Move
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -204,23 +204,67 @@ MonoBehaviour:
     m_ActionId: 8ed978b1-d152-4e50-9a58-7a65fb7e9d51
     m_ActionName: New action map/moveBlock[/Keyboard/a,/Keyboard/d]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: -2141093964331696323}
+        m_TargetAssemblyTypeName: BlockMouseFollower, Assembly-CSharp
+        m_MethodName: ToggleFastDrop
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: f625815c-9b41-4d03-8e97-804540bc8854
     m_ActionName: New action map/fastDrop[/Keyboard/s]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: -2141093964331696323}
+        m_TargetAssemblyTypeName: BlockMouseFollower, Assembly-CSharp
+        m_MethodName: ToggleFastMove
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 26276a84-5ff5-4fdb-af17-75829c726fc9
     m_ActionName: New action map/dash[/Keyboard/w]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: -2141093964331696323}
+        m_TargetAssemblyTypeName: BlockMouseFollower, Assembly-CSharp
+        m_MethodName: Rotate
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 6e4f9e35-1014-45e3-ab74-d5c2b64cb100
     m_ActionName: New action map/rotRight[/Keyboard/q]
   - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 59eb1cd8-5504-438f-b78f-98b1c44c16cf
-    m_ActionName: New action map/rotLeft[/Keyboard/e]
-  - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: -2141093964331696323}
+        m_TargetAssemblyTypeName: BlockMouseFollower, Assembly-CSharp
+        m_MethodName: Select
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: d989001c-c469-4444-bb7a-9512453e11af
     m_ActionName: New action map/select[/Keyboard/space]
   m_NeverAutoSwitchControlSchemes: 0
