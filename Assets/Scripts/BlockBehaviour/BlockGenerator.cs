@@ -77,8 +77,6 @@ public class BlockGenerator : MonoBehaviour
 
     private void Update()
     {
-/*        ToleranceMovement();
-*/        angle = CalculateAngle(initialPosition);
         if(transform.position.y < -10 && canBeDestroyed)
         {
             GameManager.Instance.LoseLife(this);
