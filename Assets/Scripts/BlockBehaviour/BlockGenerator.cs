@@ -207,4 +207,21 @@ public class BlockGenerator : MonoBehaviour
                 break;
         }
     }
+
+    public void Stick()
+    {
+        foreach (GameObject cube in cubes)
+        {
+            Collider2D[] neighbours = Physics2D.OverlapCircleAll(cube.transform.position, 1);
+            foreach (Collider2D neighbour in neighbours)
+            {
+                if (!neighbour.transform.parent) continue ;
+                if (!neighbour.transform.parent.TryGetComponent<BlockGenerator>(out _)) continue ;
+                GameObject parent = neighbour.transform.parent.gameObject;
+                if (!parent.TryGetComponent<Rigidbody2D>(out Rigidbody2D component)) continue;
+                var joint = gameObject.AddComponent<FixedJoint2D>();
+                joint.connectedBody = component;
+            }
+        }
+    }
 }

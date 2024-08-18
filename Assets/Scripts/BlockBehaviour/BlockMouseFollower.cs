@@ -62,6 +62,7 @@ public class BlockMouseFollower : MonoBehaviour
             rb.isKinematic = false; // Activer la physique
             rb.gravityScale = 1; // Activer la gravité
             blockGenerator.isPlaced = true;
+            if (blockGenerator.buildingType == BlockGenerator.BuildingType.Wall) blockGenerator.Stick();
             transform.position = new Vector2(Mathf.Round(transform.position.x), Mathf.Round(transform.position.y));
             ShopManager.Instance.InitializeShop();
             Destroy(this);
