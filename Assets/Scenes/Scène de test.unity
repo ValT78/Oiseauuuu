@@ -994,7 +994,7 @@ PrefabInstance:
       objectReference: {fileID: 98291565}
     - target: {fileID: 6627811808670925595, guid: 3d46c192ece5e874ab285094e1fde23e, type: 3}
       propertyPath: numberOfCubesInBlock
-      value: 5
+      value: 158
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
