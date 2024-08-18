@@ -4,17 +4,16 @@ using System.Linq;
 using UnityEngine;
 
 
-public class HouseBlockGenerator : BlockGenerator
+public class WoolBlockGenerator : BlockGenerator
 {
-    // Juste pour ajouter les fenetres et les portes des maisons
-    [SerializeField] private GameObject windowPrefab;
+    // Juste pour ajouter les arbres et la porte
+    [SerializeField] private GameObject windowSheep;
+    [SerializeField] private GameObject windowWool;
     [SerializeField] private GameObject doorPrefab;
     private List<GameObject> detailsList = new List<GameObject>();
 
-
     public void AddDetails()
     {
-
         // Delete all existing details
         foreach (GameObject detail in detailsList)
         {
@@ -49,12 +48,22 @@ public class HouseBlockGenerator : BlockGenerator
 
             }
 
-            // Add window with 33% chance
-            if (UnityEngine.Random.Range(0, 3) == 0)
+            // Add sheep with 25% chance
+            if (UnityEngine.Random.Range(0, 4) == 0)
             {
-                GameObject window = Instantiate(windowPrefab, position, Quaternion.identity);
-                window.transform.parent = transform;
-                detailsList.Add(window);
+                GameObject detail = Instantiate(windowSheep, position, Quaternion.identity);
+                detail.transform.parent = transform;
+                detailsList.Add(detail);
+                continue;
+            }
+
+            // Add windowWool with 10% chance
+            if (UnityEngine.Random.Range(0, 10) == 0)
+            {
+                GameObject detail = Instantiate(windowWool, position, Quaternion.identity);
+                detail.transform.parent = transform;
+                detailsList.Add(detail);
+                continue;
             }
 
         }

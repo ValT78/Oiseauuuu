@@ -7,7 +7,7 @@ public class FarmBlockGenerator : BlockGenerator
 {
     // Juste pour ajouter du blé en haut des blocks de farm
     [SerializeField] private GameObject cropsPrefab;
-    [SerializeField] private List<GameObject> detailsList;
+    private List<GameObject> detailsList = new List<GameObject>();
 
     public void AddDetails()
     {
