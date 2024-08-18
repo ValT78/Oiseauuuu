@@ -85,11 +85,6 @@ public class BlockMouseFollower : MonoBehaviour
         }
     }
 
-    private void OnMouseEnter()
-    {
-        TryBuyCard();
-    }
-
     public bool TryBuyCard()
     {
         if (blockGenerator.woodCost > GameManager.Instance.wood || blockGenerator.woolCost > GameManager.Instance.wool || blockGenerator.compostCost > GameManager.Instance.compost)
@@ -117,11 +112,8 @@ public class BlockMouseFollower : MonoBehaviour
             isFalling = false;
             rb.isKinematic = false; // Activer la physique
             rb.gravityScale = 1; // Activer la gravité
-            foreach (var collider in colliders)
-            {
-                collider.isTrigger = false; // Activer les collisions physiques
-            }
             blockGenerator.isPlaced = true;
+            transform.position = new Vector2(Mathf.Round(transform.position.x), Mathf.Round(transform.position.y));
             ShopManager.Instance.InitializeShop();
             Destroy(this);
 
