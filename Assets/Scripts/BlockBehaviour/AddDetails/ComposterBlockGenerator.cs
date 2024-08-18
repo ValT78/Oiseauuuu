@@ -4,11 +4,12 @@ using System.Linq;
 using UnityEngine;
 
 
-public class GreenHouseBlockGenerator : BlockGenerator
+public class ComposterBlockGenerator : BlockGenerator
 {
     // Juste pour ajouter les arbres et la porte
-    [SerializeField] private GameObject tree1;
-    [SerializeField] private GameObject tree2;
+    [SerializeField] private GameObject window1;
+    [SerializeField] private GameObject window2;
+    [SerializeField] private GameObject chimney;
     [SerializeField] private GameObject doorPrefab;
     private List<GameObject> detailsList = new List<GameObject>();
 
@@ -48,19 +49,30 @@ public class GreenHouseBlockGenerator : BlockGenerator
 
             }
 
-            // Add tree1 with 25% chance
-            if (UnityEngine.Random.Range(0, 4) == 0)
+            // Add chimney with 12.5% chance, should be on top tile
+            if (positions.All(p => Vector2.Distance(p, position + Vector2.up) > tolerance))
             {
-                GameObject detail = Instantiate(tree1, position, Quaternion.identity);
+                if (UnityEngine.Random.Range(0, 8) == 0)
+                {
+                    GameObject crops = Instantiate(chimney, position, Quaternion.identity, cube.transform);
+                    detailsList.Add(crops);
+                    continue;
+                }
+            }
+
+            // Add with 20% chance
+            if (UnityEngine.Random.Range(0, 5) == 0)
+            {
+                GameObject detail = Instantiate(window1, position, Quaternion.identity);
                 detail.transform.parent = transform;
                 detailsList.Add(detail);
                 continue;
             }
 
-            // Add tree2 with 25% chance
-            if (UnityEngine.Random.Range(0, 4) == 0)
+            // Add with 20% chance
+            if (UnityEngine.Random.Range(0, 5) == 0)
             {
-                GameObject detail = Instantiate(tree2, position, Quaternion.identity);
+                GameObject detail = Instantiate(window2, position, Quaternion.identity);
                 detail.transform.parent = transform;
                 detailsList.Add(detail);
                 continue;
