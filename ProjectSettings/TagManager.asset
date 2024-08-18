@@ -45,6 +45,9 @@ TagManager:
   - name: Blocks
     uniqueID: 1142528411
     locked: 0
+  - name: Details
+    uniqueID: 4057000849
+    locked: 0
   - name: Card
     uniqueID: 1275560203
     locked: 0
