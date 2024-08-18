@@ -9,13 +9,14 @@ public class BlockMouseFollower : MonoBehaviour
     private bool isFollowing = false;
     private bool isFalling;
     private Rigidbody2D rb;
-    private Collider2D[] colliders;
+    List<PolygonCollider2D> colliders = new();
     private BlockGenerator blockGenerator;
 
     [Header("Block Settings")]
 
     [Header("Block Movement")]
     [SerializeField] private float moveUnit;
+    private float currentMoveUnit;
     private float fallSpeed;
     [SerializeField] private float fallSpeedIncreaseFactor;
     [SerializeField] private float baseFallSpeed;
@@ -28,10 +29,18 @@ public class BlockMouseFollower : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        colliders = GetComponentsInChildren<Collider2D>();
+        foreach (Transform child in transform)
+        {
+            if (child.TryGetComponent<PolygonCollider2D>(out var collider))
+            {
+                colliders.Add(collider);
+            }
+        }
         blockGenerator = GetComponent<BlockGenerator>();
         fallSpeed = baseFallSpeed;
-    }
+        currentMoveUnit = moveUnit;
+/*        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Cube"), LayerMask.NameToLayer("Cube"), true);
+*/    }
 
     void Update()
     {
@@ -66,14 +75,26 @@ public class BlockMouseFollower : MonoBehaviour
         if (isFalling)
         {
             collision.gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            collision.transform.position = new Vector2(Mathf.Round(collision.transform.position.x / currentMoveUnit), Mathf.Round(collision.transform.position.y / currentMoveUnit)) * currentMoveUnit;
 
+            foreach (var collider in colliders)
+            {
+                collider.points = new Vector2[] {
+                    new(-0.5f, 0.5f),
+                    new(0.5f, 0.5f),
+                    new(0.5f, -0.5f),
+                    new(-0.5f, -0.5f)
+                };
+                /*FixedJoint2D joint = collider.gameObject.AddComponent<FixedJoint2D>();
+                joint.connectedBody = rb;*/
+            }
             isFalling = false;
             rb.isKinematic = false; // Activer la physique
             rb.gravityScale = 1; // Activer la gravit�
             rb.velocity = Vector2.zero;
             blockGenerator.isPlaced = true;
             if (blockGenerator.buildingType == BlockGenerator.BuildingType.Wall) blockGenerator.Stick();
-            transform.position = new Vector2(Mathf.Round(transform.position.x/moveUnit), Mathf.Round(transform.position.y/moveUnit))*moveUnit;
+            transform.position = new Vector2(Mathf.Round(transform.position.x/ currentMoveUnit), Mathf.Round(transform.position.y/currentMoveUnit))*currentMoveUnit;
 
             ShopManager.Instance.InitializeShop();
             Destroy(this);
@@ -113,7 +134,7 @@ public class BlockMouseFollower : MonoBehaviour
 
     private void MoveOnce(InputAction.CallbackContext context)
     {
-        transform.position = new Vector2(transform.position.x + Mathf.Sign(context.ReadValue<float>()) * moveUnit, transform.position.y);
+        transform.position = new Vector2(transform.position.x + Mathf.Sign(context.ReadValue<float>()) * currentMoveUnit, transform.position.y);
     }
 
     private IEnumerator HoldMove(InputAction.CallbackContext context)
@@ -129,8 +150,8 @@ public class BlockMouseFollower : MonoBehaviour
     public void ToggleFastMove(InputAction.CallbackContext context)
     {
         if (!isFalling && !isFollowing) return;
-        if (context.phase == InputActionPhase.Started) moveUnit *= 2;
-        else if (context.phase == InputActionPhase.Canceled) moveUnit /= 2;
+        if (context.phase == InputActionPhase.Started) currentMoveUnit *= 2;
+        else if (context.phase == InputActionPhase.Canceled) currentMoveUnit = moveUnit;
     }
 
     public void Rotate(InputAction.CallbackContext context)
