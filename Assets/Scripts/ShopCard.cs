@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -9,7 +10,8 @@ public class ShopCard : MonoBehaviour
     [SerializeField] private TMP_Text text_wood;
     [SerializeField] private TMP_Text text_compost;
     public RectTransform rectTransform;
-    public GameObject blockGenerator; // Référence à l'objet BlockGenerator
+    [SerializeField] private List<GameObject> buildingPrefabs; // Référence à l'objet BlockGenerator
+    [HideInInspector] public GameObject blockGenerator; // Référence à l'objet BlockGenerator
 
     [Header("Animation Parameters")]
     [SerializeField] private float inOutAnimationDuration;
@@ -28,8 +30,17 @@ public class ShopCard : MonoBehaviour
     void Start()
     {
         // Instancier l'objet BlockGenerator et le placer au centre de la carte
-        blockGenerator = Instantiate(blockGenerator);
+        blockGenerator = Instantiate(GenerateRandomBlockType());
         blockGenerator.transform.localPosition = Vector3.zero;
+        StartCoroutine(LateStart());
+    }
+
+    private IEnumerator LateStart()
+    {
+        yield return new WaitForEndOfFrame();
+        BlockGenerator component = blockGenerator.GetComponent<BlockGenerator>();
+        SetUpCard(((int)component.buildingType), component.woolCost, component.woodCost, component.compostCost);
+
     }
 
     void Update()
@@ -41,6 +52,12 @@ public class ShopCard : MonoBehaviour
             screenPoint.z = 0; // Assurez-vous que l'objet reste sur le plan XY
             blockGenerator.transform.position = screenPoint;
         }
+    }
+
+    private GameObject GenerateRandomBlockType()
+    {
+        return buildingPrefabs[Random.Range(0, buildingPrefabs.Count)];
+        
     }
 
     public void UpdateBlockSize(float size)
@@ -62,12 +79,12 @@ public class ShopCard : MonoBehaviour
         }
     }
 
-    public void SetUpCard(string name, int woolCount, int woodCount, int compostCount)
+    public void SetUpCard(int buildingType , int woolCount, int woodCount, int compostCount)
     {
-        text_title.text = name;
         text_wool.text = woolCount.ToString();
         text_wood.text = woodCount.ToString();
         text_compost.text = compostCount.ToString();
+        text_title.text = ((BlockGenerator.BuildingType)buildingType).ToString();
     }
 
     public void SetAnimationParameters(Vector2 startPosition, Vector2 endPosition)

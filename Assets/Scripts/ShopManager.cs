@@ -95,7 +95,6 @@ public class ShopManager : MonoBehaviour
             cardRectTransform.anchoredPosition = new Vector2(Screen.width, posY); // Position de départ hors écran
 
             ShopCard shopCard = newCard.GetComponent<ShopCard>();
-            shopCard.SetUpCard("Card " + (i + 1), i, i + 1, i + 2);
             shopCard.SetAnimationParameters(new Vector3(Screen.width, posY, 0), new Vector3(480, posY, 0));
 
             shopCards.Add(shopCard);
