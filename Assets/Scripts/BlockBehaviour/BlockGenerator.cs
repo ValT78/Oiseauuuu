@@ -8,6 +8,7 @@ using Random = UnityEngine.Random;
 public class BlockGenerator : MonoBehaviour
 {
     [SerializeField] private GameObject cubePrefab; // Le cube qui sert � g�n�rer les blocs
+    [SerializeField] private Rigidbody2D rb; // Le cube qui sert � g�n�rer les blocs
 
     [Tooltip("Commence par ceux qui ont 1 voisin, pour finir avec celui qui en a 4.\nOn ajoute dans cet ordre : Top, Bottom, Left, Right")]
     [SerializeField] private Sprite[] sprites = new Sprite[15] ; // Tableau de 15 sprites nomm�s
@@ -51,6 +52,7 @@ public class BlockGenerator : MonoBehaviour
 
     private void Update()
     {
+        ToleranceMovement();
         angle = CalculateAngle(initialPosition);
     }
 
@@ -108,26 +110,26 @@ public class BlockGenerator : MonoBehaviour
 
     public void UpdateSprites()
     {
-        List<Vector2> positions = new();
+        List<Vector2> localPositions = new();
         foreach (GameObject cube in cubes)
         {
-            positions.Add(cube.transform.position);
+            localPositions.Add(cube.transform.localPosition);
         }
 
         foreach (GameObject cube in cubes)
         {
-            Vector2 position = cube.transform.position;
+            Vector2 localPosition = cube.transform.localPosition;
             int neighborCode = 0;
-            float tolerance = 0.1f; // Tol�rance pour la comparaison des positions
+            float tolerance = 0.1f; // Tolérance pour la comparaison des positions
 
-            if (positions.Any(p => Vector2.Distance(p, position + Vector2.up) < tolerance))
+            if (localPositions.Any(p => Vector2.Distance(p, localPosition + Vector2.up) < tolerance))
             {
                 neighborCode |= 1;    // Haut
                 surfaceArea++;
             }
-            if (positions.Any(p => Vector2.Distance(p, position + Vector2.down) < tolerance)) neighborCode |= 2;  // Bas
-            if (positions.Any(p => Vector2.Distance(p, position + Vector2.left) < tolerance)) neighborCode |= 4;  // Gauche
-            if (positions.Any(p => Vector2.Distance(p, position + Vector2.right) < tolerance)) neighborCode |= 8; // Droite
+            if (localPositions.Any(p => Vector2.Distance(p, localPosition + Vector2.down) < tolerance)) neighborCode |= 2;  // Bas
+            if (localPositions.Any(p => Vector2.Distance(p, localPosition + Vector2.left) < tolerance)) neighborCode |= 4;  // Gauche
+            if (localPositions.Any(p => Vector2.Distance(p, localPosition + Vector2.right) < tolerance)) neighborCode |= 8; // Droite
 
             if (!cube.TryGetComponent<SpriteRenderer>(out var spriteRenderer))
             {
@@ -136,6 +138,7 @@ public class BlockGenerator : MonoBehaviour
             spriteRenderer.sprite = sprites[neighborCode - 1] ?? sprites[15]; // Utiliser neighborCode comme index
         }
     }
+
 
 
 
@@ -205,6 +208,28 @@ public class BlockGenerator : MonoBehaviour
                 break;
             case BuildingType.Wall:
                 break;
+        }
+    }
+
+    public void ToleranceMovement()
+    {
+        if (isPlaced && rb.velocity.magnitude == 0)
+        {
+            Vector3 position = transform.position;
+            float distanceToHalfX = Mathf.Abs(position.x - Mathf.Round(position.x * 2) / 2);
+            float distanceToHalfY = Mathf.Abs(position.y - Mathf.Round(position.y * 2) / 2);
+
+            if (distanceToHalfX < 0.05f)
+            {
+                position.x = Mathf.Round(position.x * 2) / 2;
+            }
+
+            if (distanceToHalfY < 0.05f)
+            {
+                position.y = Mathf.Round(position.y * 2) / 2;
+            }
+
+            transform.position = position;
         }
     }
 }

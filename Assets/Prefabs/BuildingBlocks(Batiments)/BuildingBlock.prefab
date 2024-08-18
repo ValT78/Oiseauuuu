@@ -49,6 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cubePrefab: {fileID: 5055607393679895339, guid: 217ab05eac726994f823b107709c1029, type: 3}
+  rb: {fileID: 7881227437780812312}
   sprites:
   - {fileID: 21300000, guid: 6580ac4ab9a364b4a9c89b30f924494b, type: 3}
   - {fileID: 21300000, guid: 022f4e50b6a2eef4a9f9dc3268bb8e0b, type: 3}
@@ -81,9 +82,9 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 100
+  m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -152,8 +153,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveUnit: 0.5
-  fallSpeed: 2
   fallSpeedIncreaseFactor: 6
+  baseFallSpeed: 2
 --- !u!114 &531875048388159118
 MonoBehaviour:
   m_ObjectHideFlags: 0

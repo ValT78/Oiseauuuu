@@ -86,6 +86,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cubePrefab: {fileID: 5055607393679895339, guid: 217ab05eac726994f823b107709c1029, type: 3}
+  rb: {fileID: 6896547880761296341}
   sprites:
   - {fileID: -3989876960406033661, guid: abf1f073653fdb3419b169a90d481277, type: 3}
   - {fileID: -3202708031508943793, guid: abf1f073653fdb3419b169a90d481277, type: 3}
@@ -109,3 +110,8 @@ MonoBehaviour:
   tree1: {fileID: 5055607393679895339, guid: 02f560b0869c0304b8ce00b77f53a096, type: 3}
   tree2: {fileID: 5055607393679895339, guid: ae06af2fc92bc4f418cfee0dd414a2e8, type: 3}
   doorPrefab: {fileID: 5055607393679895339, guid: 032bc73461ef55943adf7e7304dffac6, type: 3}
+--- !u!50 &6896547880761296341 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 7881227437780812312, guid: 9dcf1f7ce64334548803860febbbe61f, type: 3}
+  m_PrefabInstance: {fileID: 3668968438413182925}
+  m_PrefabAsset: {fileID: 0}

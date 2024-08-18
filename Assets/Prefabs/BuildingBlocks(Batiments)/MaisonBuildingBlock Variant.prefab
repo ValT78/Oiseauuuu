@@ -54,7 +54,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4557172850673400055, guid: 9dcf1f7ce64334548803860febbbe61f, type: 3}
       propertyPath: m_Name
-      value: BuildingBlockMaison1 Variant
+      value: MaisonBuildingBlock Variant
       objectReference: {fileID: 0}
     - target: {fileID: 8777412168806078610, guid: 9dcf1f7ce64334548803860febbbe61f, type: 3}
       propertyPath: m_Enabled
@@ -147,6 +147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cubePrefab: {fileID: 5055607393679895339, guid: 217ab05eac726994f823b107709c1029, type: 3}
+  rb: {fileID: 7688173856986102161}
   sprites:
   - {fileID: -3876975793545806100, guid: f7ed3b5a3824dbf47a76b9a7cbbf0ebc, type: 3}
   - {fileID: -5524628460249355981, guid: f7ed3b5a3824dbf47a76b9a7cbbf0ebc, type: 3}
@@ -169,3 +170,8 @@ MonoBehaviour:
   compostCost: 0
   windowPrefab: {fileID: 5055607393679895339, guid: 28b5214866220504392024927049efd1, type: 3}
   doorPrefab: {fileID: 5055607393679895339, guid: 18402e334314fe84fb83689d69f64658, type: 3}
+--- !u!50 &7688173856986102161 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 7881227437780812312, guid: 9dcf1f7ce64334548803860febbbe61f, type: 3}
+  m_PrefabInstance: {fileID: 571499733221456777}
+  m_PrefabAsset: {fileID: 0}

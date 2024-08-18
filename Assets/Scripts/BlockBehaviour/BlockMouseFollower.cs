@@ -16,14 +16,21 @@ public class BlockMouseFollower : MonoBehaviour
 
     [Header("Block Movement")]
     [SerializeField] private float moveUnit;
-    [SerializeField] private float fallSpeed;
+    private float fallSpeed;
     [SerializeField] private float fallSpeedIncreaseFactor;
+    [SerializeField] private float baseFallSpeed;
+    private float holdDelay = 0.5f; // Temps avant que le mouvement continu commence
+    private float repeatRate = 0.1f; // Intervalle entre chaque mouvement continu
+
+    private bool isMoving = false;
+    private Coroutine moveCoroutine;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         colliders = GetComponentsInChildren<Collider2D>();
         blockGenerator = GetComponent<BlockGenerator>();
+        fallSpeed = baseFallSpeed;
     }
 
     void Update()
@@ -65,7 +72,7 @@ public class BlockMouseFollower : MonoBehaviour
             rb.gravityScale = 1; // Activer la gravité
             rb.velocity = Vector2.zero;
             blockGenerator.isPlaced = true;
-            transform.position = new Vector2(Mathf.Round(transform.position.x/moveUnit), Mathf.Round(transform.position.y/moveUnit))*moveUnit;
+            transform.position = new Vector2(Mathf.Round(transform.position.x/moveUnit) * moveUnit, Mathf.Round(transform.position.y/moveUnit) * moveUnit);
             ShopManager.Instance.InitializeShop();
             Destroy(this);
 
@@ -82,11 +89,41 @@ public class BlockMouseFollower : MonoBehaviour
     public void Move(InputAction.CallbackContext context)
     {
         if (GameManager.Instance.isPaused) return;
-        if (context.phase != InputActionPhase.Started) return;
         if (!isFalling && !isFollowing) return;
+
+        if (context.phase == InputActionPhase.Started)
+        {
+            MoveOnce(context);
+            if (moveCoroutine != null)
+            {
+                StopCoroutine(moveCoroutine);
+            }
+            moveCoroutine = StartCoroutine(HoldMove(context));
+        }
+        else if (context.phase == InputActionPhase.Canceled)
+        {
+            if (moveCoroutine != null)
+            {
+                StopCoroutine(moveCoroutine);
+            }
+        }
+    }
+
+    private void MoveOnce(InputAction.CallbackContext context)
+    {
         transform.position = new Vector2(transform.position.x + Mathf.Sign(context.ReadValue<float>()) * moveUnit, transform.position.y);
     }
-    
+
+    private IEnumerator HoldMove(InputAction.CallbackContext context)
+    {
+        yield return new WaitForSeconds(holdDelay);
+        while (true)
+        {
+            MoveOnce(context);
+            yield return new WaitForSeconds(repeatRate);
+        }
+    }
+
     public void ToggleFastMove(InputAction.CallbackContext context)
     {
         if (!isFalling && !isFollowing) return;
@@ -121,7 +158,7 @@ public class BlockMouseFollower : MonoBehaviour
     {
         if (!isFalling) return;
         if (context.phase == InputActionPhase.Started) fallSpeed *= fallSpeedIncreaseFactor;
-        else if (context.phase == InputActionPhase.Canceled) fallSpeed /= fallSpeedIncreaseFactor;
+        else if (context.phase == InputActionPhase.Canceled) fallSpeed = baseFallSpeed;
     }
 
 }

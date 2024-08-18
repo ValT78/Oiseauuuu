@@ -129,6 +129,11 @@ PrefabInstance:
       insertIndex: 1
       addedObject: {fileID: 180893027592626793}
   m_SourcePrefab: {fileID: 100100000, guid: 9dcf1f7ce64334548803860febbbe61f, type: 3}
+--- !u!50 &260282753982653592 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 7881227437780812312, guid: 9dcf1f7ce64334548803860febbbe61f, type: 3}
+  m_PrefabInstance: {fileID: 7981235403841021568}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &5907983565135945335 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4557172850673400055, guid: 9dcf1f7ce64334548803860febbbe61f, type: 3}
@@ -147,6 +152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cubePrefab: {fileID: 5055607393679895339, guid: 217ab05eac726994f823b107709c1029, type: 3}
+  rb: {fileID: 260282753982653592}
   sprites:
   - {fileID: -3426643322579736680, guid: d0e6c8975c909c54b8c37475edf4cb30, type: 3}
   - {fileID: 7638016569430290844, guid: d0e6c8975c909c54b8c37475edf4cb30, type: 3}

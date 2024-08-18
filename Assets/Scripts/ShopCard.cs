@@ -170,6 +170,7 @@ public class ShopCard : MonoBehaviour
         {
             if (isChosen || isGoing)
             {
+                UpdateBlockSize(1);
                 Destroy(gameObject);
                 yield break;
             }
@@ -187,6 +188,7 @@ public class ShopCard : MonoBehaviour
         {
             if (isChosen || isGoing)
             {
+                UpdateBlockSize(1);
                 Destroy(gameObject);
                 yield break;
             }
@@ -196,6 +198,8 @@ public class ShopCard : MonoBehaviour
             elapsedTime += Time.deltaTime;
             yield return null;
         }
+
+        UpdateBlockSize(1);
 
         // Détruire le GameObject après l'animation
         Destroy(gameObject);
