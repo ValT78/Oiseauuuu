@@ -21,8 +21,8 @@ public class BlockGenerator : MonoBehaviour
         WoolFactory = 2,
         WoodFactory = 3,
         CompostFactory = 4,
-        Wall = 5
-
+        Wall = 5,
+        Dirt = 6
     }
 
     public BuildingType buildingType;
@@ -77,7 +77,7 @@ public class BlockGenerator : MonoBehaviour
     private void Update()
     {
 /*        ToleranceMovement();
-*/        angle = CalculateAngle(initialPosition);
+*/        
         if(transform.position.y < -10)
         {
             GameManager.Instance.LoseLife(this);
@@ -220,12 +220,6 @@ public class BlockGenerator : MonoBehaviour
 
         // Choisir une position al�atoire parmi les positions possibles
         return possiblePositions[Random.Range(0, possiblePositions.Count)];
-    }
-
-    private float CalculateAngle(Vector2 initialPosition)
-    {
-        Vector2 direction = initialPosition - (Vector2)transform.position;
-        return Vector2.Angle(Vector2.up, direction);
     }
 
     public float GetHighestObjectHeight()

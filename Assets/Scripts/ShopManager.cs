@@ -54,7 +54,7 @@ public class ShopManager : MonoBehaviour
     void Start()
     {
         cardHeight = shopCardPrefab.GetComponent<RectTransform>().rect.height;
-        cardScale = ((Screen.width - cardSpacing) / numberOfCards - cardSpacing) / cardHeight;
+        cardScale = ((1080 - cardSpacing) / numberOfCards - cardSpacing) / cardHeight;
         InitializeShop(); // Exemple d'initialisation avec 5 cartes
     }
 
@@ -80,7 +80,7 @@ public class ShopManager : MonoBehaviour
     public void InitializeShop()
     {
         shopCards.Clear();
-        float startY = 540 - cardSpacing - cardHeight / 2; // Position de départ en haut de l'écran
+        float startY = 540 - cardSpacing - cardHeight*cardScale / 2; // Position de départ en haut de l'écran
 
         for (int i = 0; i < numberOfCards; i++)
         {
