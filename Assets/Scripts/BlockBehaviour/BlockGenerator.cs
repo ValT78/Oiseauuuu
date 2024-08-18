@@ -29,6 +29,7 @@ public class BlockGenerator : MonoBehaviour
 
     private float angle;
     private int surfaceArea;
+    private int trampledWheat;
     private int numberOfCubesInBlock;
     [HideInInspector] public bool isPlaced;
 
@@ -255,7 +256,18 @@ public class BlockGenerator : MonoBehaviour
                 GameManager.Instance.population += numberOfCubesInBlock;
                 break;
             case BuildingType.CropFields:
-                GameManager.Instance.food += surfaceArea;
+                foreach (Transform child in transform)
+                {
+                    // Appel récursif pour les enfants de l'enfant actuel
+                    if (child.childCount > 0 && child.GetChild(0).TryGetComponent(out Wheat wheatScript))
+                    {
+                        if (wheatScript.isTrampled)
+                        {
+                            trampledWheat++;
+                        }
+                    }
+                }
+                GameManager.Instance.food += (surfaceArea-trampledWheat)*3;
                 break;
             case BuildingType.WoolFactory:
                 GameManager.Instance.woolProduction += numberOfCubesInBlock;
