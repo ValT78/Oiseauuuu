@@ -21,17 +21,36 @@ public class ShopCard : MonoBehaviour
 
     [Header("Selection Parameters")]
     [SerializeField] private float selectDuration;
+    [SerializeField] private float previewScale = 3f;
 
     [Header("Choose Parameters")]
     [SerializeField] private float growDuration;
     [SerializeField] private float shrinkDuration;
     private bool isChosen = false;
 
+    private GameObject currentBlockGenerator;
+
+
+    Bounds GetBounds(GameObject obj)
+    {
+        var bounds = new Bounds(obj.transform.position, Vector3.zero);
+        Renderer[] renderers = obj.GetComponentsInChildren<Renderer>();
+        print("Renderers: " + renderers.Length);
+        foreach (Renderer renderer in obj.GetComponentsInChildren<Renderer>())
+        {
+            Debug.Log("Child renderer");
+            bounds.Encapsulate(renderer.bounds);
+        }
+        return bounds;
+    }
+
     void Start()
     {
         // Instancier l'objet BlockGenerator et le placer au centre de la carte
         blockGenerator = Instantiate(GenerateRandomBlockType());
         blockGenerator.transform.localPosition = Vector3.zero;
+        currentBlockGenerator = blockGenerator;
+        
         StartCoroutine(LateStart());
     }
 
@@ -39,8 +58,14 @@ public class ShopCard : MonoBehaviour
     {
         yield return new WaitForEndOfFrame();
         BlockGenerator component = blockGenerator.GetComponent<BlockGenerator>();
+
+        Bounds bounds = GetBounds(blockGenerator);
+
+        float maxDimension = Mathf.Max(bounds.size.x, bounds.size.y);
+
         SetUpCard(((int)component.buildingType), component.woolCost, component.woodCost, component.compostCost);
-        UpdateBlockSize(rectTransform.localScale.x);
+        UpdateBlockSize(previewScale * rectTransform.localScale.x / maxDimension);
+        blockGenerator.transform.position = bounds.center;
     }
 
     void Update()
@@ -148,7 +173,7 @@ public class ShopCard : MonoBehaviour
             }
             float t = elapsedTime / selectDuration;
             rectTransform.localScale = Vector3.Lerp(new Vector3(startScale, startScale, 1), new Vector3(endScale, endScale, 1), t);
-            UpdateBlockSize(rectTransform.localScale.x);
+            //UpdateBlockSize(rectTransform.localScale.x);
             rectTransform.anchoredPosition = Vector2.Lerp(startPosition, endPosition, t);
             elapsedTime += Time.deltaTime;
             yield return null;
