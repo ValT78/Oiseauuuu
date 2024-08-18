@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine;
 
-// Script pour suivre la souris et gérer les clics
+// Script pour suivre la souris et gï¿½rer les clics
 public class BlockMouseFollower : MonoBehaviour
 {
     private bool isFollowing = false;
@@ -69,10 +69,12 @@ public class BlockMouseFollower : MonoBehaviour
 
             isFalling = false;
             rb.isKinematic = false; // Activer la physique
-            rb.gravityScale = 1; // Activer la gravité
+            rb.gravityScale = 1; // Activer la gravitï¿½
             rb.velocity = Vector2.zero;
             blockGenerator.isPlaced = true;
-            transform.position = new Vector2(Mathf.Round(transform.position.x/moveUnit) * moveUnit, Mathf.Round(transform.position.y/moveUnit) * moveUnit);
+            if (blockGenerator.buildingType == BlockGenerator.BuildingType.Wall) blockGenerator.Stick();
+            transform.position = new Vector2(Mathf.Round(transform.position.x/moveUnit), Mathf.Round(transform.position.y/moveUnit))*moveUnit;
+
             ShopManager.Instance.InitializeShop();
             Destroy(this);
 
@@ -146,11 +148,11 @@ public class BlockMouseFollower : MonoBehaviour
         if (!isFollowing) return;
         isFollowing = false;
         isFalling = true;
-        rb.isKinematic = true; // Désactiver la physique pour le mouvement manuel
-        rb.gravityScale = 0; // Désactiver la gravité
+        rb.isKinematic = true; // Dï¿½sactiver la physique pour le mouvement manuel
+        rb.gravityScale = 0; // Dï¿½sactiver la gravitï¿½
         foreach (var collider in colliders)
         {
-            collider.isTrigger = false; // Désactiver les collisions physiques
+            collider.isTrigger = false; // Dï¿½sactiver les collisions physiques
         }
         blockGenerator.SetInitialPosition(transform.position);
     }
