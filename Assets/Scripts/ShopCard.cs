@@ -40,7 +40,7 @@ public class ShopCard : MonoBehaviour
         yield return new WaitForEndOfFrame();
         BlockGenerator component = blockGenerator.GetComponent<BlockGenerator>();
         SetUpCard(((int)component.buildingType), component.woolCost, component.woodCost, component.compostCost);
-
+        UpdateBlockSize(rectTransform.localScale.x);
     }
 
     void Update()

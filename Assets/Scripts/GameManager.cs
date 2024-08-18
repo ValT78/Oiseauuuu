@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -10,6 +11,12 @@ public class GameManager : MonoBehaviour
 
     public List<ShopCard> shopCards = new();
 
+    [Header("LifeCounter")]
+    [HideInInspector] public int life;
+    public int maxLife;
+    public float invicibilityTime;
+    private float invicibilityTimer;
+
     [Header("Block Generation")]
     public int numberOfCubesInBlock;
     public float baseHeigth;
@@ -17,16 +24,21 @@ public class GameManager : MonoBehaviour
     public float buildPositionX;
 
     [Header("Ressources")]
-    public int population;
-    public int food;
     public int wood;
     public int wool;
     public int compost;
+    [HideInInspector] public int woodProduction;
+    [HideInInspector] public int woolProduction;
+    [HideInInspector] public int compostProduction;
+    [HideInInspector] public int population;
+    [HideInInspector] public int food;
+    [HideInInspector] public int feededPopulation;
 
     [Header("Compute coast")]
     public float coastOffset;
     public float coastPerCube;
     public float variance;
+    public float repartitionVariance;
 
     [Header("Pause")]
     [SerializeField] private GameObject PauseMenu;
@@ -45,7 +57,20 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public float GetSPawnBlockHeight()
+    private void Start()
+    {
+        life = maxLife;
+        invicibilityTimer = 0;
+        PauseMenu.SetActive(false);
+        RessourceDisplay.Instance.RessourceUpdate(wool, wood, compost, population, food);
+    }
+
+    private void Update()
+    {
+        invicibilityTimer -= Time.deltaTime;
+    }
+
+    public float GetSpawnBlockHeight()
     {
         float towerHeigth =  baseHeigth;
         foreach (BlockGenerator block in blockList)
@@ -57,6 +82,7 @@ public class GameManager : MonoBehaviour
                     towerHeigth = blockHeight;
             }
         }
+        print(towerHeigth);
         return towerHeigth + blockSpawnOffset;
     }
 
@@ -64,6 +90,9 @@ public class GameManager : MonoBehaviour
     {
         this.population = 0;
         this.food = 0;
+        this.woodProduction = 0;
+        this.woolProduction = 0;
+        this.compostProduction = 0;
         foreach (BlockGenerator block in blockList)
         {
             if (block.isPlaced)
@@ -71,6 +100,23 @@ public class GameManager : MonoBehaviour
                 block.ProduceRessouces();
             }
         }
+        feededPopulation = math.min(population, food);
+        int totalProduction = woodProduction + woolProduction + compostProduction;
+        if(totalProduction >= feededPopulation)
+        {
+            wood += woodProduction;
+            wool += woolProduction;
+            compost += compostProduction;
+        }
+        else
+        {
+            wood += (int)(woodProduction * feededPopulation / totalProduction);
+            wool += (int)(woolProduction * feededPopulation / totalProduction);
+            compost += (int)(compostProduction * feededPopulation / totalProduction);
+        }
+
+        RessourceDisplay.Instance.RessourceUpdate(wool, wood, compost, population, food);
+
     }
 
     public void PauseGame()
@@ -99,6 +145,25 @@ public class GameManager : MonoBehaviour
             else PauseGame();
         }
         
+    }
+
+    public void LoseLife(BlockGenerator blockGenerator)
+    {
+        blockList.Remove(blockGenerator);
+        if (invicibilityTimer <= 0)
+        {
+            life--;
+            invicibilityTimer = invicibilityTime;
+            if (life <= 0)
+            {
+                GameOver();
+            }
+        }
+    }   
+
+    private void GameOver()
+    {
+
     }
 
 }

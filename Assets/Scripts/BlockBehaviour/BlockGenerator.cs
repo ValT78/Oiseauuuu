@@ -25,7 +25,7 @@ public class BlockGenerator : MonoBehaviour
 
     }
 
-    public readonly BuildingType buildingType;
+    public BuildingType buildingType;
 
     private float angle;
     private int surfaceArea;
@@ -44,9 +44,31 @@ public class BlockGenerator : MonoBehaviour
         GameManager.Instance.blockList.Add(this);
         numberOfCubesInBlock = GameManager.Instance.numberOfCubesInBlock;
 
-        woodCost = GetNewPrice();
-        woolCost = GetNewPrice();
-        compostCost = GetNewPrice();
+        Vector3Int prices = new Vector3Int();
+        switch (buildingType)
+        {
+            case BuildingType.House:
+                prices = GetNewPrices(1, 3, 1);
+                break;
+            case BuildingType.CropFields:
+                prices = GetNewPrices(1, 1, 3);
+                break;
+            case BuildingType.WoolFactory:
+                prices = GetNewPrices(3, 1, 1);
+                break;
+            case BuildingType.WoodFactory:
+                prices = GetNewPrices(3, 1, 1);
+                break;
+            case BuildingType.CompostFactory:
+                prices = GetNewPrices(3, 1, 1);
+                break;
+            case BuildingType.Wall:
+                prices = GetNewPrices(1, 1, 1);
+                break;
+        }   
+        woodCost = prices.x;
+        woolCost = prices.y;
+        compostCost = prices.z;
 
         GenerateBlock(numberOfCubesInBlock);
     }
@@ -55,6 +77,11 @@ public class BlockGenerator : MonoBehaviour
     {
 /*        ToleranceMovement();
 */        angle = CalculateAngle(initialPosition);
+        if(transform.position.y < -10)
+        {
+            GameManager.Instance.LoseLife(this);
+            Destroy(gameObject);
+        }
     }
 
     float GetRandomFloat(float min, float max)
@@ -62,10 +89,32 @@ public class BlockGenerator : MonoBehaviour
         System.Random random = new();
         return (float)(random.NextDouble() * (max - min) + min);
     }
-    int GetNewPrice()
+    public Vector3Int GetNewPrices(int weightWood, int weightWool, int weightCompost)
     {
-        return (int)math.max(0, math.round(numberOfCubesInBlock * GameManager.Instance.coastPerCube * GetRandomFloat(GameManager.Instance.variance, 1 / GameManager.Instance.variance) - GameManager.Instance.coastOffset)); ;
+        int total = (int)math.max(0, math.round((numberOfCubesInBlock * GameManager.Instance.coastPerCube - GameManager.Instance.coastOffset) * GetRandomFloat(GameManager.Instance.variance, 1 / GameManager.Instance.variance))); ;
+        int totalWeight = weightWood + weightWool + weightCompost;
+
+        // Calculer les parts proportionnelles
+        float part1 = (float)weightWood / totalWeight;
+        float part2 = (float)weightWool / totalWeight;
+        float part3 = (float)weightCompost / totalWeight;
+
+        // Générer des valeurs aléatoires basées sur les parts
+        int value1 = Mathf.RoundToInt(total * part1 * Random.Range(1- GameManager.Instance.repartitionVariance, 1+ GameManager.Instance.repartitionVariance));
+        int value2 = Mathf.RoundToInt(total * part2 * Random.Range(1 - GameManager.Instance.repartitionVariance, 1 + GameManager.Instance.repartitionVariance));
+        int value3 = total - value1 - value2;
+
+        // Ajuster les valeurs pour s'assurer que la somme est égale au total
+        int sum = value1 + value2 + value3;
+
+        // Si la somme n'est pas égale au total, ajuster la dernière valeur
+        if (sum != total)
+        {
+            value3 += total - sum;
+        }
+        return new Vector3Int(value1, value2, value3);
     }
+
     public virtual void GenerateBlock(int numberOfCubes)
     {
         GameObject blockParent = this.gameObject; // Utiliser l'objet actuel comme parent
@@ -132,6 +181,9 @@ public class BlockGenerator : MonoBehaviour
             if (localPositions.Any(p => Vector2.Distance(p, localPosition +  (Vector2) cube.transform.up) < tolerance))
             {
                 neighborCode |= 1;    // Haut
+            }
+            else
+            {
                 surfaceArea++;
             }
             if (localPositions.Any(p => Vector2.Distance(p, localPosition + (Vector2) (-cube.transform.up)) < tolerance)) neighborCode |= 2;  // Bas
@@ -207,13 +259,13 @@ public class BlockGenerator : MonoBehaviour
                 GameManager.Instance.food += surfaceArea;
                 break;
             case BuildingType.WoolFactory:
-                GameManager.Instance.wool += woolCost;
+                GameManager.Instance.woolProduction += numberOfCubesInBlock;
                 break;
             case BuildingType.WoodFactory:
-                GameManager.Instance.wood += woodCost;
+                GameManager.Instance.woodProduction += numberOfCubesInBlock;
                 break;
             case BuildingType.CompostFactory:
-                GameManager.Instance.compost += compostCost;
+                GameManager.Instance.compostProduction += numberOfCubesInBlock;
                 break;
             case BuildingType.Wall:
                 break;

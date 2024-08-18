@@ -65,7 +65,7 @@ public class BlockMouseFollower : MonoBehaviour
             isFollowing = true;
 
             // Position de spawn fixe
-            transform.position = new Vector2(GameManager.Instance.buildPositionX, GameManager.Instance.GetSPawnBlockHeight());
+            transform.position = new Vector2(GameManager.Instance.buildPositionX, GameManager.Instance.GetSpawnBlockHeight());
             return true;
         }
     }
@@ -95,7 +95,7 @@ public class BlockMouseFollower : MonoBehaviour
             blockGenerator.isPlaced = true;
             if (blockGenerator.buildingType == BlockGenerator.BuildingType.Wall) blockGenerator.Stick();
             transform.position = new Vector2(Mathf.Round(transform.position.x/ currentMoveUnit), Mathf.Round(transform.position.y/currentMoveUnit))*currentMoveUnit;
-
+            GameManager.Instance.UpdateRessources();
             ShopManager.Instance.InitializeShop();
             Destroy(this);
 

@@ -103,6 +103,7 @@ MonoBehaviour:
   - {fileID: -4775927454076893923, guid: abf1f073653fdb3419b169a90d481277, type: 3}
   - {fileID: -8180044962281953906, guid: abf1f073653fdb3419b169a90d481277, type: 3}
   - {fileID: -4775927454076893923, guid: abf1f073653fdb3419b169a90d481277, type: 3}
+  buildingType: 3
   isPlaced: 0
   woolCost: 0
   woodCost: 0
@@ -110,6 +111,7 @@ MonoBehaviour:
   tree1: {fileID: 5055607393679895339, guid: 02f560b0869c0304b8ce00b77f53a096, type: 3}
   tree2: {fileID: 5055607393679895339, guid: ae06af2fc92bc4f418cfee0dd414a2e8, type: 3}
   doorPrefab: {fileID: 5055607393679895339, guid: 032bc73461ef55943adf7e7304dffac6, type: 3}
+  detailsList: []
 --- !u!50 &6896547880761296341 stripped
 Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 7881227437780812312, guid: 9dcf1f7ce64334548803860febbbe61f, type: 3}
