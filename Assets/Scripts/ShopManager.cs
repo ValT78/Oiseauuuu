@@ -109,6 +109,7 @@ public class ShopManager : MonoBehaviour
         {
             if(card.blockGenerator.GetComponent<BlockMouseFollower>().TryBuyCard())
             {
+                card.blockGenerator.GetComponent<BlockGenerator>().canBeDestroyed = true;
                 isBuyable = false;
                 StartCoroutine(card.AnimateChoose());
                 foreach (ShopCard shopCard in shopCards)

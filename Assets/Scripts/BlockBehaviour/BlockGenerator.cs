@@ -26,6 +26,7 @@ public class BlockGenerator : MonoBehaviour
     }
 
     public BuildingType buildingType;
+    public bool canBeDestroyed = true;
 
     private float angle;
     private int surfaceArea;
@@ -77,8 +78,8 @@ public class BlockGenerator : MonoBehaviour
     private void Update()
     {
 /*        ToleranceMovement();
-*/        
-        if(transform.position.y < -10)
+*/        angle = CalculateAngle(initialPosition);
+        if(transform.position.y < -10 && canBeDestroyed)
         {
             GameManager.Instance.LoseLife(this);
             Destroy(gameObject);

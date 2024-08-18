@@ -27,18 +27,16 @@ public class ShopCard : MonoBehaviour
     [SerializeField] private float growDuration;
     [SerializeField] private float shrinkDuration;
     private bool isChosen = false;
+    private Vector3 center_offset;
 
-    private GameObject currentBlockGenerator;
-
+    private Bounds boundsBlockGenerator;
 
     Bounds GetBounds(GameObject obj)
     {
         var bounds = new Bounds(obj.transform.position, Vector3.zero);
         Renderer[] renderers = obj.GetComponentsInChildren<Renderer>();
-        print("Renderers: " + renderers.Length);
         foreach (Renderer renderer in obj.GetComponentsInChildren<Renderer>())
         {
-            Debug.Log("Child renderer");
             bounds.Encapsulate(renderer.bounds);
         }
         return bounds;
@@ -48,9 +46,11 @@ public class ShopCard : MonoBehaviour
     {
         // Instancier l'objet BlockGenerator et le placer au centre de la carte
         blockGenerator = Instantiate(GenerateRandomBlockType());
+        blockGenerator.GetComponent<BlockGenerator>().canBeDestroyed = false;
         blockGenerator.transform.localPosition = Vector3.zero;
-        currentBlockGenerator = blockGenerator;
+        boundsBlockGenerator = GetBounds(blockGenerator);
         
+
         StartCoroutine(LateStart());
     }
 
@@ -58,14 +58,14 @@ public class ShopCard : MonoBehaviour
     {
         yield return new WaitForEndOfFrame();
         BlockGenerator component = blockGenerator.GetComponent<BlockGenerator>();
-
-        Bounds bounds = GetBounds(blockGenerator);
-
-        float maxDimension = Mathf.Max(bounds.size.x, bounds.size.y);
+        boundsBlockGenerator = GetBounds(blockGenerator);
+        float maxDimension = Mathf.Max(boundsBlockGenerator.size.x, boundsBlockGenerator.size.y);
 
         SetUpCard(((int)component.buildingType), component.woolCost, component.woodCost, component.compostCost);
         UpdateBlockSize(previewScale * rectTransform.localScale.x / maxDimension);
-        blockGenerator.transform.position = bounds.center;
+
+        center_offset = boundsBlockGenerator.center - blockGenerator.transform.position;
+        print("Center offset: " + center_offset);
     }
 
     void Update()
@@ -75,7 +75,7 @@ public class ShopCard : MonoBehaviour
             // Mettre à jour la position de l'objet BlockGenerator pour qu'il reste centré sur la carte
             Vector3 screenPoint = rectTransform.TransformPoint(rectTransform.rect.center);
             screenPoint.z = 0; // Assurez-vous que l'objet reste sur le plan XY
-            blockGenerator.transform.position = screenPoint;
+            blockGenerator.transform.position = screenPoint - center_offset;
         }
     }
 
@@ -228,5 +228,6 @@ public class ShopCard : MonoBehaviour
 
         // Détruire le GameObject après l'animation
         Destroy(gameObject);
+        
     }
 }
