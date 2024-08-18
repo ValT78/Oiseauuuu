@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.InputSystem;
 using UnityEngine;
 
 // Script pour suivre la souris et gérer les clics
@@ -27,61 +28,9 @@ public class BlockMouseFollower : MonoBehaviour
 
     void Update()
     {
-        if(isFollowing || isFalling)
-        {
-            if(Input.GetKeyDown(KeyCode.Z))
-            {
-                moveUnit *= 2;
-            }
-            else if(Input.GetKeyUp(KeyCode.Z))
-            {
-                moveUnit /= 2;
-            }
-            if(Input.GetKeyDown(KeyCode.Q))
-            {
-                transform.position = new Vector2(transform.position.x - moveUnit, transform.position.y);
-            }
-            else if(Input.GetKeyDown(KeyCode.D))
-            {
-                transform.position = new Vector2(transform.position.x + moveUnit, transform.position.y);
-            }
-        }
-        if (isFollowing)
-        {
-            if (Input.GetKeyDown(KeyCode.A))
-            {
-                RotateBlock(90);
-            }
-            else if (Input.GetKeyDown(KeyCode.E))
-            {
-                RotateBlock(-90);
-            }
-            else if (Input.GetKeyDown(KeyCode.Space))
-            {
-                isFollowing = false;
-                isFalling = true;
-                rb.isKinematic = true; // Désactiver la physique pour le mouvement manuel
-                rb.gravityScale = 0; // Désactiver la gravité
-                foreach (var collider in colliders)
-                {
-                    collider.isTrigger = false; // Désactiver les collisions physiques
-                }
-                blockGenerator.SetInitialPosition(transform.position);
-
-            }
-        }
         if (isFalling)
         {
             transform.position = new Vector2(transform.position.x, transform.position.y - fallSpeed * Time.deltaTime);
-
-            if(Input.GetKeyDown(KeyCode.S))
-            {
-                fallSpeed *= fallSpeedIncreaseFactor;
-            }
-            else if (Input.GetKeyUp(KeyCode.S))
-            {
-                fallSpeed /= fallSpeedIncreaseFactor;
-            }
         }
     }
 
@@ -125,8 +74,55 @@ public class BlockMouseFollower : MonoBehaviour
 
     private void RotateBlock(float angle)
     {
+        if (GameManager.Instance.isPaused) return;
         transform.RotateAround(transform.position, Vector3.forward, angle);
         blockGenerator.UpdateSprites();
     }
+
+    public void Move(InputAction.CallbackContext context)
+    {
+        if (GameManager.Instance.isPaused) return;
+        if (context.phase != InputActionPhase.Started) return;
+        if (!isFalling && !isFollowing) return;
+        transform.position = new Vector2(transform.position.x + Mathf.Sign(context.ReadValue<float>()) * moveUnit, transform.position.y);
+    }
+    
+    public void ToggleFastMove(InputAction.CallbackContext context)
+    {
+        if (!isFalling && !isFollowing) return;
+        if (context.phase == InputActionPhase.Started) moveUnit *= 2;
+        else if (context.phase == InputActionPhase.Canceled) moveUnit /= 2;
+    }
+
+    public void Rotate(InputAction.CallbackContext context)
+    {
+        if (GameManager.Instance.isPaused) return;
+        if (context.phase != InputActionPhase.Started) return;
+        if (!isFollowing) return;
+        RotateBlock(Mathf.Sign(context.ReadValue<float>()) * 90);
+    }
+
+    public void Select(InputAction.CallbackContext context)
+    {
+        if (GameManager.Instance.isPaused) return;
+        if (context.phase != InputActionPhase.Started) return;
+        if (!isFollowing) return;
+        isFollowing = false;
+        isFalling = true;
+        rb.isKinematic = true; // Désactiver la physique pour le mouvement manuel
+        rb.gravityScale = 0; // Désactiver la gravité
+        foreach (var collider in colliders)
+        {
+            collider.isTrigger = false; // Désactiver les collisions physiques
+        }
+        blockGenerator.SetInitialPosition(transform.position);
+    }
+    public void ToggleFastDrop(InputAction.CallbackContext context)
+    {
+        if (!isFalling) return;
+        if (context.phase == InputActionPhase.Started) fallSpeed *= fallSpeedIncreaseFactor;
+        else if (context.phase == InputActionPhase.Canceled) fallSpeed /= fallSpeedIncreaseFactor;
+    }
+
 }
 
