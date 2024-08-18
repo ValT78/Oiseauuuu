@@ -12,7 +12,7 @@ public class BlockGenerator : MonoBehaviour
     [Tooltip("Commence par ceux qui ont 1 voisin, pour finir avec celui qui en a 4.\nOn ajoute dans cet ordre : Top, Bottom, Left, Right")]
     [SerializeField] private Sprite[] sprites = new Sprite[15] ; // Tableau de 15 sprites nomm�s
 
-    enum BuildingType
+    public enum BuildingType
     {
         House = 0,
         CropFields = 1,
@@ -23,7 +23,7 @@ public class BlockGenerator : MonoBehaviour
 
     }
 
-    private readonly BuildingType buildingType;
+    public readonly BuildingType buildingType;
 
     private float angle;
     private int surfaceArea;

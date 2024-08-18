@@ -487,6 +487,30 @@ PrefabInstance:
       value: GameManager
       objectReference: {fileID: 0}
     - target: {fileID: 6627811808670925595, guid: 3d46c192ece5e874ab285094e1fde23e, type: 3}
+      propertyPath: wood
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6627811808670925595, guid: 3d46c192ece5e874ab285094e1fde23e, type: 3}
+      propertyPath: wool
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6627811808670925595, guid: 3d46c192ece5e874ab285094e1fde23e, type: 3}
+      propertyPath: compost
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6627811808670925595, guid: 3d46c192ece5e874ab285094e1fde23e, type: 3}
+      propertyPath: variance
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6627811808670925595, guid: 3d46c192ece5e874ab285094e1fde23e, type: 3}
+      propertyPath: coastOffset
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6627811808670925595, guid: 3d46c192ece5e874ab285094e1fde23e, type: 3}
+      propertyPath: coastPerCube
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6627811808670925595, guid: 3d46c192ece5e874ab285094e1fde23e, type: 3}
       propertyPath: blockSpawnOffset
       value: 15
       objectReference: {fileID: 0}
