@@ -96,6 +96,7 @@ public class BlockMouseFollower : MonoBehaviour
                 /*FixedJoint2D joint = collider.gameObject.AddComponent<FixedJoint2D>();
                 joint.connectedBody = rb;*/
             }
+            AudioManager.Instance.PlayPlacement();
             isFalling = false;
             rb.isKinematic = false; // Activer la physique
             rb.gravityScale = 1; // Activer la gravit�
