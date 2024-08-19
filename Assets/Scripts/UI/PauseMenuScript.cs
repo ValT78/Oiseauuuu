@@ -9,6 +9,20 @@ public class PauseMenuScript : MonoBehaviour
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private string mainMenuName = "Main Menu";
 
+    public static PauseMenuScript Instance { get; private set; }
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
 
     public void ToExplaination()
     {
@@ -35,6 +49,7 @@ public class PauseMenuScript : MonoBehaviour
     {
         control.SetActive(false);
         explaination.SetActive(false);
+        pauseMenu.SetActive(false);
     }
 
     public void QuitGame()

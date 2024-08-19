@@ -140,7 +140,7 @@ public class GameManager : MonoBehaviour
         PauseMenu.SetActive(false);
         Time.timeScale = 1.0f;
         isPaused = false;
-        //PauseMenuScript.Instance.returnToGame();
+        PauseMenuScript.Instance.returnToGame();
         Debug.Log("set Pause false");
     }
 
