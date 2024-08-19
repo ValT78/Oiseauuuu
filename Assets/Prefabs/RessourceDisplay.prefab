@@ -700,12 +700,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6668657432847176045, guid: 16f6a70bf0f48b14aa866b67c99dc4ea, type: 3}
       propertyPath: m_fontSize
-      value: 37.75
+      value: 37.65
       objectReference: {fileID: 0}
     - target: {fileID: 8407248391610505163, guid: 16f6a70bf0f48b14aa866b67c99dc4ea, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 87787c67eaba55d4ab662d794375bf84, type: 3}
+      objectReference: {fileID: 21300000, guid: 9c246367ff615c0459fc6a7bfb8878a0, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
