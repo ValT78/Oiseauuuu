@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class AudioManager : Singleton<AudioManager>
+public class AudioManager : MonoBehaviour
 {
-
+    public static AudioManager Instance { get; private set; }
     public AudioSource soundsSource;
     public AudioSource musicSource;
     public AudioSource ambiantSource;
@@ -22,6 +22,17 @@ public class AudioManager : Singleton<AudioManager>
     public AudioClip selection;
     public AudioClip wave;
 
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     private void Start()
     {
