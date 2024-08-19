@@ -313,7 +313,7 @@ public class BlockGenerator : MonoBehaviour
             foreach (Collider2D neighbour in neighbours)
             {
                 if (!neighbour.transform.parent) continue ;
-                if (!neighbour.transform.parent.TryGetComponent<BlockGenerator>(out _)) continue ;
+                //if (!neighbour.transform.parent.TryGetComponent<BlockGenerator>(out _)) continue ;
                 GameObject parent = neighbour.transform.parent.gameObject;
                 if (!parent.TryGetComponent<Rigidbody2D>(out Rigidbody2D component)) continue;
                 var joint = gameObject.AddComponent<FixedJoint2D>();
@@ -333,6 +333,7 @@ public class BlockGenerator : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         Camera.main.GetComponent<CamMouvement>().StartZoom(5, transform.position, 0.3f, 0.5f, true);
         yield return new WaitForSeconds(1.1f);
+        if (buildingType == BlockGenerator.BuildingType.Wall) Stick();
         GameManager.Instance.UpdateRessources();
         ShopManager.Instance.InitializeShop();
     }   

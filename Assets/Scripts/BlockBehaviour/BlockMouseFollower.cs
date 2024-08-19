@@ -103,9 +103,9 @@ public class BlockMouseFollower : MonoBehaviour
             rb.gravityScale = 1; // Activer la gravit�
             rb.velocity = Vector2.zero;
             blockGenerator.isPlaced = true;
-            if (blockGenerator.buildingType == BlockGenerator.BuildingType.Wall) blockGenerator.Stick();
             transform.position = new Vector2(Mathf.Round(transform.position.x/ currentMoveUnit), Mathf.Round(transform.position.y/currentMoveUnit))*currentMoveUnit;
             blockGenerator.GetPlaced();
+            if (blockGenerator.buildingType == BlockGenerator.BuildingType.Wall) blockGenerator.Stick();
             Destroy(this);
         }
     }
