@@ -241,6 +241,7 @@ public class ShopCard : MonoBehaviour
         }
         blockGenerator.transform.position = new Vector2(GameManager.Instance.buildPositionX, GameManager.Instance.GetSpawnBlockHeight());
         UpdateBlockSize(1);
+        Camera.main.GetComponent<CamMouvement>().StartZoom(8, blockGenerator.transform.position - new Vector3(0f, 5f, 0f), 0.3f, 0.5f, false);
 
         // D�truire le GameObject apr�s l'animation
         Destroy(gameObject);

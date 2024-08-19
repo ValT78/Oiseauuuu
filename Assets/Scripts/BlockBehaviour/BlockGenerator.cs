@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Unity.Mathematics;
@@ -79,7 +80,7 @@ public class BlockGenerator : MonoBehaviour
 
     private void Update()
     {
-        if(transform.position.y < -10 && canBeDestroyed)
+        if(transform.position.y < -20 && canBeDestroyed)
         {
             GameManager.Instance.LoseLife(this);
             Destroy(gameObject);
@@ -195,7 +196,12 @@ public class BlockGenerator : MonoBehaviour
             {
                 spriteRenderer = cube.AddComponent<SpriteRenderer>();
             }
-            spriteRenderer.sprite = sprites[neighborCode - 1] ?? sprites[14]; // Utiliser neighborCode comme index
+            if(sprites.Length > neighborCode-1)
+                spriteRenderer.sprite = sprites[neighborCode - 1];
+            else
+            {
+                spriteRenderer.sprite = sprites[14];
+            }
         }
     }
 
@@ -315,4 +321,19 @@ public class BlockGenerator : MonoBehaviour
             }
         }
     }
+
+    public void GetPlaced()
+    {
+        StartCoroutine(GetPlacedCoroutine());
+    }
+
+    private IEnumerator GetPlacedCoroutine()
+    {
+        Camera.main.GetComponent<CamMouvement>().StartShake(0.2f, 0.7f);
+        yield return new WaitForSeconds(0.2f);
+        Camera.main.GetComponent<CamMouvement>().StartZoom(5, transform.position, 0.3f, 0.5f, true);
+        yield return new WaitForSeconds(1.1f);
+        GameManager.Instance.UpdateRessources();
+        ShopManager.Instance.InitializeShop();
+    }   
 }

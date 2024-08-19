@@ -23,7 +23,7 @@ public class BlockMouseFollower : MonoBehaviour
     private float holdDelay = 0.5f; // Temps avant que le mouvement continu commence
     private float repeatRate = 0.1f; // Intervalle entre chaque mouvement continu
 
-    private bool isMoving = false;
+    private bool isPlaced = false;
     private Coroutine moveCoroutine;
 
     void Start()
@@ -78,7 +78,7 @@ public class BlockMouseFollower : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (isFalling)
+        if (isFalling && !isPlaced)
         {
             if(collision.gameObject.TryGetComponent<BlockGenerator>(out _))
             {
@@ -96,6 +96,7 @@ public class BlockMouseFollower : MonoBehaviour
                 /*FixedJoint2D joint = collider.gameObject.AddComponent<FixedJoint2D>();
                 joint.connectedBody = rb;*/
             }
+            isPlaced = true;
             AudioManager.Instance.PlayPlacement();
             isFalling = false;
             rb.isKinematic = false; // Activer la physique
@@ -104,10 +105,8 @@ public class BlockMouseFollower : MonoBehaviour
             blockGenerator.isPlaced = true;
             if (blockGenerator.buildingType == BlockGenerator.BuildingType.Wall) blockGenerator.Stick();
             transform.position = new Vector2(Mathf.Round(transform.position.x/ currentMoveUnit), Mathf.Round(transform.position.y/currentMoveUnit))*currentMoveUnit;
-            GameManager.Instance.UpdateRessources();
-            ShopManager.Instance.InitializeShop();
+            blockGenerator.GetPlaced();
             Destroy(this);
-
         }
     }
 

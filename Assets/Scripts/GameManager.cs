@@ -163,6 +163,7 @@ public class GameManager : MonoBehaviour
         if (invicibilityTimer <= 0)
         {
             life--;
+            Camera.main.GetComponent<CamMouvement>().StartShake(0.4f, 0.8f);
             invicibilityTimer = invicibilityTime;
             if (life <= 0)
             {
