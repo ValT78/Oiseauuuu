@@ -52,8 +52,15 @@ public class BlockMouseFollower : MonoBehaviour
 
     public bool TryBuyCard()
     {
+        if (blockGenerator.woodCost > GameManager.Instance.wood) RessourceDisplay.Instance.ToggleWarning(RessourceDisplay.RessourceType.WOOD, false);
+        if (blockGenerator.woolCost > GameManager.Instance.wool) RessourceDisplay.Instance.ToggleWarning(RessourceDisplay.RessourceType.WOOL, false);
+        if (blockGenerator.compostCost > GameManager.Instance.compost) RessourceDisplay.Instance.ToggleWarning(RessourceDisplay.RessourceType.COMPOSTE, false);
+
         if (blockGenerator.woodCost > GameManager.Instance.wood || blockGenerator.woolCost > GameManager.Instance.wool || blockGenerator.compostCost > GameManager.Instance.compost)
         {
+            if (blockGenerator.woodCost > GameManager.Instance.wood) RessourceDisplay.Instance.ToggleWarning(RessourceDisplay.RessourceType.WOOD, true);
+            if (blockGenerator.woolCost > GameManager.Instance.wool) RessourceDisplay.Instance.ToggleWarning(RessourceDisplay.RessourceType.WOOL, true);
+            if (blockGenerator.compostCost > GameManager.Instance.compost) RessourceDisplay.Instance.ToggleWarning(RessourceDisplay.RessourceType.COMPOSTE, true);
             Debug.Log("Not enough resources");
             return false;
         }

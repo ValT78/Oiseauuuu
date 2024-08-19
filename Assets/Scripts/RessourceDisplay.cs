@@ -74,4 +74,26 @@ public class RessourceDisplay : MonoBehaviour
                 break;
         }
     }
+
+    public void ToggleWarning(RessourceType type, bool value)
+    {
+        switch (type)
+        {
+            case RessourceType.WOOL:
+                img_woolWarning.SetActive(value);
+                break;
+            case RessourceType.WOOD:
+                img_woodWarning.SetActive(value);
+                break;
+            case RessourceType.COMPOSTE:
+                img_compostWarning.SetActive(value);
+                break;
+            case RessourceType.POPULATION:
+                img_populationWarning.SetActive(value);
+                break;
+            case RessourceType.FOOD:
+                img_foodWarning.SetActive(value);
+                break;
+        }
+    }
 }

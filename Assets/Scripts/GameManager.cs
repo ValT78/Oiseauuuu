@@ -101,10 +101,13 @@ public class GameManager : MonoBehaviour
         }
         feededPopulation = math.min(population, food);
         int totalProduction = woodProduction + woolProduction + compostProduction;
+
+        RessourceDisplay.Instance.ToggleWarning(RessourceDisplay.RessourceType.FOOD, false);
+        RessourceDisplay.Instance.ToggleWarning(RessourceDisplay.RessourceType.POPULATION, false);
         if (totalProduction == 0)
         {
         }
-        else if(totalProduction >= feededPopulation)
+        else if(totalProduction <= feededPopulation)
         {
             wood += woodProduction;
             wool += woolProduction;
@@ -112,6 +115,9 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            if (totalProduction >= food) RessourceDisplay.Instance.ToggleWarning(RessourceDisplay.RessourceType.FOOD, true);
+            if (totalProduction >= population) RessourceDisplay.Instance.ToggleWarning(RessourceDisplay.RessourceType.POPULATION, true);
+
             wood += (int)(woodProduction * feededPopulation / totalProduction);
             wool += (int)(woolProduction * feededPopulation / totalProduction);
             compost += (int)(compostProduction * feededPopulation / totalProduction);
