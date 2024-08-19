@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEngine.InputSystem;
 using UnityEngine;
 
 public class ShopManager : MonoBehaviour
@@ -23,7 +24,7 @@ public class ShopManager : MonoBehaviour
     private Vector2 centerPosition; // Position centrale de l'écran
     private ShopCard selectedCard = null;
 
-
+    /*
     private readonly Dictionary<KeyCode, int> keyToCardIndex = new()
     {
         { KeyCode.Q, 0 },
@@ -37,6 +38,7 @@ public class ShopManager : MonoBehaviour
         { KeyCode.L, 8 },
         { KeyCode.M, 9 }
     };
+    */
 
     private void Awake()
     {
@@ -60,6 +62,7 @@ public class ShopManager : MonoBehaviour
 
     void Update()
     {
+        /*
         if (isBuyable)
         {
             foreach (var key in keyToCardIndex.Keys)
@@ -75,6 +78,7 @@ public class ShopManager : MonoBehaviour
                 }
             }
         }
+        */
     }
 
     public void InitializeShop()
@@ -145,5 +149,38 @@ public class ShopManager : MonoBehaviour
         
     }
 
-    
+    private void choseCard(int cardIndex)
+    {
+        if (!isBuyable) return;
+        if (cardIndex >= shopCards.Count) return;
+        SelectCard(shopCards[cardIndex]);
+    }
+
+    public void Chose1(InputAction.CallbackContext context)
+    {
+        if (context.phase != InputActionPhase.Started) return;
+        choseCard(0);
+    }
+    public void Chose2(InputAction.CallbackContext context)
+    {
+        if (context.phase != InputActionPhase.Started) return;
+        choseCard(1);
+    }
+    public void Chose3(InputAction.CallbackContext context)
+    {
+        if (context.phase != InputActionPhase.Started) return;
+        choseCard(2);
+    }
+    public void Chose4(InputAction.CallbackContext context)
+    {
+        if (context.phase != InputActionPhase.Started) return;
+        choseCard(3);
+    }
+    public void Chose5(InputAction.CallbackContext context)
+    {
+        if (context.phase != InputActionPhase.Started) return;
+        choseCard(4);
+    }
+
+
 }
