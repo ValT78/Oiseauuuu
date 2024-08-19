@@ -63,6 +63,7 @@ public class GameManager : MonoBehaviour
         invicibilityTimer = 0;
         PauseMenu.SetActive(false);
         RessourceDisplay.Instance.RessourceUpdate(wool, wood, compost, population, food);
+        AudioManager.Instance.PlayWave();
     }
 
     private void Update()

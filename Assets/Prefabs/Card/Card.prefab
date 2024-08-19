@@ -487,6 +487,8 @@ MonoBehaviour:
   - {fileID: 5907983565135945335, guid: 02af8ea44258bb74bb5ad65b9a290dec, type: 3}
   - {fileID: 996597112316493626, guid: 9cdb754a07c477144987ea8d033a668c, type: 3}
   - {fileID: 4093784614052823934, guid: 500f1108f4a136949a4a2e869b2693dd, type: 3}
+  - {fileID: 3512200373888051287, guid: 69effc6bf9d75a243954fe219adaa0f6, type: 3}
+  - {fileID: 7900566688021967299, guid: fa59c5db61249b247b9d22cb84d10c04, type: 3}
   blockGenerator: {fileID: 0}
   inOutAnimationDuration: 0.3
   inOutEndPosition: {x: 0, y: 0, z: 0}
