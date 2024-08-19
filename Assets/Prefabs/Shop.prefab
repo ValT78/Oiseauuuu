@@ -194,6 +194,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Card
       objectReference: {fileID: 0}
+    - target: {fileID: 8699506575753827868, guid: ee944afabaddc0242939e56694eb1b92, type: 3}
+      propertyPath: buildingPrefabs.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8699506575753827868, guid: ee944afabaddc0242939e56694eb1b92, type: 3}
+      propertyPath: buildingPrefabs.Array.data[3]
+      value: 
+      objectReference: {fileID: 1037882025622754162, guid: 75553cd007872294797ee1a03bb06ca7, type: 3}
+    - target: {fileID: 8699506575753827868, guid: ee944afabaddc0242939e56694eb1b92, type: 3}
+      propertyPath: buildingPrefabs.Array.data[4]
+      value: 
+      objectReference: {fileID: 7900566688021967299, guid: fa59c5db61249b247b9d22cb84d10c04, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
