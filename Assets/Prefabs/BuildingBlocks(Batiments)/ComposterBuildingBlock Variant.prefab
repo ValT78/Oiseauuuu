@@ -109,6 +109,8 @@ MonoBehaviour:
   - {fileID: 1665275415470253839, guid: f22e5865f5ffcd14b85a98e58e711089, type: 3}
   - {fileID: -4694252746535111085, guid: f22e5865f5ffcd14b85a98e58e711089, type: 3}
   - {fileID: 1665275415470253839, guid: f22e5865f5ffcd14b85a98e58e711089, type: 3}
+  buildingType: 4
+  canBeDestroyed: 1
   isPlaced: 0
   woolCost: 0
   woodCost: 0
