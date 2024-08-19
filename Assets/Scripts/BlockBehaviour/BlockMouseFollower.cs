@@ -105,7 +105,6 @@ public class BlockMouseFollower : MonoBehaviour
             blockGenerator.isPlaced = true;
             transform.position = new Vector2(Mathf.Round(transform.position.x/ currentMoveUnit), Mathf.Round(transform.position.y/currentMoveUnit))*currentMoveUnit;
             blockGenerator.GetPlaced();
-            if (blockGenerator.buildingType == BlockGenerator.BuildingType.Wall) blockGenerator.Stick();
             Destroy(this);
         }
     }
