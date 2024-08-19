@@ -60,7 +60,12 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8777412168806078610, guid: 9dcf1f7ce64334548803860febbbe61f, type: 3}
+      propertyPath: bonusIndicator
+      value: 
+      objectReference: {fileID: 4110235123386661827, guid: ab589637537dfa64b945c5f1019f7da3, type: 3}
+    m_RemovedComponents:
+    - {fileID: 8777412168806078610, guid: 9dcf1f7ce64334548803860febbbe61f, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -87,6 +92,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cubePrefab: {fileID: 5055607393679895339, guid: 217ab05eac726994f823b107709c1029, type: 3}
   rb: {fileID: 6896547880761296341}
+  bonusIndicator: {fileID: 4110235123386661827, guid: ab589637537dfa64b945c5f1019f7da3, type: 3}
   sprites:
   - {fileID: -3989876960406033661, guid: abf1f073653fdb3419b169a90d481277, type: 3}
   - {fileID: -3202708031508943793, guid: abf1f073653fdb3419b169a90d481277, type: 3}
@@ -104,6 +110,8 @@ MonoBehaviour:
   - {fileID: -8180044962281953906, guid: abf1f073653fdb3419b169a90d481277, type: 3}
   - {fileID: -4775927454076893923, guid: abf1f073653fdb3419b169a90d481277, type: 3}
   buildingType: 3
+  canBeDestroyed: 1
+  numberOfCubesInBlock: 0
   isPlaced: 0
   woolCost: 0
   woodCost: 0
@@ -111,7 +119,6 @@ MonoBehaviour:
   tree1: {fileID: 5055607393679895339, guid: 02f560b0869c0304b8ce00b77f53a096, type: 3}
   tree2: {fileID: 5055607393679895339, guid: ae06af2fc92bc4f418cfee0dd414a2e8, type: 3}
   doorPrefab: {fileID: 5055607393679895339, guid: 032bc73461ef55943adf7e7304dffac6, type: 3}
-  detailsList: []
 --- !u!50 &6896547880761296341 stripped
 Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 7881227437780812312, guid: 9dcf1f7ce64334548803860febbbe61f, type: 3}

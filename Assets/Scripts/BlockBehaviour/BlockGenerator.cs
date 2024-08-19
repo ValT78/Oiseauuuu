@@ -11,6 +11,7 @@ public class BlockGenerator : MonoBehaviour
 {
     [SerializeField] private GameObject cubePrefab; // Le cube qui sert � g�n�rer les blocs
     [SerializeField] private Rigidbody2D rb; // Le cube qui sert � g�n�rer les blocs
+    [SerializeField] private GameObject bonusIndicator;
 
     [Tooltip("Commence par ceux qui ont 1 voisin, pour finir avec celui qui en a 4.\nOn ajoute dans cet ordre : Top, Bottom, Left, Right")]
     [SerializeField] private Sprite[] sprites = new Sprite[15] ; // Tableau de 15 sprites nomm�s
@@ -29,10 +30,9 @@ public class BlockGenerator : MonoBehaviour
     public BuildingType buildingType;
     public bool canBeDestroyed = true;
 
-    private float angle;
     private int surfaceArea;
     private int trampledWheat;
-    private int numberOfCubesInBlock;
+    [HideInInspector] public int numberOfCubesInBlock;
     [HideInInspector] public bool isPlaced;
 
     [HideInInspector] public int woolCost;
@@ -336,4 +336,9 @@ public class BlockGenerator : MonoBehaviour
         GameManager.Instance.UpdateRessources();
         ShopManager.Instance.InitializeShop();
     }   
+
+    public void SummonIndicator(int bonus)
+    {
+        Instantiate(bonusIndicator, transform.position, Quaternion.identity).GetComponent<BonusIndicator>().Initialize(bonus);
+    }
 }

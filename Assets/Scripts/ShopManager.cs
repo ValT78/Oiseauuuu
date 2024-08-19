@@ -152,37 +152,33 @@ public class ShopManager : MonoBehaviour
     private void choseCard(int cardIndex)
     {
         if (!isBuyable) return;
+        AudioManager.Instance.PlaySelection();
         if (cardIndex >= shopCards.Count) return;
         SelectCard(shopCards[cardIndex]);
     }
 
     public void Chose1(InputAction.CallbackContext context)
     {
-        AudioManager.Instance.PlaySelection();
         if (context.phase != InputActionPhase.Started) return;
         choseCard(0);
     }
     public void Chose2(InputAction.CallbackContext context)
     {
-        AudioManager.Instance.PlaySelection();
         if (context.phase != InputActionPhase.Started) return;
         choseCard(1);
     }
     public void Chose3(InputAction.CallbackContext context)
     {
-        AudioManager.Instance.PlaySelection();
         if (context.phase != InputActionPhase.Started) return;
         choseCard(2);
     }
     public void Chose4(InputAction.CallbackContext context)
     {
-        AudioManager.Instance.PlaySelection();
         if (context.phase != InputActionPhase.Started) return;
         choseCard(3);
     }
     public void Chose5(InputAction.CallbackContext context)
     {
-        AudioManager.Instance.PlaySelection();
         if (context.phase != InputActionPhase.Started) return;
         choseCard(4);
     }

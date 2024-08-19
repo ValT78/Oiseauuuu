@@ -153,6 +153,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cubePrefab: {fileID: 5055607393679895339, guid: 217ab05eac726994f823b107709c1029, type: 3}
   rb: {fileID: 260282753982653592}
+  bonusIndicator: {fileID: 7735135379817474235, guid: 1b20e394bb7bb3e46a255255ed87a023, type: 3}
   sprites:
   - {fileID: -3426643322579736680, guid: d0e6c8975c909c54b8c37475edf4cb30, type: 3}
   - {fileID: 7638016569430290844, guid: d0e6c8975c909c54b8c37475edf4cb30, type: 3}
@@ -170,6 +171,8 @@ MonoBehaviour:
   - {fileID: -3694070284178572469, guid: d0e6c8975c909c54b8c37475edf4cb30, type: 3}
   - {fileID: -693888650066235854, guid: d0e6c8975c909c54b8c37475edf4cb30, type: 3}
   buildingType: 1
+  canBeDestroyed: 1
+  numberOfCubesInBlock: 0
   isPlaced: 0
   woolCost: 0
   woodCost: 0

@@ -105,6 +105,10 @@ public class GameManager : MonoBehaviour
 
         RessourceDisplay.Instance.ToggleWarning(RessourceDisplay.RessourceType.FOOD, false);
         RessourceDisplay.Instance.ToggleWarning(RessourceDisplay.RessourceType.POPULATION, false);
+        float tempWool = 0;
+        float tempWood = 0;
+        float tempCompost = 0;
+
         if (totalProduction == 0)
         {
         }
@@ -113,17 +117,44 @@ public class GameManager : MonoBehaviour
             wood += woodProduction;
             wool += woolProduction;
             compost += compostProduction;
+            tempWool = woodProduction;
+            tempWood = woolProduction;
+            tempCompost = compostProduction;
         }
         else
         {
             if (totalProduction >= food) RessourceDisplay.Instance.ToggleWarning(RessourceDisplay.RessourceType.FOOD, true);
             if (totalProduction >= population) RessourceDisplay.Instance.ToggleWarning(RessourceDisplay.RessourceType.POPULATION, true);
 
-            wood += (int)(woodProduction * feededPopulation / totalProduction);
-            wool += (int)(woolProduction * feededPopulation / totalProduction);
-            compost += (int)(compostProduction * feededPopulation / totalProduction);
+            wood += woodProduction * feededPopulation / totalProduction;
+            wool += woolProduction * feededPopulation / totalProduction;
+            compost += compostProduction * feededPopulation / totalProduction;
+            tempWool = woolProduction * feededPopulation / totalProduction;
+            tempWood = woodProduction * feededPopulation / totalProduction;
+            tempCompost = compostProduction * feededPopulation / totalProduction;
         }
 
+        foreach (BlockGenerator block in blockList)
+        {
+            if (block.isPlaced)
+            {
+                switch (block.buildingType)
+                {
+                    case BlockGenerator.BuildingType.WoodFactory:
+                        block.SummonIndicator((int)math.max(0,math.min(block.numberOfCubesInBlock, tempWood)));
+                        tempWood -= block.numberOfCubesInBlock;
+                        break;
+                    case BlockGenerator.BuildingType.WoolFactory:
+                        block.SummonIndicator((int)math.max(0,math.min(block.numberOfCubesInBlock, tempWool)));
+                        tempWool -= block.numberOfCubesInBlock;
+                        break;
+                    case BlockGenerator.BuildingType.CompostFactory:
+                        block.SummonIndicator((int)math.max(0, math.min(block.numberOfCubesInBlock, tempWool)));
+                        tempCompost -= block.numberOfCubesInBlock;
+                        break;
+                }
+            }
+        }
         RessourceDisplay.Instance.RessourceUpdate(wool, wood, compost, population, food);
 
     }

@@ -1960,6 +1960,26 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7418744271023667784, guid: bfb9156062d5de341947850d107be904, type: 3}
+      propertyPath: m_SpriteTilingProperty.drawMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7418744271023667784, guid: bfb9156062d5de341947850d107be904, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7418744271023667784, guid: bfb9156062d5de341947850d107be904, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7418744271023667784, guid: bfb9156062d5de341947850d107be904, type: 3}
+      propertyPath: m_SpriteTilingProperty.adaptiveTiling
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7418744271023667784, guid: bfb9156062d5de341947850d107be904, type: 3}
+      propertyPath: m_SpriteTilingProperty.adaptiveTilingThreshold
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8238198243937547580, guid: bfb9156062d5de341947850d107be904, type: 3}
       propertyPath: m_SortingLayer
       value: 1
