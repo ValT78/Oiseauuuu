@@ -10,7 +10,7 @@ public class ShopManager : MonoBehaviour
 
     [SerializeField] private GameObject shopCardPrefab;
     [SerializeField] private RectTransform parentTransform;
-    private List<ShopCard> shopCards = new List<ShopCard>();
+    private List<ShopCard> shopCards = new();
     private bool isBuyable = false;
 
     [Header("Card Space Parameters")]
@@ -103,11 +103,12 @@ public class ShopManager : MonoBehaviour
             // Ajustez l'échelle de la carte
             cardRectTransform.localScale = new Vector3(cardScale, cardScale, 1);
 
-            float posY = startY - i * (cardHeight * cardScale + cardSpacing);
-            cardRectTransform.anchoredPosition = new Vector2(Screen.width + cardHeight * cardScale, posY); // Position de départ hors écran
+            
 
+            float posY = startY - i * (cardHeight * cardScale + cardSpacing);
+            cardRectTransform.anchoredPosition = new Vector2(960 + cardHeight * cardScale, posY); // Position de départ hors écran
             ShopCard shopCard = newCard.GetComponent<ShopCard>();
-            shopCard.SetAnimationParameters(new Vector3(Screen.width + cardHeight * cardScale, posY, 0), new Vector3(Screen.width - cardHeight * cardScale/2, posY, 0));
+            shopCard.SetAnimationParameters(new Vector3(960 + cardHeight * cardScale, posY, 0), new Vector3(960 - cardHeight * cardScale/2, posY, 0));
 
             shopCards.Add(shopCard);
             StartCoroutine(shopCard.AnimateCardIn());

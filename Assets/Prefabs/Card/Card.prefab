@@ -488,12 +488,12 @@ MonoBehaviour:
   - {fileID: 996597112316493626, guid: 9cdb754a07c477144987ea8d033a668c, type: 3}
   - {fileID: 4093784614052823934, guid: 500f1108f4a136949a4a2e869b2693dd, type: 3}
   blockGenerator: {fileID: 0}
-  inOutAnimationDuration: 1
+  inOutAnimationDuration: 0.3
   inOutEndPosition: {x: 0, y: 0, z: 0}
-  selectDuration: 0.5
-  previewScale: 3
-  growDuration: 0.3
-  shrinkDuration: 0.7
+  selectDuration: 0.05
+  previewScale: 6
+  growDuration: 0.1
+  shrinkDuration: 0.3
 --- !u!1 &8060779354882488636
 GameObject:
   m_ObjectHideFlags: 0

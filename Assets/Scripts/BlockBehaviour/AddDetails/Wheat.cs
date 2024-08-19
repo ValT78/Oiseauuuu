@@ -10,7 +10,6 @@ public class Wheat : MonoBehaviour
     {
         isTrampled = true;
         spriteRenderer.enabled = false;
-        print(collision.gameObject.name);
     }
 
     public void OnTriggerExit2D(Collider2D collision)
