@@ -333,7 +333,6 @@ public class BlockGenerator : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         Camera.main.GetComponent<CamMouvement>().StartZoom(5, transform.position, 0.3f, 0.5f, true);
         yield return new WaitForSeconds(1.1f);
-        if (buildingType == BlockGenerator.BuildingType.Wall) Stick();
         GameManager.Instance.UpdateRessources();
         ShopManager.Instance.InitializeShop();
     }   
