@@ -46,10 +46,11 @@ public class LeaderBoardManagerScript : MonoBehaviour
 
         }
 
-        if (Input.GetKeyDown(KeyCode.Return))
+        // Flemme de commentaire
+        if (Input.GetKeyDown(KeyCode.Return) && false)
         {
             Debug.Log("Publishing score");
-            PublishScore(Random.Range(0, 1000));
+            PublishScore(GameManager.Instance.population);
         }
     }
 
