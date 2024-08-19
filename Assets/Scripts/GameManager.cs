@@ -212,11 +212,16 @@ public class GameManager : MonoBehaviour
                 GameOver();
             }
         }
-    }   
+    }
+    
+    public void PublishScore()
+    {
+        LeaderBoardManagerScript.Instance.PublishScore(GameManager.Instance.population);
+    }
 
     private void GameOver()
     {
-
+        PublishScore();
     }
 
 }
