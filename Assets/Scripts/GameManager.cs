@@ -44,12 +44,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject PauseMenu;
     public bool isPaused = false;
 
+
     private void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -140,6 +140,7 @@ public class GameManager : MonoBehaviour
         PauseMenu.SetActive(false);
         Time.timeScale = 1.0f;
         isPaused = false;
+        //PauseMenuScript.Instance.returnToGame();
         Debug.Log("set Pause false");
     }
 

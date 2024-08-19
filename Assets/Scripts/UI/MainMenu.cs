@@ -7,6 +7,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private GameObject main;
     [SerializeField] private GameObject control;
     [SerializeField] private GameObject explaination;
+    [SerializeField] private string sceneName = "Main Game";
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +26,7 @@ public class MainMenu : MonoBehaviour
         explaination.SetActive(false);
         main.SetActive(true);
     }
+
     public void ToExplaination()
     {
         control.SetActive(false);
@@ -36,5 +38,10 @@ public class MainMenu : MonoBehaviour
         main.SetActive(false);
         explaination.SetActive(false);
         control.SetActive(true);
+    }
+
+    public void StartGame()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
     }
 }
