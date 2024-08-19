@@ -16,6 +16,9 @@ public class GameManager : MonoBehaviour
     public int maxLife;
     public float invicibilityTime;
     private float invicibilityTimer;
+    [SerializeField] private GameObject heart;
+    [SerializeField] private Transform canvas;
+    private List<GameObject> heartList = new List<GameObject>();
 
     [Header("Block Generation")]
     public int numberOfCubesInBlock;
@@ -45,6 +48,7 @@ public class GameManager : MonoBehaviour
     public bool isPaused = false;
 
 
+
     private void Awake()
     {
         if (Instance == null)
@@ -64,6 +68,12 @@ public class GameManager : MonoBehaviour
         PauseMenu.SetActive(false);
         RessourceDisplay.Instance.RessourceUpdate(wool, wood, compost, population, food);
         AudioManager.Instance.PlayWave();
+        for(int i = 0; i < maxLife; i++)
+        {
+            heartList.Add(Instantiate(heart,canvas));
+            RectTransform rectTrans = heartList[i].GetComponent<RectTransform>();
+            rectTrans.Translate(new Vector3(75*maxLife - i*150,0,0));
+        }
     }
 
     private void Update()
@@ -163,6 +173,7 @@ public class GameManager : MonoBehaviour
         if (invicibilityTimer <= 0)
         {
             life--;
+            heartList[life].transform.GetChild(1).gameObject.SetActive(false);
             Camera.main.GetComponent<CamMouvement>().StartShake(0.4f, 0.8f);
             invicibilityTimer = invicibilityTime;
             if (life <= 0)
