@@ -52,7 +52,7 @@ public class BlockGenerator : MonoBehaviour
         numberOfCubesInBlock = GameManager.Instance.numberOfCubesInBlock;
 
         // Wood, Wool, Compost
-        Vector3Int prices = new Vector3Int();
+        Vector3Int prices = new();
         switch (buildingType)
         {
             case BuildingType.House:
@@ -273,16 +273,16 @@ public class BlockGenerator : MonoBehaviour
                         }
                     }
                 }
-                GameManager.Instance.food += (surfaceArea-trampledWheat)*3;
+                GameManager.Instance.food += (surfaceArea-trampledWheat);
                 break;
             case BuildingType.WoolFactory:
-                GameManager.Instance.woolProduction += numberOfCubesInBlock;
+                GameManager.Instance.woolProduction += 1;
                 break;
             case BuildingType.WoodFactory:
-                GameManager.Instance.woodProduction += numberOfCubesInBlock;
+                GameManager.Instance.woodProduction += 1;
                 break;
             case BuildingType.Composter:
-                GameManager.Instance.compostProduction += numberOfCubesInBlock;
+                GameManager.Instance.compostProduction += 1;
                 break;
             case BuildingType.GlueBlock:
                 break;
