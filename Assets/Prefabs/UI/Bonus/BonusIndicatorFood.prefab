@@ -34,8 +34,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 70, y: -100}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 81.4, y: -100}
+  m_SizeDelta: {x: 215.09, y: 82.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3917837213297239945
 CanvasRenderer:
@@ -67,15 +67,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: +10
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 1ce4ac45a0de4ed47bbf707ce1c92e37, type: 2}
-  m_sharedMaterial: {fileID: -6234122286502269924, guid: 1ce4ac45a0de4ed47bbf707ce1c92e37, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 7a669a3c8e2778f4b8d7e79b41c5ce65, type: 2}
+  m_sharedMaterial: {fileID: -6234122286502269924, guid: 7a669a3c8e2778f4b8d7e79b41c5ce65, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4292927712
-  m_fontColor: {r: 0.8773585, g: 0.8773585, b: 0.8773585, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -98,7 +98,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -168,7 +168,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -55.64, y: -116.3}
+  m_AnchoredPosition: {x: -55.64, y: -101.3}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &967809173917656393
@@ -255,8 +255,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 1289738112373539299}
-  speed: 0.1
-  timeToLive: 5
+  rectTransformText: {fileID: 959508357238229655}
+  rectTransformIcon: {fileID: 4100115384764991006}
+  speed: 5
+  timeToLive: 3
 --- !u!1 &7943973210554237575
 GameObject:
   m_ObjectHideFlags: 0
