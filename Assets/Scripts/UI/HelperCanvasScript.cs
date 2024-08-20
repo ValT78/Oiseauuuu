@@ -13,43 +13,43 @@ public class HelperCanvasScript : MonoBehaviour
 
     public string defaultTitle = "Welcome to the game!";
     [TextArea(3, 10)]
-    public string defaultText = "Press 1, 2, 3 or 4 num keys, to select a building, then press the same keys to start placing the building";
+    private string defaultText = "Press 1, 2, 3 or 4 num keys, to select a building, then press the same keys to start placing the building";
 
-    public string houseExplanationTitle = "House";
+    private string houseExplanationTitle = "House";
     [TextArea(3, 10)]
-    public string houseExplanationText = "Houses are used to increase the population of your city. The more houses you have, the more people will live in your city.";
+    private string houseExplanationText = "Houses are used to increase the population of your city. The more houses you have, the more people will live in your city.";
 
-    public string farmExplanationTitle = "Farm";
+    private string farmExplanationTitle = "Farm";
     [TextArea(3, 10)]
-    public string farmExplanationText = "Farms are used to produce food. The more farms you have, the more food you will produce. Ressources are produced after each blocks placed that doesn't have a block above it ";
+    private string farmExplanationText = "Farms are used to produce food. The more farms you have, the more food you will produce. Ressources are produced after each blocks placed that doesn't have a block above it ";
 
-    public string composterExplanationTitle = "Composter";
+    private string composterExplanationTitle = "Composter";
     [TextArea(3, 10)]
-    public string composterExplanationText = "Composters are used to produce compost. The more composters you have, the more compost you will produce. Ressources are produced after each blocks placed";
+    private string composterExplanationText = "Composters are used to produce compost. The more composters you have, the more compost you will produce. Ressources are produced after each blocks placed";
 
-    public string woodFactoryExplanationTitle = "Wood Factory";
+    private string woodFactoryExplanationTitle = "Wood Factory";
     [TextArea(3, 10)]
-    public string woodFactoryExplanationText = "Wood Factories are used to produce wood. The more wood factories you have, the more wood you will produce. Ressources are produced after each blocks placed";
+    private string woodFactoryExplanationText = "Wood Factories are used to produce wood. The more wood factories you have, the more wood you will produce. Ressources are produced after each blocks placed";
 
-    public string woolFactoryExplanationTitle = "Wool Factory";
+    private string woolFactoryExplanationTitle = "Wool Factory";
     [TextArea(3, 10)]
-    public string woolFactoryExplanationText = "Wool Factories are used to produce wool. The more wool factories you have, the more wool you will produce. Ressources are produced after each blocks placed";
+    private string woolFactoryExplanationText = "Wool Factories are used to produce wool. The more wool factories you have, the more wool you will produce. Ressources are produced after each blocks placed";
 
-    public string glueBlockExplanationTitle = "Glue block";
+    private string glueBlockExplanationTitle = "Glue block";
     [TextArea(3, 10)]
-    public string glueBlockExplanationText = "Glue blocks is just used for placement, it does not produce anything. It glue to surface and is used to build on top of it";
+    private string glueBlockExplanationText = "Glue blocks is just used for placement, it does not produce anything. It glue to surface and is used to build on top of it";
 
-    public string simpleBlockExplanationTitle = "Simple block";
+    private string simpleBlockExplanationTitle = "Simple block";
     [TextArea(3, 10)]
-    public string simpleBlockExplanationText = "Simple blocks is just used for placement, it does not produce anything but is free. It is used to build on top of it";
+    private string simpleBlockExplanationText = "Simple blocks is just used for placement, it does not produce anything but is free. It is used to build on top of it";
 
-    public string rotatingExplanationTitle = "Rotating";
+    private string rotatingExplanationTitle = "Rotating";
     [TextArea(3, 10)]
-    public string rotatingExplanationText = "You can rotate the building by pressing Q or E (phsyical keys, qwerty reference) press space for the block to start falling";
+    private string rotatingExplanationText = "You can rotate the building by pressing Q or E (phsyical keys, qwerty reference) press space for the block to start falling";
 
-    public string movingExplanationTitle = "Moving";
+    private string movingExplanationTitle = "Moving";
     [TextArea(3, 10)]
-    public string movingExplanationText = "You can move the building by pressing A, S or D (phsyical keys, qwerty reference)";
+    private string movingExplanationText = "You can move the building by pressing A, S or D (phsyical keys, qwerty reference)";
 
 
 
