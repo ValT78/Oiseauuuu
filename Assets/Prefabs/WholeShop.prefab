@@ -48,8 +48,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shopCardPrefab: {fileID: 5343288635643483641, guid: ee944afabaddc0242939e56694eb1b92, type: 3}
   parentTransform: {fileID: 5807818990110073442}
+  isBuyable: 0
   cardSpacing: 10
-  numberOfCards: 3
+  numberOfCards: 4
   selectedCardScale: 1
 --- !u!114 &4521228377220480442
 MonoBehaviour:

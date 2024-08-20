@@ -13,7 +13,7 @@ public class HelperCanvasScript : MonoBehaviour
 
     public string defaultTitle = "Welcome to the game!";
     [TextArea(3, 10)]
-    public string defaultText = "Press 1, 2 or 3 num keys, to select a building, then press the same keys to start placing the building";
+    public string defaultText = "Press 1, 2, 3 or 4 num keys, to select a building, then press the same keys to start placing the building";
 
     public string houseExplanationTitle = "House";
     [TextArea(3, 10)]
@@ -21,7 +21,7 @@ public class HelperCanvasScript : MonoBehaviour
 
     public string farmExplanationTitle = "Farm";
     [TextArea(3, 10)]
-    public string farmExplanationText = "Farms are used to produce food. The more farms you have, the more food you will produce. Ressources are produced after each blocks placed";
+    public string farmExplanationText = "Farms are used to produce food. The more farms you have, the more food you will produce. Ressources are produced after each blocks placed that doesn't have a block above it ";
 
     public string composterExplanationTitle = "Composter";
     [TextArea(3, 10)]
@@ -41,7 +41,7 @@ public class HelperCanvasScript : MonoBehaviour
 
     public string simpleBlockExplanationTitle = "Simple block";
     [TextArea(3, 10)]
-    public string simpleBlockExplanationText = "Simple blocks is just used for placement, it does not produce anything and it's free. It is used to build on top of it";
+    public string simpleBlockExplanationText = "Simple blocks is just used for placement, it does not produce anything but is free. It is used to build on top of it";
 
     public string rotatingExplanationTitle = "Rotating";
     [TextArea(3, 10)]
