@@ -40,9 +40,22 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public int woodProduction;
     [HideInInspector] public int woolProduction;
     [HideInInspector] public int compostProduction;
-    [HideInInspector] public int population;
+    // food peut etre negatif, j'y touche pas jsp
     [HideInInspector] public int food;
     [HideInInspector] public int feededPopulation;
+
+    // Servira comme score
+    [HideInInspector] public int recordMaxPopulation;
+    // Custom setter pour le recordMaxPopulation
+    [HideInInspector] public int _population;
+    public int population { 
+        get { return _population; } 
+        set {
+            if (value > recordMaxPopulation) recordMaxPopulation = value;
+            _population = value;
+        } 
+    }
+
 
     [Header("Compute coast")]
     public float coastOffset;
@@ -223,7 +236,7 @@ public class GameManager : MonoBehaviour
     
     public void PublishScore()
     {
-        LeaderBoardManagerScript.Instance.PublishScore(GameManager.Instance.population);
+        LeaderBoardManagerScript.Instance.PublishScore(GameManager.Instance.recordMaxPopulation);
     }
 
     private void GameOver()
