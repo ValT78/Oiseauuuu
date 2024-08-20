@@ -72,7 +72,7 @@ public class BlockGenerator : MonoBehaviour
                 prices = GetNewPrices(3, 1, 0);
                 break;
             case BuildingType.GlueBlock:
-                prices = new Vector3Int(5, 5, 5) * (numberOfCubesInBlock - 3);
+                prices = new Vector3Int(4, 4, 4) * (numberOfCubesInBlock - 3);
                 break;
         }   
         woodCost = prices.x;
