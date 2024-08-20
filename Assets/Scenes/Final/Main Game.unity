@@ -574,14 +574,14 @@ PrefabInstance:
     - target: {fileID: 4585491793736188085, guid: 3c3dd3394a8bf1b40930171f03199b78, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 6627811808670925595, guid: 3d46c192ece5e874ab285094e1fde23e, type: 3}
+      objectReference: {fileID: 1758461525}
     - target: {fileID: 4585491793736188085, guid: 3c3dd3394a8bf1b40930171f03199b78, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4585491793736188085, guid: 3c3dd3394a8bf1b40930171f03199b78, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PublishScore
+      value: QuitGame
       objectReference: {fileID: 0}
     - target: {fileID: 4585491793736188085, guid: 3c3dd3394a8bf1b40930171f03199b78, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
@@ -589,7 +589,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4585491793736188085, guid: 3c3dd3394a8bf1b40930171f03199b78, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: GameManager, Assembly-CSharp
+      value: PauseMenuScript, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 4585491793736188085, guid: 3c3dd3394a8bf1b40930171f03199b78, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
