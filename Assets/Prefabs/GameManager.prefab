@@ -158,9 +158,9 @@ MonoBehaviour:
   baseHeigth: 0
   blockSpawnOffset: 10
   buildPositionX: 0
-  wood: 50
-  wool: 50
-  compost: 50
+  _wood: 10
+  _wool: 10
+  _compost: 10
   woodProduction: 0
   woolProduction: 0
   compostProduction: 0

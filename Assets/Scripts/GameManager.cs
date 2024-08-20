@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
@@ -26,10 +27,16 @@ public class GameManager : MonoBehaviour
     public float blockSpawnOffset;
     public float buildPositionX;
 
+
+
     [Header("Ressources")]
-    public int wood;
-    public int wool;
-    public int compost;
+    public int _wood;
+    public int wood { get { return _wood;  } set { _wood = value > 0 ? value : 0; } }
+    public int _wool;
+    public int wool { get { return _wool; } set { _wool = value > 0 ? value : 0; } }
+
+    public int _compost;
+    public int compost { get { return _compost; } set { _compost = value > 0 ? value : 0; } }
     [HideInInspector] public int woodProduction;
     [HideInInspector] public int woolProduction;
     [HideInInspector] public int compostProduction;

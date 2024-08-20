@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Unity.Mathematics;
+using UnityEditor;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -26,6 +27,9 @@ public class BlockGenerator : MonoBehaviour
         GlueBlock = 5,
         SimpleBlock = 6
     }
+
+    // Sera normalisé, pas bessoin de check que la somme fasse 1
+    public float probabilityToSpawn = 1/(Enum.GetNames(typeof(BuildingType)).Length);
 
     public BuildingType buildingType;
     public bool canBeDestroyed = true;

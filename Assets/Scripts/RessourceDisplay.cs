@@ -44,12 +44,6 @@ public class RessourceDisplay : MonoBehaviour
 
     public void RessourceUpdate(int wool, int wood, int compost, int population, int food)
     {
-        wool = Mathf.Max(0, wool);
-        wood = Mathf.Max(0, wood);
-        compost = Mathf.Max(0, compost);
-        population = Mathf.Max(0, population);
-        food = Mathf.Max(0, food);
-
         text_woolCount.text = wool.ToString();
         text_woodCount.text = wood.ToString();
         text_compostCount.text = compost.ToString();
