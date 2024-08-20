@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine;
 using Unity.VisualScripting;
+using UnityEngine.InputSystem.HID;
 
 // Script pour suivre la souris et g�rer les clics
 public class BlockMouseFollower : MonoBehaviour
@@ -26,7 +27,8 @@ public class BlockMouseFollower : MonoBehaviour
 
     private bool isPlaced = false;
     private Coroutine moveCoroutine;
-    [SerializeField] private LayerMask layerMask;
+    [SerializeField] private LayerMask layerMaskToHit;
+    [SerializeField] private LayerMask layerMaskNoToHit;
 
     void Start()
     {
@@ -87,7 +89,7 @@ public class BlockMouseFollower : MonoBehaviour
             if(collision.gameObject.TryGetComponent<BlockGenerator>(out _))
             {
                 collision.gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-                collision.transform.position = new Vector2(Mathf.Round(collision.transform.position.x / currentMoveUnit), Mathf.Round(collision.transform.position.y / currentMoveUnit)) * currentMoveUnit;
+                collision.transform.position = new Vector2(Mathf.Round(collision.transform.position.x * 2), Mathf.Round(collision.transform.position.y *2)) / 2;
             }
             foreach (var collider in colliders)
             {
@@ -97,8 +99,7 @@ public class BlockMouseFollower : MonoBehaviour
                     new(0.5f, -0.5f),
                     new(-0.5f, -0.5f)
                 };
-                /*FixedJoint2D joint = collider.gameObject.AddComponent<FixedJoint2D>();
-                joint.connectedBody = rb;*/
+                collider.gameObject.layer = layerMaskToHit;
             }
             isPlaced = true;
             AudioManager.Instance.PlayPlacement();
@@ -150,25 +151,22 @@ public class BlockMouseFollower : MonoBehaviour
         Vector2 currentPosition = transform.position;
         float direction = Mathf.Sign(context.ReadValue<float>());
 
-        // Points de départ des rayons (coins du bloc)
-        Vector2[] raycastOrigins = new Vector2[]
-        {
-        new Vector2(currentPosition.x + 0.5f * direction, currentPosition.y + 0.5f),
-        new Vector2(currentPosition.x + 0.5f * direction, currentPosition.y - 0.5f)
-        };
-
         float moveDistance = currentMoveUnit;
+        
 
-        foreach (Vector2 origin in raycastOrigins)
+
+        foreach (Transform child in transform)
         {
+            Vector2 childPosition = child.position;
+            Vector2 rayOrigin = new Vector2(childPosition.x + 0.5f * direction, childPosition.y);
             // Effectuer un Raycast pour vérifier les collisions
-            RaycastHit2D hit = Physics2D.Raycast(origin, Vector2.right * direction, currentMoveUnit, layerMask);
-            print(hit.collider);
+            RaycastHit2D hit = Physics2D.Raycast(childPosition, Vector2.right * direction, currentMoveUnit, layerMaskToHit); 
 
-            if (hit.collider != null)
+            if (hit.collider != null && hit.collider.gameObject.layer != layerMaskNoToHit)
             {
                 // Si un collider est détecté, ajuster la distance de déplacement
                 moveDistance = Mathf.Min(moveDistance, hit.distance);
+                print(hit.collider);
             }
         }
 

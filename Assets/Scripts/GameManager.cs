@@ -227,6 +227,7 @@ public class GameManager : MonoBehaviour
             heartList[life].transform.GetChild(1).gameObject.SetActive(false);
             Camera.main.GetComponent<CamMouvement>().StartShake(0.4f, 0.8f);
             invicibilityTimer = invicibilityTime;
+            ShopManager.Instance.InitializeShop();
             if (life <= 0)
             {
                 GameOver();

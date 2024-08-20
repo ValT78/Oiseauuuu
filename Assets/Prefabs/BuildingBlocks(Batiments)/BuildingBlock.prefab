@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1889613377739255431}
   - component: {fileID: -2141093964331696323}
   - component: {fileID: 531875048388159118}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: BuildingBlock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -160,9 +160,12 @@ MonoBehaviour:
   moveUnit: 0.5
   fallSpeedIncreaseFactor: 6
   baseFallSpeed: 2
-  layerMask:
+  layerMaskToHit:
     serializedVersion: 2
     m_Bits: 8
+  layerMaskNoToHit:
+    serializedVersion: 2
+    m_Bits: 4
 --- !u!114 &531875048388159118
 MonoBehaviour:
   m_ObjectHideFlags: 0

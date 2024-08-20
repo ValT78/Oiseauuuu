@@ -13,7 +13,7 @@ public class ShopManager : MonoBehaviour
     [SerializeField] private GameObject shopCardPrefab;
     [SerializeField] private RectTransform parentTransform;
     private List<ShopCard> shopCards = new();
-    private bool isBuyable = false;
+    [HideInInspector] public bool isBuyable = false;
 
     [Header("Card Space Parameters")]
     [SerializeField] private float cardSpacing;
@@ -84,38 +84,41 @@ public class ShopManager : MonoBehaviour
 
     public void InitializeShop()
     {
-        shopCards.Clear();
-        cardScale = ((1080 - cardSpacing) / numberOfCards - cardSpacing) / cardHeight;
-
-        float startY = 540 - cardSpacing - cardHeight*cardScale / 2; // Position de départ en haut de l'écran
-
-        for (int i = 0; i < numberOfCards; i++)
+        if(!isBuyable)
         {
-            GameObject newCard = Instantiate(shopCardPrefab, parentTransform);
-            if(i == numberOfCards-1)
+            shopCards.Clear();
+            cardScale = ((1080 - cardSpacing) / numberOfCards - cardSpacing) / cardHeight;
+
+            float startY = 540 - cardSpacing - cardHeight * cardScale / 2; // Position de départ en haut de l'écran
+
+            for (int i = 0; i < numberOfCards; i++)
             {
-                newCard.GetComponent<ShopCard>().Initialize(true);
+                GameObject newCard = Instantiate(shopCardPrefab, parentTransform);
+                if (i == numberOfCards - 1)
+                {
+                    newCard.GetComponent<ShopCard>().Initialize(true);
+                }
+                else
+                {
+                    newCard.GetComponent<ShopCard>().Initialize(false);
+                }
+                RectTransform cardRectTransform = newCard.GetComponent<RectTransform>();
+
+                // Ajustez l'échelle de la carte
+                cardRectTransform.localScale = new Vector3(cardScale, cardScale, 1);
+
+
+
+                float posY = startY - i * (cardHeight * cardScale + cardSpacing);
+                cardRectTransform.anchoredPosition = new Vector2(960 + cardHeight * cardScale, posY); // Position de départ hors écran
+                ShopCard shopCard = newCard.GetComponent<ShopCard>();
+                shopCard.SetAnimationParameters(new Vector3(960 + cardHeight * cardScale, posY, 0), new Vector3(960 - cardHeight * cardScale / 2, posY, 0));
+
+                shopCards.Add(shopCard);
+                StartCoroutine(shopCard.AnimateCardIn());
             }
-            else
-            {
-                newCard.GetComponent<ShopCard>().Initialize(false);
-            }
-            RectTransform cardRectTransform = newCard.GetComponent<RectTransform>();
-            
-            // Ajustez l'échelle de la carte
-            cardRectTransform.localScale = new Vector3(cardScale, cardScale, 1);
-
-            
-
-            float posY = startY - i * (cardHeight * cardScale + cardSpacing);
-            cardRectTransform.anchoredPosition = new Vector2(960 + cardHeight * cardScale, posY); // Position de départ hors écran
-            ShopCard shopCard = newCard.GetComponent<ShopCard>();
-            shopCard.SetAnimationParameters(new Vector3(960 + cardHeight * cardScale, posY, 0), new Vector3(960 - cardHeight * cardScale/2, posY, 0));
-
-            shopCards.Add(shopCard);
-            StartCoroutine(shopCard.AnimateCardIn());
+            isBuyable = true;
         }
-        isBuyable = true;
     }
 
     private void SelectCard(ShopCard card)
