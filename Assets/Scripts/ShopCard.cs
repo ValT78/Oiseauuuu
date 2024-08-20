@@ -12,6 +12,7 @@ public class ShopCard : MonoBehaviour
     [SerializeField] private TMP_Text text_wool;
     [SerializeField] private TMP_Text text_wood;
     [SerializeField] private TMP_Text text_compost;
+    [SerializeField] private TMP_Text text_ID;
     public RectTransform rectTransform;
     [SerializeField] private List<GameObject> buildingPrefabs; // R�f�rence � l'objet BlockGenerator
     [HideInInspector] public GameObject blockGenerator; // R�f�rence � l'objet BlockGenerator
@@ -26,6 +27,7 @@ public class ShopCard : MonoBehaviour
     [Header("Selection Parameters")]
     [SerializeField] private float selectDuration;
     [SerializeField] private float previewScale = 3f;
+    public int ID;
 
     [Header("Choose Parameters")]
     [SerializeField] private float growDuration;
@@ -70,7 +72,7 @@ public class ShopCard : MonoBehaviour
         boundsBlockGenerator = GetBounds(blockGenerator);
         float maxDimension = Mathf.Max(boundsBlockGenerator.size.x, boundsBlockGenerator.size.y);
 
-        SetUpCard(((int)component.buildingType), component.woolCost, component.woodCost, component.compostCost);
+        SetUpCard(((int)component.buildingType), component.woolCost, component.woodCost, component.compostCost, ID);
         UpdateBlockSize(previewScale * rectTransform.localScale.x / maxDimension);
 
         center_offset = boundsBlockGenerator.center - blockGenerator.transform.position;
@@ -140,12 +142,14 @@ public class ShopCard : MonoBehaviour
         }
     }
 
-    public void SetUpCard(int buildingType , int woolCount, int woodCount, int compostCount)
+    public void SetUpCard(int buildingType , int woolCount, int woodCount, int compostCount, int ID)
     {
         text_wool.text = woolCount.ToString();
         text_wood.text = woodCount.ToString();
         text_compost.text = compostCount.ToString();
         text_title.text = ((BlockGenerator.BuildingType)buildingType).ToString();
+        text_ID.text = ID.ToString();
+
     }
 
     public void SetAnimationParameters(Vector2 startPosition, Vector2 endPosition)

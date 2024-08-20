@@ -113,7 +113,7 @@ public class ShopManager : MonoBehaviour
                 cardRectTransform.anchoredPosition = new Vector2(960 + cardHeight * cardScale, posY); // Position de départ hors écran
                 ShopCard shopCard = newCard.GetComponent<ShopCard>();
                 shopCard.SetAnimationParameters(new Vector3(960 + cardHeight * cardScale, posY, 0), new Vector3(960 - cardHeight * cardScale / 2, posY, 0));
-
+                shopCard.ID = i + 1;
                 shopCards.Add(shopCard);
                 StartCoroutine(shopCard.AnimateCardIn());
             }
