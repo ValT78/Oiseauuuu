@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     private float invicibilityTimer;
     [SerializeField] private GameObject heart;
     [SerializeField] private Transform canvas;
+    private float distanceBetweenHearts = 50;
     private List<GameObject> heartList = new List<GameObject>();
 
     [Header("Block Generation")]
@@ -92,7 +93,7 @@ public class GameManager : MonoBehaviour
         {
             heartList.Add(Instantiate(heart,canvas));
             RectTransform rectTrans = heartList[i].GetComponent<RectTransform>();
-            rectTrans.Translate(new Vector3(75*maxLife - i*150,0,0));
+            rectTrans.Translate(new Vector3(0.5f*distanceBetweenHearts * maxLife - i * distanceBetweenHearts, 0,0));
         }
     }
 
