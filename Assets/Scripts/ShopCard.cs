@@ -71,8 +71,8 @@ public class ShopCard : MonoBehaviour
         blockGenerator.transform.localPosition = Vector3.zero;
         blockGenerator.GetComponent<BlockGenerator>().canBeDestroyed = false;
 
-/*        currentBlockGenerator = blockGenerator;
-*/        BlockGenerator component = blockGenerator.GetComponent<BlockGenerator>();
+/*      currentBlockGenerator = blockGenerator;
+*/      BlockGenerator component = blockGenerator.GetComponent<BlockGenerator>();
         boundsBlockGenerator = GetBounds(blockGenerator);
         float maxDimension = Mathf.Max(boundsBlockGenerator.size.x, boundsBlockGenerator.size.y);
 
