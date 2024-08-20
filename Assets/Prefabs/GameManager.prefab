@@ -155,13 +155,13 @@ MonoBehaviour:
   heart: {fileID: 5314639966282561510, guid: 3b0b5756085ce934fa23640129364a84, type: 3}
   canvas: {fileID: 7627331346454260942}
   distanceBetweenHearts: 25
-  numberOfCubesInBlock: 10
+  numberOfCubesInBlock: 4
   baseHeigth: 0
   blockSpawnOffset: 10
   buildPositionX: 0
-  _wood: 10
-  _wool: 10
-  _compost: 10
+  _wood: 5
+  _wool: 5
+  _compost: 5
   woodProduction: 0
   woolProduction: 0
   compostProduction: 0
@@ -169,10 +169,11 @@ MonoBehaviour:
   feededPopulation: 0
   recordMaxPopulation: 0
   _population: 0
+  totalBlockPlaced: 0
   coastOffset: 7
   coastPerCube: 1
-  variance: 0.5
-  repartitionVariance: 0.2
+  variance: 0.2
+  repartitionVariance: 0.4
   PauseMenu: {fileID: 0}
   isPaused: 0
 --- !u!114 &3964623634932782069

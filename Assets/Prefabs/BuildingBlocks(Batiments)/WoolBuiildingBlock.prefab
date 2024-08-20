@@ -105,7 +105,7 @@ MonoBehaviour:
   - {fileID: 9220253206311232718, guid: 2422be2edd65b0c47bba9e399edae363, type: 3}
   - {fileID: 6916522930133382272, guid: 2422be2edd65b0c47bba9e399edae363, type: 3}
   - {fileID: 4602965867527121329, guid: 2422be2edd65b0c47bba9e399edae363, type: 3}
-  probabilityToSpawn: 0.14285715
+  probabilityToSpawn: 1
   buildingType: 2
   canBeDestroyed: 1
   numberOfCubesInBlock: 0

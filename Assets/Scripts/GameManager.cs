@@ -61,9 +61,6 @@ public class GameManager : MonoBehaviour
 
 
     [Header("Compute coast")]
-    public float coastOffset;
-    public float coastPerCube;
-    public float variance;
     public float repartitionVariance;
 
     [Header("Pause")]
@@ -122,7 +119,7 @@ public class GameManager : MonoBehaviour
     public void UpdateRessources()
     {
         totalBlockPlaced++;
-        numberOfCubesInBlock = 4 + (int)math.floor(totalBlockPlaced / 15);
+        numberOfCubesInBlock = 4 + (int)math.floor(totalBlockPlaced / 10);
         this.population = 0;
         this.food = 0;
         this.woodProduction = 0;
@@ -135,7 +132,8 @@ public class GameManager : MonoBehaviour
                 block.ProduceRessouces();
             }
         }
-        feededPopulation = math.min(population, food);
+        int actualWorkers = population==0 ? 0 : (population - 1) / 5 + 1;
+        feededPopulation = math.min(actualWorkers, food);
         int totalProduction = woodProduction + woolProduction + compostProduction;
 
         RessourceDisplay.Instance.ToggleWarning(RessourceDisplay.RessourceType.FOOD, false);
@@ -150,23 +148,42 @@ public class GameManager : MonoBehaviour
         else if(totalProduction <= feededPopulation)
         {
             wood += woodProduction;
-            wool += woolProduction;
             compost += compostProduction;
-            tempWool = woolProduction;
+            wool += woolProduction;
             tempWood = woodProduction;
             tempCompost = compostProduction;
+            tempWool = woolProduction;
         }
         else
         {
             if (totalProduction >= food) RessourceDisplay.Instance.ToggleWarning(RessourceDisplay.RessourceType.FOOD, true);
             if (totalProduction >= population) RessourceDisplay.Instance.ToggleWarning(RessourceDisplay.RessourceType.POPULATION, true);
 
-            wood += woodProduction * feededPopulation / totalProduction;
-            wool += woolProduction * feededPopulation / totalProduction;
-            compost += compostProduction * feededPopulation / totalProduction;
-            tempWool = woolProduction * feededPopulation / totalProduction;
-            tempWood = woodProduction * feededPopulation / totalProduction;
-            tempCompost = compostProduction * feededPopulation / totalProduction;
+            while(feededPopulation > 0)
+            {
+                if(woodProduction > 0)
+                {
+                    wood += 1;
+                    tempWood += 1;
+                    woodProduction -= 1;
+                    feededPopulation--;
+                }
+                if (compostProduction > 0 && feededPopulation > 0)
+                {
+                    compost += 1;
+                    tempCompost += 1;
+                    compostProduction -= 1;
+                    feededPopulation--;
+                }
+                if (woolProduction > 0 && feededPopulation > 0)
+                {
+                    wool += 1;
+                    tempWool += 1;
+                    woolProduction -= 1;
+                    feededPopulation--;
+                }
+                
+            }
         }
 
         foreach (BlockGenerator block in blockList)

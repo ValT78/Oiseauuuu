@@ -56,19 +56,19 @@ public class BlockGenerator : MonoBehaviour
         switch (buildingType)
         {
             case BuildingType.House:
-                prices = GetNewPrices(1, 1, 1);
+                prices = GetNewPrices(1, 3, 1);
                 break;
             case BuildingType.CropFields:
-                prices = GetNewPrices(1, 1, 2);
+                prices = GetNewPrices(1, 1, 3);
                 break;
             case BuildingType.WoolFactory:
-                prices = GetNewPrices(2, 0, 1);
+                prices = GetNewPrices(3, 1, 1);
                 break;
             case BuildingType.WoodFactory:
-                prices = GetNewPrices(0, 1, 1);
+                prices = GetNewPrices(3, 1, 1);
                 break;
             case BuildingType.Composter:
-                prices = GetNewPrices(2, 1, 0);
+                prices = GetNewPrices(3, 1, 0);
                 break;
             case BuildingType.GlueBlock:
                 prices = GetNewPrices(1, 1, 1);
@@ -92,14 +92,9 @@ public class BlockGenerator : MonoBehaviour
         }
     }
 
-    float GetRandomFloat(float min, float max)
-    {
-        System.Random random = new();
-        return (float)(random.NextDouble() * (max - min) + min);
-    }
     public Vector3Int GetNewPrices(int weightWood, int weightWool, int weightCompost)
     {
-        int total = (int)math.max(0, math.round((numberOfCubesInBlock * GameManager.Instance.coastPerCube - GameManager.Instance.coastOffset) * GetRandomFloat(GameManager.Instance.variance, 1 / GameManager.Instance.variance))); ;
+        int total = (numberOfCubesInBlock - 3);
         int totalWeight = weightWood + weightWool + weightCompost;
 
         // Calculer les parts proportionnelles
@@ -116,10 +111,10 @@ public class BlockGenerator : MonoBehaviour
         int sum = value1 + value2 + value3;
 
         // Si la somme n'est pas égale au total, ajuster la dernière valeur
-        if (sum != total)
+        /*if (sum != total)
         {
             value3 += total - sum;
-        }
+        }*/
         return new Vector3Int(value1, value2, value3);
     }
 
@@ -177,7 +172,7 @@ public class BlockGenerator : MonoBehaviour
             cube.transform.rotation = Quaternion.Euler(0, 0, Mathf.Round(-transform.rotation.z/90)*90);
 
         }
-
+        surfaceArea = 0;
         foreach (GameObject cube in cubes)
         {
             Vector2 localPosition = cube.transform.position;
@@ -276,19 +271,20 @@ public class BlockGenerator : MonoBehaviour
                         }
                     }
                 }
-                int productionCrop = (surfaceArea - trampledWheat) * 3;
+                int productionCrop = (surfaceArea - trampledWheat);
+                print(productionCrop);
                 GameManager.Instance.food += productionCrop;
                 break;
             case BuildingType.WoolFactory:
-                int productionWool = numberOfCubesInBlock;
+                int productionWool = 1;
                 GameManager.Instance.woolProduction += productionWool;
                 break;
             case BuildingType.WoodFactory:
-                int productionWood = numberOfCubesInBlock;
+                int productionWood = 1;
                 GameManager.Instance.woodProduction += productionWood;
                 break;
             case BuildingType.Composter:
-                int productionCompost = numberOfCubesInBlock;
+                int productionCompost = 1;
                 GameManager.Instance.compostProduction += productionCompost;
                 break;
             case BuildingType.GlueBlock:

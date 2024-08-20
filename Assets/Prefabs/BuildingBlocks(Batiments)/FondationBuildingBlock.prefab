@@ -58,7 +58,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8777412168806078610, guid: 9dcf1f7ce64334548803860febbbe61f, type: 3}
       propertyPath: probabilityToSpawn
-      value: 0.1428571
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8777412168806078610, guid: 9dcf1f7ce64334548803860febbbe61f, type: 3}
       propertyPath: sprites.Array.data[0]
