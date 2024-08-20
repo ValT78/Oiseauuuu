@@ -61,7 +61,9 @@ public class BlockMouseFollower : MonoBehaviour
             if (blockGenerator.woodCost > GameManager.Instance.wood) RessourceDisplay.Instance.ToggleWarning(RessourceDisplay.RessourceType.WOOD, true);
             if (blockGenerator.woolCost > GameManager.Instance.wool) RessourceDisplay.Instance.ToggleWarning(RessourceDisplay.RessourceType.WOOL, true);
             if (blockGenerator.compostCost > GameManager.Instance.compost) RessourceDisplay.Instance.ToggleWarning(RessourceDisplay.RessourceType.COMPOSTE, true);
+            
             Debug.Log("Not enough resources");
+            NotEnoughRessourceMessage.Instance.gameObject.SetActive(true);
             return false;
         }
         else
