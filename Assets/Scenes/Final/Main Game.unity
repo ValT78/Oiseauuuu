@@ -1277,22 +1277,6 @@ PrefabInstance:
       propertyPath: selection
       value: 
       objectReference: {fileID: 8300000, guid: 1d898a8091fad6447b55cc84cb469356, type: 3}
-    - target: {fileID: 1294521045267348606, guid: 9877423d15274584aa3cd94dffaba8d7, type: 3}
-      propertyPath: waveSource
-      value: 
-      objectReference: {fileID: 435598022}
-    - target: {fileID: 1294521045267348606, guid: 9877423d15274584aa3cd94dffaba8d7, type: 3}
-      propertyPath: musicSource
-      value: 
-      objectReference: {fileID: 1454655724}
-    - target: {fileID: 1294521045267348606, guid: 9877423d15274584aa3cd94dffaba8d7, type: 3}
-      propertyPath: soundsSource
-      value: 
-      objectReference: {fileID: 1155905533}
-    - target: {fileID: 1294521045267348606, guid: 9877423d15274584aa3cd94dffaba8d7, type: 3}
-      propertyPath: ambiantSource
-      value: 
-      objectReference: {fileID: 716609377}
     - target: {fileID: 1377240477389960348, guid: 9877423d15274584aa3cd94dffaba8d7, type: 3}
       propertyPath: m_Name
       value: AudioManager

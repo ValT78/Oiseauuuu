@@ -18,7 +18,7 @@ public class BonusIndicator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.up * speed * Time.deltaTime);
+        transform.position += Vector3.up * speed * Time.deltaTime;
     }
 
     public void Initialize (int bonus)
