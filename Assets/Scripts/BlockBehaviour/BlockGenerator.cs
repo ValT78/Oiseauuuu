@@ -317,7 +317,7 @@ public class BlockGenerator : MonoBehaviour
     {
         foreach (GameObject cube in cubes)
         {
-            Collider2D[] neighbours = Physics2D.OverlapCircleAll(cube.transform.position, 1);
+            Collider2D[] neighbours = Physics2D.OverlapCircleAll(cube.transform.position, 2);
             foreach (Collider2D neighbour in neighbours)
             {
                 if (!neighbour.transform.parent) continue ;

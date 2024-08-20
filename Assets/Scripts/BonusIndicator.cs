@@ -20,7 +20,7 @@ public class BonusIndicator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rectTransformIcon.position += Vector3.up * speed * Time.deltaTime;
+        //rectTransformIcon.position += Vector3.up * speed * Time.deltaTime;
         rectTransformText.position += Vector3.up * speed * Time.deltaTime;
     }
 
@@ -36,7 +36,7 @@ public class BonusIndicator : MonoBehaviour
             text.text = "Not enough feeded citizens";
         }
         rectTransformText.position = Camera.main.WorldToScreenPoint(housePosition) + new Vector3(30, 0, 0);
-        rectTransformIcon.position = Camera.main.WorldToScreenPoint(housePosition) + new Vector3(-30, 0, 0);
+        //rectTransformIcon.position = Camera.main.WorldToScreenPoint(housePosition) + new Vector3(-30, 0, 0);
 
     }
 }
