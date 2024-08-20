@@ -21,6 +21,11 @@ public class MainMenu : MonoBehaviour
         
     }
 
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
     public void returnToMenu()
     {
         control.SetActive(false);

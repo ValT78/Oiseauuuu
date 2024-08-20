@@ -193,22 +193,25 @@ public class GameManager : MonoBehaviour
                 switch (block.buildingType)
                 {
                     case BlockGenerator.BuildingType.WoodFactory:
-                        int production = (int)math.max(0, math.min(block.numberOfCubesInBlock, tempWood));
-                        //print("Wood production: " + production + " numberOfCubes " + block.numberOfCubesInBlock + "  tempWood " + tempWood);
-                        block.SummonIndicator((int)math.max(0,math.min(block.numberOfCubesInBlock, tempWood)));
-                        tempWood -= block.numberOfCubesInBlock;
+                        if(tempWood > 0)
+                        {
+                            block.SummonIndicator(1);
+                            tempWood -= 1;
+                        }
                         break;
                     case BlockGenerator.BuildingType.WoolFactory:
-                        int productionWool = (int)math.max(0, math.min(block.numberOfCubesInBlock, tempWood));
-                        //print("Wool production: " + productionWool + " numberOfCubes " + block.numberOfCubesInBlock + "  tempWool " + tempWool);
-                        block.SummonIndicator((int)math.max(0,math.min(block.numberOfCubesInBlock, tempWool)));
-                        tempWool -= block.numberOfCubesInBlock;
+                        if (tempWool > 0)
+                        {
+                            block.SummonIndicator(1);
+                            tempWool -= 1;
+                        }
                         break;
                     case BlockGenerator.BuildingType.Composter:
-                        int productionCompost = (int)math.max(0, math.min(block.numberOfCubesInBlock, tempCompost));
-                        //print("Compost production: " + productionCompost + " numberOfCubes " + block.numberOfCubesInBlock + "  tempCompost " + tempCompost);
-                        block.SummonIndicator((int)math.max(0, math.min(block.numberOfCubesInBlock, tempCompost)));
-                        tempCompost -= block.numberOfCubesInBlock;
+                        if (tempCompost > 0)
+                        {
+                            block.SummonIndicator(1);
+                            tempCompost -= 1;
+                        }
                         break;
                 }
             }

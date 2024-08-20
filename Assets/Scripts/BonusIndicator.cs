@@ -36,7 +36,6 @@ public class BonusIndicator : MonoBehaviour
             text.text = "Not enough feeded citizens";
         }
         rectTransformText.position = Camera.main.WorldToScreenPoint(housePosition) + new Vector3(30, 0, 0);
-        //rectTransformIcon.position = Camera.main.WorldToScreenPoint(housePosition) + new Vector3(-30, 0, 0);
 
     }
 }
