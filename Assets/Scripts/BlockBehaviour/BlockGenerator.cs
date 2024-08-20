@@ -52,7 +52,7 @@ public class BlockGenerator : MonoBehaviour
         numberOfCubesInBlock = GameManager.Instance.numberOfCubesInBlock;
 
         // Wood, Wool, Compost
-        Vector3Int prices = new Vector3Int();
+        Vector3Int prices = new();
         switch (buildingType)
         {
             case BuildingType.House:
