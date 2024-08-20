@@ -143,7 +143,7 @@ public class LeaderBoardManagerScript : MonoBehaviour
     public string RandomPlayerName()
     {
         string[] baseFunnyWords = { "Gamer", "Prince", "King", "Queen", "Lord", "Mayor", "President", "Pope", "Captain" };
-        string[] baseFunnyAdjectif1 = { "Competent", "Funny", "Crazy", "Silly", "Smart", "Wise", "Clever", "Friendly" };
+        string[] baseFunnyAdjectif1 = { "Mini", "Funny", "Crazy", "Silly", "Smart", "Wise", "Clever", "Friendly" };
         string[] baseFunnyAdjectif2 = {"Big", "Small", "Tiny", "Huge", "Giant", "Enormous", "Gigantic", "Colossal"};
 
         string funny_name = baseFunnyAdjectif1[Random.Range(0, baseFunnyAdjectif1.Length)] + baseFunnyAdjectif2[Random.Range(0, baseFunnyAdjectif2.Length)] + baseFunnyWords[Random.Range(0, baseFunnyWords.Length)];
@@ -159,7 +159,6 @@ public class LeaderBoardManagerScript : MonoBehaviour
 
     public void _SetPlayerName(string name)
     {
-        
 
         LootLockerSDKManager.SetPlayerName(name, (response) =>
         {
