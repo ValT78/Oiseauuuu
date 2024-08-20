@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine.InputSystem;
 using UnityEngine;
+using static BlockGenerator;
+using System.ComponentModel;
 
 public class ShopManager : MonoBehaviour
 {
@@ -132,6 +134,7 @@ public class ShopManager : MonoBehaviour
                         StartCoroutine(shopCard.AnimateCardOut());
                     }
                 }   
+                HelperCanvasScript.Instance.RotatingExplanation();
             }
         }
         else {
@@ -144,6 +147,31 @@ public class ShopManager : MonoBehaviour
             // Mettre en évidence la nouvelle carte sélectionnée avec animation
             selectedCard = card;
             StartCoroutine(selectedCard.AnimateSelectedCard(cardScale, selectedCardScale, selectedCard.inOutEndPosition, centerPosition));
+            switch (card.blockGenerator.GetComponent<BlockGenerator>().buildingType) 
+            {
+                case BuildingType.GlueBlock:
+                    HelperCanvasScript.Instance.GlueBlockExplanation();
+                    break;
+                case BuildingType.WoodFactory:
+                    HelperCanvasScript.Instance.WoodFactoryExplanation();
+                    break;
+                case BuildingType.WoolFactory:
+                    HelperCanvasScript.Instance.WoolFactoryExplanation();
+                    break;
+                case BuildingType.Composter:
+                    HelperCanvasScript.Instance.ComposterExplanation();
+                    break;
+                case BuildingType.CropFields:
+                    HelperCanvasScript.Instance.FarmExplanation();
+                    break;
+                case BuildingType.House:
+                    HelperCanvasScript.Instance.HouseExplanation();
+                    break;
+                case BuildingType.SimpleBlock:
+                    HelperCanvasScript.Instance.SimpleBlockExplanation();
+                    break;
+            }
+
         }
 
         

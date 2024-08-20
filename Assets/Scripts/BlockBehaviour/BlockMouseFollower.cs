@@ -186,6 +186,7 @@ public class BlockMouseFollower : MonoBehaviour
             collider.isTrigger = false; // D�sactiver les collisions physiques
         }
         blockGenerator.SetInitialPosition(transform.position);
+        HelperCanvasScript.Instance.MovingExplanation();
     }
     public void ToggleFastDrop(InputAction.CallbackContext context)
     {

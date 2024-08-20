@@ -329,6 +329,7 @@ public class BlockGenerator : MonoBehaviour
 
     public void GetPlaced()
     {
+        HelperCanvasScript.Instance.DefaultHelper();
         StartCoroutine(GetPlacedCoroutine());
     }
 
