@@ -22,9 +22,9 @@ public class BlockGenerator : MonoBehaviour
         CropFields = 1,
         WoolFactory = 2,
         WoodFactory = 3,
-        CompostFactory = 4,
-        Wall = 5,
-        Dirt = 6
+        Composter = 4,
+        GlueBlock = 5,
+        SimpleBlock = 6
     }
 
     public BuildingType buildingType;
@@ -47,25 +47,26 @@ public class BlockGenerator : MonoBehaviour
         GameManager.Instance.blockList.Add(this);
         numberOfCubesInBlock = GameManager.Instance.numberOfCubesInBlock;
 
+        // Wood, Wool, Compost
         Vector3Int prices = new Vector3Int();
         switch (buildingType)
         {
             case BuildingType.House:
-                prices = GetNewPrices(1, 3, 1);
+                prices = GetNewPrices(1, 1, 1);
                 break;
             case BuildingType.CropFields:
-                prices = GetNewPrices(1, 1, 3);
+                prices = GetNewPrices(1, 1, 2);
                 break;
             case BuildingType.WoolFactory:
-                prices = GetNewPrices(3, 1, 1);
+                prices = GetNewPrices(2, 0, 1);
                 break;
             case BuildingType.WoodFactory:
-                prices = GetNewPrices(3, 1, 1);
+                prices = GetNewPrices(0, 1, 1);
                 break;
-            case BuildingType.CompostFactory:
-                prices = GetNewPrices(3, 1, 1);
+            case BuildingType.Composter:
+                prices = GetNewPrices(2, 1, 0);
                 break;
-            case BuildingType.Wall:
+            case BuildingType.GlueBlock:
                 prices = GetNewPrices(1, 1, 1);
                 break;
         }   
@@ -276,10 +277,10 @@ public class BlockGenerator : MonoBehaviour
             case BuildingType.WoodFactory:
                 GameManager.Instance.woodProduction += numberOfCubesInBlock;
                 break;
-            case BuildingType.CompostFactory:
+            case BuildingType.Composter:
                 GameManager.Instance.compostProduction += numberOfCubesInBlock;
                 break;
-            case BuildingType.Wall:
+            case BuildingType.GlueBlock:
                 break;
         }
     }

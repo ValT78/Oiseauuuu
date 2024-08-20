@@ -158,7 +158,7 @@ public class GameManager : MonoBehaviour
                         block.SummonIndicator((int)math.max(0,math.min(block.numberOfCubesInBlock, tempWool)));
                         tempWool -= block.numberOfCubesInBlock;
                         break;
-                    case BlockGenerator.BuildingType.CompostFactory:
+                    case BlockGenerator.BuildingType.Composter:
                         block.SummonIndicator((int)math.max(0, math.min(block.numberOfCubesInBlock, tempWool)));
                         tempCompost -= block.numberOfCubesInBlock;
                         break;

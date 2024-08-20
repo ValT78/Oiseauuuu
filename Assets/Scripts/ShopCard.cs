@@ -71,7 +71,6 @@ public class ShopCard : MonoBehaviour
         UpdateBlockSize(previewScale * rectTransform.localScale.x / maxDimension);
 
         center_offset = boundsBlockGenerator.center - blockGenerator.transform.position;
-        //print("Center offset: " + center_offset);
     }
 
     void Update()
