@@ -254,6 +254,8 @@ public class BlockGenerator : MonoBehaviour
         initialPosition = position;
     }
 
+    
+
     public void ProduceRessouces()
     {
         switch (buildingType)
@@ -264,6 +266,7 @@ public class BlockGenerator : MonoBehaviour
             case BuildingType.CropFields:
                 foreach (Transform child in transform)
                 {
+                    trampledWheat = 0;
                     // Appel récursif pour les enfants de l'enfant actuel
                     if (child.childCount > 0 && child.GetChild(0).TryGetComponent(out Wheat wheatScript))
                     {
@@ -273,16 +276,20 @@ public class BlockGenerator : MonoBehaviour
                         }
                     }
                 }
-                GameManager.Instance.food += (surfaceArea-trampledWheat)*3;
+                int productionCrop = (surfaceArea - trampledWheat) * 3;
+                GameManager.Instance.food += productionCrop;
                 break;
             case BuildingType.WoolFactory:
-                GameManager.Instance.woolProduction += numberOfCubesInBlock;
+                int productionWool = numberOfCubesInBlock;
+                GameManager.Instance.woolProduction += productionWool;
                 break;
             case BuildingType.WoodFactory:
-                GameManager.Instance.woodProduction += numberOfCubesInBlock;
+                int productionWood = numberOfCubesInBlock;
+                GameManager.Instance.woodProduction += productionWood;
                 break;
             case BuildingType.Composter:
-                GameManager.Instance.compostProduction += numberOfCubesInBlock;
+                int productionCompost = numberOfCubesInBlock;
+                GameManager.Instance.compostProduction += productionCompost;
                 break;
             case BuildingType.GlueBlock:
                 break;
