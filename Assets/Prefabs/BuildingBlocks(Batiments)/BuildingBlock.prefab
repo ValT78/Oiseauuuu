@@ -157,10 +157,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a60c8dba6ec3e9843a9cd9f834daff55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  notEnoughRessourceCanvas: {fileID: 7146651743086478317, guid: 317d2d25a2793bd4c9d95e091fed4ed5, type: 3}
   moveUnit: 0.5
   fallSpeedIncreaseFactor: 6
   baseFallSpeed: 2
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!114 &531875048388159118
 MonoBehaviour:
   m_ObjectHideFlags: 0

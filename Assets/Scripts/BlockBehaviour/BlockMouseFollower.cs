@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine;
+using Unity.VisualScripting;
 
 // Script pour suivre la souris et g�rer les clics
 public class BlockMouseFollower : MonoBehaviour
@@ -25,6 +26,7 @@ public class BlockMouseFollower : MonoBehaviour
 
     private bool isPlaced = false;
     private Coroutine moveCoroutine;
+    [SerializeField] private LayerMask layerMask;
 
     void Start()
     {
@@ -103,9 +105,10 @@ public class BlockMouseFollower : MonoBehaviour
             isFalling = false;
             rb.isKinematic = false; // Activer la physique
             rb.gravityScale = 1; // Activer la gravit�
+            rb.constraints = RigidbodyConstraints2D.None;
             rb.velocity = Vector2.zero;
             blockGenerator.isPlaced = true;
-            transform.position = new Vector2(Mathf.Round(transform.position.x/ currentMoveUnit), Mathf.Round(transform.position.y/currentMoveUnit))*currentMoveUnit;
+            transform.position = new Vector2(Mathf.Round(transform.position.x * 2), Mathf.Round(transform.position.y * 2))/2;
             if (blockGenerator.buildingType == BlockGenerator.BuildingType.GlueBlock) blockGenerator.Stick();
             blockGenerator.GetPlaced();
             Destroy(this);
@@ -115,7 +118,7 @@ public class BlockMouseFollower : MonoBehaviour
     private void RotateBlock(float angle)
     {
         if (GameManager.Instance.isPaused) return;
-        transform.RotateAround(transform.position, Vector3.forward, angle);
+        transform.RotateAround(transform.position, -Vector3.forward, angle);
         blockGenerator.UpdateSprites();
     }
 
@@ -144,8 +147,35 @@ public class BlockMouseFollower : MonoBehaviour
 
     private void MoveOnce(InputAction.CallbackContext context)
     {
-        transform.position = new Vector2(transform.position.x + Mathf.Sign(context.ReadValue<float>()) * currentMoveUnit, transform.position.y);
+        Vector2 currentPosition = transform.position;
+        float direction = Mathf.Sign(context.ReadValue<float>());
+
+        // Points de départ des rayons (coins du bloc)
+        Vector2[] raycastOrigins = new Vector2[]
+        {
+        new Vector2(currentPosition.x + 0.5f * direction, currentPosition.y + 0.5f),
+        new Vector2(currentPosition.x + 0.5f * direction, currentPosition.y - 0.5f)
+        };
+
+        float moveDistance = currentMoveUnit;
+
+        foreach (Vector2 origin in raycastOrigins)
+        {
+            // Effectuer un Raycast pour vérifier les collisions
+            RaycastHit2D hit = Physics2D.Raycast(origin, Vector2.right * direction, currentMoveUnit, layerMask);
+            print(hit.collider);
+
+            if (hit.collider != null)
+            {
+                // Si un collider est détecté, ajuster la distance de déplacement
+                moveDistance = Mathf.Min(moveDistance, hit.distance);
+            }
+        }
+
+        // Déplacer le bloc de la distance calculée
+        transform.position = new Vector2(currentPosition.x + moveDistance * direction, currentPosition.y);
     }
+
 
     private IEnumerator HoldMove(InputAction.CallbackContext context)
     {
@@ -179,11 +209,12 @@ public class BlockMouseFollower : MonoBehaviour
         if (!isFollowing) return;
         isFollowing = false;
         isFalling = true;
-        rb.isKinematic = true; // D�sactiver la physique pour le mouvement manuel
-        rb.gravityScale = 0; // D�sactiver la gravit�
+        rb.isKinematic = true; // Activer la physique
+        rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY;
+        rb.gravityScale = 0;
         foreach (var collider in colliders)
         {
-            collider.isTrigger = false; // D�sactiver les collisions physiques
+            collider.isTrigger = false;
         }
         blockGenerator.SetInitialPosition(transform.position);
         HelperCanvasScript.Instance.MovingExplanation();

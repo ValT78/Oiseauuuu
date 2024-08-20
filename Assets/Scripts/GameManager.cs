@@ -236,7 +236,7 @@ public class GameManager : MonoBehaviour
     
     public void PublishScore()
     {
-        LeaderBoardManagerScript.Instance.PublishScore(GameManager.Instance.recordMaxPopulation);
+        LeaderBoardManagerScript.Instance.PublishScore(recordMaxPopulation);
     }
 
     private void GameOver()
