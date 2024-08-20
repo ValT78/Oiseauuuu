@@ -7,7 +7,7 @@ public class PauseMenuScript : MonoBehaviour
     [SerializeField] private GameObject control;
     [SerializeField] private GameObject explaination;
     [SerializeField] private GameObject pauseMenu;
-    [SerializeField] private string mainMenuName = "Main Menu";
+    private string mainMenuName = "Main Menu";
 
     public static PauseMenuScript Instance { get; private set; }
 
@@ -55,6 +55,7 @@ public class PauseMenuScript : MonoBehaviour
     public void QuitGame()
     {
         // Canvas of the leaderboard is set to active, we need to see it when we go back to the main menu
+        print("Return to Menu");
         LeaderBoardManagerScript.Instance.leaderBoardCanvas.gameObject.SetActive(true);
         UnityEngine.SceneManagement.SceneManager.LoadScene(mainMenuName);
     }

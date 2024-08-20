@@ -46,6 +46,7 @@ public class BlockGenerator : MonoBehaviour
     private Vector2 initialPosition;
     protected List<GameObject> cubes = new();
 
+
     private void Start()
     {
         GameManager.Instance.blockList.Add(this);
@@ -71,7 +72,7 @@ public class BlockGenerator : MonoBehaviour
                 prices = GetNewPrices(3, 1, 0);
                 break;
             case BuildingType.GlueBlock:
-                prices = GetNewPrices(1, 1, 1);
+                prices = new Vector3Int(5, 5, 5) * (numberOfCubesInBlock - 3);
                 break;
         }   
         woodCost = prices.x;
@@ -313,11 +314,30 @@ public class BlockGenerator : MonoBehaviour
             transform.position = position;
         }
     }
+
+    public IEnumerator StickNextFrame()
+    {
+        yield return new WaitForFixedUpdate();
+        Stick();
+    }
+
     public void Stick()
     {
+        Debug.Log("new Stick");
+        GetComponent<BlockMouseFollower>().enabled = false;
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        rb.constraints = RigidbodyConstraints2D.FreezeAll;
+
+
+
+    }
+
+    public void _Stick()
+    {
+        print("Stick");
         foreach (GameObject cube in cubes)
         {
-            Collider2D[] neighbours = Physics2D.OverlapCircleAll(cube.transform.position, 2);
+            Collider2D[] neighbours = Physics2D.OverlapCircleAll(cube.transform.position, 2f);
             foreach (Collider2D neighbour in neighbours)
             {
                 if (!neighbour.transform.parent) continue ;
@@ -326,9 +346,11 @@ public class BlockGenerator : MonoBehaviour
                 if (!parent.TryGetComponent<Rigidbody2D>(out Rigidbody2D component)) continue;
                 var joint = gameObject.AddComponent<FixedJoint2D>();
                 joint.connectedBody = component;
+                print("Stick 2");
             }
         }
     }
+
 
     public void GetPlaced()
     {

@@ -106,12 +106,47 @@ public class BlockMouseFollower : MonoBehaviour
             isFalling = false;
             rb.isKinematic = false; // Activer la physique
             rb.gravityScale = 1; // Activer la gravit�
-            rb.constraints = RigidbodyConstraints2D.None;
             rb.velocity = Vector2.zero;
             blockGenerator.isPlaced = true;
-            transform.position = new Vector2(Mathf.Round(transform.position.x * 2), Mathf.Round(transform.position.y * 2))/2;
-            if (blockGenerator.buildingType == BlockGenerator.BuildingType.GlueBlock) blockGenerator.Stick();
-            blockGenerator.GetPlaced();
+
+            Vector2 temp_pos = new Vector2(Mathf.Round(transform.position.x * 2), Mathf.Round(transform.position.y * 2)) / 2;
+
+            if (blockGenerator.buildingType == BlockGenerator.BuildingType.GlueBlock)
+            {
+                
+
+                foreach (Transform child in transform)
+                {
+                    Vector2 childPosition = child.position;
+                    RaycastHit2D hitR = Physics2D.Raycast(childPosition, Vector2.right, currentMoveUnit * 1.2f, layerMaskToHit);
+                    RaycastHit2D hitL = Physics2D.Raycast(childPosition, Vector2.left, currentMoveUnit * 1.2f, layerMaskToHit);
+
+                    if (hitR.collider != null && hitR.collider.gameObject.layer != layerMaskNoToHit)
+                    {
+                        temp_pos = new Vector2(hitR.point.x - 0.5f, Mathf.Round(transform.position.y * 2)/2);
+                        break;
+                        
+                    }
+                    else if (hitL.collider != null && hitL.collider.gameObject.layer != layerMaskNoToHit)
+                    {
+                        temp_pos = new Vector2(hitL.point.x + 0.5f, Mathf.Round(transform.position.y * 2) / 2);
+                        break;
+                    }
+                    
+                }
+
+
+                blockGenerator.Stick();
+
+            }
+            else
+            {
+                rb.constraints = RigidbodyConstraints2D.None;
+            }
+            transform.position = temp_pos;
+            
+
+        blockGenerator.GetPlaced();
             Destroy(this);
         }
     }
@@ -166,7 +201,6 @@ public class BlockMouseFollower : MonoBehaviour
             {
                 // Si un collider est détecté, ajuster la distance de déplacement
                 moveDistance = Mathf.Min(moveDistance, hit.distance);
-                print(hit.collider);
             }
         }
 
