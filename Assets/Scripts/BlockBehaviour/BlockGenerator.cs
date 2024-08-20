@@ -337,6 +337,15 @@ public class BlockGenerator : MonoBehaviour
     {
         Camera.main.GetComponent<CamMouvement>().StartShake(0.2f, 0.7f);
         yield return new WaitForSeconds(0.2f);
+        switch (buildingType)
+        {
+            case BuildingType.House:
+                SummonIndicator(numberOfCubesInBlock);
+                break;
+            case BuildingType.CropFields:
+                SummonIndicator(surfaceArea);
+                break;
+        }
         Camera.main.GetComponent<CamMouvement>().StartZoom(5, transform.position, 0.3f, 0.5f, true);
         yield return new WaitForSeconds(1.1f);
         GameManager.Instance.UpdateRessources();
@@ -345,6 +354,6 @@ public class BlockGenerator : MonoBehaviour
 
     public void SummonIndicator(int bonus)
     {
-        Instantiate(bonusIndicator, transform.position, Quaternion.identity).GetComponent<BonusIndicator>().Initialize(bonus);
+        Instantiate(bonusIndicator, transform.position, Quaternion.identity).GetComponent<BonusIndicator>().Initialize(bonus, transform.position);
     }
 }
