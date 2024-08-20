@@ -44,7 +44,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.2
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -177,7 +177,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 859e1e71b2bffd5468a9da55c8986c50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _persistent: 1
   soundsSource: {fileID: 8414997387010926222}
   musicSource: {fileID: 4949878133415650946}
   ambiantSource: {fileID: 4473327014508597696}
@@ -185,9 +184,9 @@ MonoBehaviour:
   musique: {fileID: 8300000, guid: 8e8d79fd5f93683408c9db5017b1113a, type: 3}
   menuNavigation: {fileID: 8300000, guid: 1bd3595800ce7b34d97224101d20f885, type: 3}
   placement: {fileID: 8300000, guid: 48d5a6cb2b2ffc045865e17d5f1f3ddf, type: 3}
-  seagull_low: {fileID: 8300000, guid: 7b3164046d3636f438afb254a14733df, type: 3}
-  seagull_medium: {fileID: 8300000, guid: d4cb329c858d82d4a9e4829b3369aeb9, type: 3}
-  seagull_high: {fileID: 8300000, guid: 10c938b75bc9ce24dab3c27b11400098, type: 3}
+  seagull_low: {fileID: 8300000, guid: a44c0e1311bed1343badaffdb6adb8d1, type: 3}
+  seagull_medium: {fileID: 8300000, guid: 8c2f963575b19444392ad9e025be930f, type: 3}
+  seagull_high: {fileID: 8300000, guid: 6f6cd570ec98a3c4599af54676cb3380, type: 3}
   selection: {fileID: 8300000, guid: 66d69efa33794dc43932a27c83f2b0c7, type: 3}
   wave: {fileID: 8300000, guid: 2bdeb90d4b5271d43b500e89f96a2c5b, type: 3}
 --- !u!114 &6680909035742525235

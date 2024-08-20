@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     private float invicibilityTimer;
     [SerializeField] private GameObject heart;
     [SerializeField] private Transform canvas;
-    private float distanceBetweenHearts = 50;
+    [SerializeField] private float distanceBetweenHearts;
     private List<GameObject> heartList = new List<GameObject>();
 
     [Header("Block Generation")]
@@ -152,8 +152,8 @@ public class GameManager : MonoBehaviour
             wood += woodProduction;
             wool += woolProduction;
             compost += compostProduction;
-            tempWool = woodProduction;
-            tempWood = woolProduction;
+            tempWool = woolProduction;
+            tempWood = woodProduction;
             tempCompost = compostProduction;
         }
         else
@@ -176,15 +176,21 @@ public class GameManager : MonoBehaviour
                 switch (block.buildingType)
                 {
                     case BlockGenerator.BuildingType.WoodFactory:
+                        int production = (int)math.max(0, math.min(block.numberOfCubesInBlock, tempWood));
+                        //print("Wood production: " + production + " numberOfCubes " + block.numberOfCubesInBlock + "  tempWood " + tempWood);
                         block.SummonIndicator((int)math.max(0,math.min(block.numberOfCubesInBlock, tempWood)));
                         tempWood -= block.numberOfCubesInBlock;
                         break;
                     case BlockGenerator.BuildingType.WoolFactory:
+                        int productionWool = (int)math.max(0, math.min(block.numberOfCubesInBlock, tempWood));
+                        //print("Wool production: " + productionWool + " numberOfCubes " + block.numberOfCubesInBlock + "  tempWool " + tempWool);
                         block.SummonIndicator((int)math.max(0,math.min(block.numberOfCubesInBlock, tempWool)));
                         tempWool -= block.numberOfCubesInBlock;
                         break;
                     case BlockGenerator.BuildingType.Composter:
-                        block.SummonIndicator((int)math.max(0, math.min(block.numberOfCubesInBlock, tempWool)));
+                        int productionCompost = (int)math.max(0, math.min(block.numberOfCubesInBlock, tempCompost));
+                        //print("Compost production: " + productionCompost + " numberOfCubes " + block.numberOfCubesInBlock + "  tempCompost " + tempCompost);
+                        block.SummonIndicator((int)math.max(0, math.min(block.numberOfCubesInBlock, tempCompost)));
                         tempCompost -= block.numberOfCubesInBlock;
                         break;
                 }

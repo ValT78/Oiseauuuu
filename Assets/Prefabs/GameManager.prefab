@@ -154,6 +154,7 @@ MonoBehaviour:
   invicibilityTime: 5
   heart: {fileID: 5314639966282561510, guid: 3b0b5756085ce934fa23640129364a84, type: 3}
   canvas: {fileID: 7627331346454260942}
+  distanceBetweenHearts: 25
   numberOfCubesInBlock: 10
   baseHeigth: 0
   blockSpawnOffset: 10
@@ -164,9 +165,10 @@ MonoBehaviour:
   woodProduction: 0
   woolProduction: 0
   compostProduction: 0
-  population: 0
   food: 0
   feededPopulation: 0
+  recordMaxPopulation: 0
+  _population: 0
   coastOffset: 7
   coastPerCube: 1
   variance: 0.5
