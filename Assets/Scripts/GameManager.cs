@@ -49,6 +49,8 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public int recordMaxPopulation;
     // Custom setter pour le recordMaxPopulation
     [HideInInspector] public int _population;
+
+    [HideInInspector] public int totalBlockPlaced;
     public int population { 
         get { return _population; } 
         set {
@@ -119,6 +121,8 @@ public class GameManager : MonoBehaviour
 
     public void UpdateRessources()
     {
+        totalBlockPlaced++;
+        numberOfCubesInBlock = 4 + (int)math.floor(totalBlockPlaced / 15);
         this.population = 0;
         this.food = 0;
         this.woodProduction = 0;
