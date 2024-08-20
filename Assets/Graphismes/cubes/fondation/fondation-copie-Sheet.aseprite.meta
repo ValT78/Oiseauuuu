@@ -32,10 +32,10 @@ ScriptedImporter:
     sRGBTexture: 1
     spriteMode: 2
     spriteExtrude: 1
-    spriteMeshType: 1
+    spriteMeshType: 0
     alignment: 0
     spritePivot: {x: 0.5, y: 0.5}
-    spritePixelsToUnits: 100
+    spritePixelsToUnits: 32
     spriteBorder: {x: 0, y: 0, z: 0, w: 0}
     spriteGenerateFallbackPhysicsShape: 0
     generateCubemap: 6
@@ -71,9 +71,9 @@ ScriptedImporter:
     textureFormatSet: 0
     applyGammaDecoding: 0
   previousAsepriteImporterSettings:
-    fileImportMode: 1
+    fileImportMode: 0
     importHiddenLayers: 0
-    layerImportMode: 1
+    layerImportMode: 0
     defaultPivotSpace: 0
     defaultPivotAlignment: 7
     customPivotPosition: {x: 0.5, y: 0.5}
@@ -83,9 +83,9 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   asepriteImporterSettings:
-    fileImportMode: 1
+    fileImportMode: 0
     importHiddenLayers: 0
-    layerImportMode: 1
+    layerImportMode: 0
     defaultPivotSpace: 0
     defaultPivotAlignment: 7
     customPivotPosition: {x: 0.5, y: 0.5}
@@ -95,7 +95,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 0
+  platformSettingsDirtyTick: 638597119486986063
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -119,7 +119,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: fondation-copie-Sheet
+  - name: Sprite Sheet_Frame_0
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -130,7 +130,7 @@ ScriptedImporter:
       y: 4
       width: 32
       height: 32
-    spriteID: c5aaad290ab43bb42947ada239fc40cd
+    spriteID: 1d2df5d5c213e1749951eb34af6ed100
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -139,7 +139,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
-  - name: fondation-copie-Sheet_Frame_1
+  - name: Sprite Sheet_Frame_1
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -150,7 +150,7 @@ ScriptedImporter:
       y: 44
       width: 32
       height: 32
-    spriteID: 5ea728fee0a3ce8428e567068acd0b3f
+    spriteID: 5cc7fad0b6f5db44e98c90f30bce5fe7
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -159,7 +159,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 44}
-  - name: fondation-copie-Sheet_Frame_2
+  - name: Sprite Sheet_Frame_2
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -170,7 +170,7 @@ ScriptedImporter:
       y: 84
       width: 32
       height: 32
-    spriteID: c120a0759f0bb0b4386a23362ce19457
+    spriteID: 929d51079544ab440b2e829e57bed5d1
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -179,7 +179,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 84}
-  - name: fondation-copie-Sheet_Frame_3
+  - name: Sprite Sheet_Frame_3
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -190,7 +190,7 @@ ScriptedImporter:
       y: 124
       width: 32
       height: 32
-    spriteID: 8799ff1cc950063488c0c3efc55aecdc
+    spriteID: 3e1cd256deb909841af6829efc406b10
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -199,7 +199,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 124}
-  - name: fondation-copie-Sheet_Frame_4
+  - name: Sprite Sheet_Frame_4
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -210,7 +210,7 @@ ScriptedImporter:
       y: 164
       width: 32
       height: 32
-    spriteID: 231100f1efeca1f4596676d9c21d58c6
+    spriteID: f58f7b0bbaf0d06419a229e1a984c999
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -219,7 +219,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 164}
-  - name: fondation-copie-Sheet_Frame_5
+  - name: Sprite Sheet_Frame_5
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -230,7 +230,7 @@ ScriptedImporter:
       y: 204
       width: 32
       height: 32
-    spriteID: 0304fc672278dcd4787177a5d5756123
+    spriteID: 87b873d578fd75743b9d7f0328f7b260
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -239,7 +239,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 204}
-  - name: fondation-copie-Sheet_Frame_6
+  - name: Sprite Sheet_Frame_6
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -250,7 +250,7 @@ ScriptedImporter:
       y: 4
       width: 32
       height: 32
-    spriteID: e859d29841c25914cb35c95c2706962d
+    spriteID: cef032d85da6fdf4bb55239be2f59d76
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -259,7 +259,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 44, y: 4}
-  - name: fondation-copie-Sheet_Frame_7
+  - name: Sprite Sheet_Frame_7
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -270,7 +270,7 @@ ScriptedImporter:
       y: 44
       width: 32
       height: 32
-    spriteID: 91f18cf06c07bc1448d5c71b5ac0ea6f
+    spriteID: c5dcbbbeff901ca4da91cc4518bee50e
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -279,7 +279,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 44, y: 44}
-  - name: fondation-copie-Sheet_Frame_8
+  - name: Sprite Sheet_Frame_8
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -290,7 +290,7 @@ ScriptedImporter:
       y: 84
       width: 32
       height: 32
-    spriteID: 417574fa74a06d04b97332d7d01f97c8
+    spriteID: b94ae212ba89155428e271134d042ef3
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -299,7 +299,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 44, y: 84}
-  - name: fondation-copie-Sheet_Frame_9
+  - name: Sprite Sheet_Frame_9
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -310,7 +310,7 @@ ScriptedImporter:
       y: 124
       width: 32
       height: 32
-    spriteID: 47dd6d8ef366bff4593395311cdbebde
+    spriteID: 2d3d69f63de8b7f4eabe0dfde80fdd54
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -319,7 +319,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 44, y: 124}
-  - name: fondation-copie-Sheet_Frame_10
+  - name: Sprite Sheet_Frame_10
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -330,7 +330,7 @@ ScriptedImporter:
       y: 164
       width: 32
       height: 32
-    spriteID: df96360abef97c14d90212b8947ddb86
+    spriteID: 9572941bb91f0f046bcb865d5405b70f
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -339,7 +339,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 44, y: 164}
-  - name: fondation-copie-Sheet_Frame_11
+  - name: Sprite Sheet_Frame_11
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -350,7 +350,7 @@ ScriptedImporter:
       y: 204
       width: 32
       height: 32
-    spriteID: 21c71afb9610ca24685edc6dea67dcad
+    spriteID: 2d8e9dd8695dd6443ad4b52b46dd5e45
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -359,7 +359,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 44, y: 204}
-  - name: fondation-copie-Sheet_Frame_12
+  - name: Sprite Sheet_Frame_12
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -370,7 +370,7 @@ ScriptedImporter:
       y: 4
       width: 32
       height: 32
-    spriteID: fe296b322dec45a46baff00708e46cea
+    spriteID: f3e6d380fc728314ab6cd443f5125bac
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -379,7 +379,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 84, y: 4}
-  - name: fondation-copie-Sheet_Frame_13
+  - name: Sprite Sheet_Frame_13
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -390,7 +390,7 @@ ScriptedImporter:
       y: 44
       width: 32
       height: 32
-    spriteID: b7c419af94954e748a3fa7e75dbd0dff
+    spriteID: bedeb2fac8a664040bb1daf475619990
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -399,7 +399,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 84, y: 44}
-  - name: fondation-copie-Sheet_Frame_14
+  - name: Sprite Sheet_Frame_14
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -410,7 +410,7 @@ ScriptedImporter:
       y: 84
       width: 32
       height: 32
-    spriteID: 58d1fd73a2c93d94b824570826263de3
+    spriteID: d146571d46777a645b47451d34045340
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -419,7 +419,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 84, y: 84}
-  - name: fondation-copie-Sheet_Frame_15
+  - name: Sprite Sheet_Frame_15
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -430,7 +430,7 @@ ScriptedImporter:
       y: 124
       width: 32
       height: 32
-    spriteID: 0593c625bc19c4d4fb4ebd7cbf54050e
+    spriteID: fe1869e8196c4cd40ae6f6a096ea66ee
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -439,7 +439,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 84, y: 124}
-  - name: fondation-copie-Sheet_Frame_16
+  - name: Sprite Sheet_Frame_16
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -450,7 +450,7 @@ ScriptedImporter:
       y: 164
       width: 32
       height: 32
-    spriteID: e8c35a71daa53b64d8712abc8d842ee8
+    spriteID: 624e5e2ae4bd7634c8eaf132529e65c6
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -459,7 +459,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 84, y: 164}
-  - name: fondation-copie-Sheet_Frame_17
+  - name: Sprite Sheet_Frame_17
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -470,7 +470,7 @@ ScriptedImporter:
       y: 204
       width: 32
       height: 32
-    spriteID: 99c2fd9a88d2f0041a44b0c7fe78f862
+    spriteID: 67f26539beb4d974d91911cfb351e160
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -479,7 +479,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 84, y: 204}
-  - name: fondation-copie-Sheet_Frame_18
+  - name: Sprite Sheet_Frame_18
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -490,7 +490,7 @@ ScriptedImporter:
       y: 4
       width: 32
       height: 32
-    spriteID: 6dbe35a6ff084c547bab7ded7aa9cdb8
+    spriteID: 809a39aa3a916674481f5e98556197c7
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -499,170 +499,646 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 124, y: 4}
-  spriteSheetImportData: []
+  spriteSheetImportData:
+  - name: fondation-copie-Sheet_0
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 204
+      width: 32
+      height: 32
+    spriteID: e709d493c1716b74181ee8195bac8cf1
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: fondation-copie-Sheet_1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 44
+      y: 204
+      width: 32
+      height: 32
+    spriteID: cd5090439a0f42b479400caeed09f800
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: fondation-copie-Sheet_2
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 84
+      y: 204
+      width: 32
+      height: 32
+    spriteID: a285eb3bf97a2d14992f1fd8ca90fb88
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: fondation-copie-Sheet_3
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 164
+      width: 32
+      height: 32
+    spriteID: 276075c9e95e30f459747bb42850f5a6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: fondation-copie-Sheet_4
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 44
+      y: 164
+      width: 32
+      height: 32
+    spriteID: 3b0035c088325874f9c7a5e28570bdca
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: fondation-copie-Sheet_5
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 84
+      y: 164
+      width: 32
+      height: 32
+    spriteID: 40664a01acb9f7446bd9739b33ce2582
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: fondation-copie-Sheet_6
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 124
+      width: 32
+      height: 32
+    spriteID: 3deaa78f2c6f4114b85ea395103a90e1
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: fondation-copie-Sheet_7
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 44
+      y: 124
+      width: 32
+      height: 32
+    spriteID: 7eef2cff4e7c5b44bb06bb1a639c3fef
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: fondation-copie-Sheet_8
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 84
+      y: 124
+      width: 32
+      height: 32
+    spriteID: be2772eb4af64564a86291824cae653f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: fondation-copie-Sheet_9
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 84
+      width: 32
+      height: 32
+    spriteID: bd2bb629652addf4ca96694ec088abea
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: fondation-copie-Sheet_10
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 44
+      y: 84
+      width: 32
+      height: 32
+    spriteID: 5067d1254fb117d409dfd023708c3687
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: fondation-copie-Sheet_11
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 84
+      y: 84
+      width: 32
+      height: 32
+    spriteID: 6cfadc1270fc5074cbfaa6f1cd143cfc
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: fondation-copie-Sheet_12
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 44
+      width: 32
+      height: 32
+    spriteID: cdf71cf4a2bb40a45b7d393b4be06797
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: fondation-copie-Sheet_13
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 44
+      y: 44
+      width: 32
+      height: 32
+    spriteID: a4c8f4a120b5ef34e95b2b3731d5f914
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: fondation-copie-Sheet_14
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 84
+      y: 44
+      width: 32
+      height: 32
+    spriteID: 5cf3d980890c29c4eb32b182b9189cb8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: fondation-copie-Sheet_15
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 32
+      height: 32
+    spriteID: bedb52fd28aba4a41b69c9c9f1479f7d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: fondation-copie-Sheet_16
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 44
+      y: 4
+      width: 32
+      height: 32
+    spriteID: f6f91bdd5c998e946bf3d228004d4bfd
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: fondation-copie-Sheet_17
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 84
+      y: 4
+      width: 32
+      height: 32
+    spriteID: fdd0da85f92974e4eb6b182eca1b89b6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: fondation-copie-Sheet_18
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 124
+      y: 4
+      width: 32
+      height: 32
+    spriteID: 3fc1d54e259c6054a887377242b05b64
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
   asepriteLayers:
   - layerIndex: 0
-    guid: -2114765967
-    name: fondation-copie-Sheet
-    layerFlags: 0
+    guid: -2007746156
+    name: Sprite Sheet
+    layerFlags: 3
     layerType: 0
     blendMode: 0
     cells:
-    - name: fondation-copie-Sheet_Frame_0
+    - name: Sprite Sheet_Frame_0
       frameIndex: 0
       cellRect:
         x: 0
         y: 0
         width: 32
         height: 32
-      spriteId: c5aaad290ab43bb42947ada239fc40cd
-    - name: fondation-copie-Sheet_Frame_1
+      spriteId: 1d2df5d5c213e1749951eb34af6ed100
+    - name: Sprite Sheet_Frame_1
       frameIndex: 1
       cellRect:
         x: 0
         y: 0
         width: 32
         height: 32
-      spriteId: 5ea728fee0a3ce8428e567068acd0b3f
-    - name: fondation-copie-Sheet_Frame_2
+      spriteId: 5cc7fad0b6f5db44e98c90f30bce5fe7
+    - name: Sprite Sheet_Frame_2
       frameIndex: 2
       cellRect:
         x: 0
         y: 0
         width: 32
         height: 32
-      spriteId: c120a0759f0bb0b4386a23362ce19457
-    - name: fondation-copie-Sheet_Frame_3
+      spriteId: 929d51079544ab440b2e829e57bed5d1
+    - name: Sprite Sheet_Frame_3
       frameIndex: 3
       cellRect:
         x: 0
         y: 0
         width: 32
         height: 32
-      spriteId: 8799ff1cc950063488c0c3efc55aecdc
-    - name: fondation-copie-Sheet_Frame_4
+      spriteId: 3e1cd256deb909841af6829efc406b10
+    - name: Sprite Sheet_Frame_4
       frameIndex: 4
       cellRect:
         x: 0
         y: 0
         width: 32
         height: 32
-      spriteId: 231100f1efeca1f4596676d9c21d58c6
-    - name: fondation-copie-Sheet_Frame_5
+      spriteId: f58f7b0bbaf0d06419a229e1a984c999
+    - name: Sprite Sheet_Frame_5
       frameIndex: 5
       cellRect:
         x: 0
         y: 0
         width: 32
         height: 32
-      spriteId: 0304fc672278dcd4787177a5d5756123
-    - name: fondation-copie-Sheet_Frame_6
+      spriteId: 87b873d578fd75743b9d7f0328f7b260
+    - name: Sprite Sheet_Frame_6
       frameIndex: 6
       cellRect:
         x: 0
         y: 0
         width: 32
         height: 32
-      spriteId: e859d29841c25914cb35c95c2706962d
-    - name: fondation-copie-Sheet_Frame_7
+      spriteId: cef032d85da6fdf4bb55239be2f59d76
+    - name: Sprite Sheet_Frame_7
       frameIndex: 7
       cellRect:
         x: 0
         y: 0
         width: 32
         height: 32
-      spriteId: 91f18cf06c07bc1448d5c71b5ac0ea6f
-    - name: fondation-copie-Sheet_Frame_8
+      spriteId: c5dcbbbeff901ca4da91cc4518bee50e
+    - name: Sprite Sheet_Frame_8
       frameIndex: 8
       cellRect:
         x: 0
         y: 0
         width: 32
         height: 32
-      spriteId: 417574fa74a06d04b97332d7d01f97c8
-    - name: fondation-copie-Sheet_Frame_9
+      spriteId: b94ae212ba89155428e271134d042ef3
+    - name: Sprite Sheet_Frame_9
       frameIndex: 9
       cellRect:
         x: 0
         y: 0
         width: 32
         height: 32
-      spriteId: 47dd6d8ef366bff4593395311cdbebde
-    - name: fondation-copie-Sheet_Frame_10
+      spriteId: 2d3d69f63de8b7f4eabe0dfde80fdd54
+    - name: Sprite Sheet_Frame_10
       frameIndex: 10
       cellRect:
         x: 0
         y: 0
         width: 32
         height: 32
-      spriteId: df96360abef97c14d90212b8947ddb86
-    - name: fondation-copie-Sheet_Frame_11
+      spriteId: 9572941bb91f0f046bcb865d5405b70f
+    - name: Sprite Sheet_Frame_11
       frameIndex: 11
       cellRect:
         x: 0
         y: 0
         width: 32
         height: 32
-      spriteId: 21c71afb9610ca24685edc6dea67dcad
-    - name: fondation-copie-Sheet_Frame_12
+      spriteId: 2d8e9dd8695dd6443ad4b52b46dd5e45
+    - name: Sprite Sheet_Frame_12
       frameIndex: 12
       cellRect:
         x: 0
         y: 0
         width: 32
         height: 32
-      spriteId: fe296b322dec45a46baff00708e46cea
-    - name: fondation-copie-Sheet_Frame_13
+      spriteId: f3e6d380fc728314ab6cd443f5125bac
+    - name: Sprite Sheet_Frame_13
       frameIndex: 13
       cellRect:
         x: 0
         y: 0
         width: 32
         height: 32
-      spriteId: b7c419af94954e748a3fa7e75dbd0dff
-    - name: fondation-copie-Sheet_Frame_14
+      spriteId: bedeb2fac8a664040bb1daf475619990
+    - name: Sprite Sheet_Frame_14
       frameIndex: 14
       cellRect:
         x: 0
         y: 0
         width: 32
         height: 32
-      spriteId: 58d1fd73a2c93d94b824570826263de3
-    - name: fondation-copie-Sheet_Frame_15
+      spriteId: d146571d46777a645b47451d34045340
+    - name: Sprite Sheet_Frame_15
       frameIndex: 15
       cellRect:
         x: 0
         y: 0
         width: 32
         height: 32
-      spriteId: 0593c625bc19c4d4fb4ebd7cbf54050e
-    - name: fondation-copie-Sheet_Frame_16
+      spriteId: fe1869e8196c4cd40ae6f6a096ea66ee
+    - name: Sprite Sheet_Frame_16
       frameIndex: 16
       cellRect:
         x: 0
         y: 0
         width: 32
         height: 32
-      spriteId: e8c35a71daa53b64d8712abc8d842ee8
-    - name: fondation-copie-Sheet_Frame_17
+      spriteId: 624e5e2ae4bd7634c8eaf132529e65c6
+    - name: Sprite Sheet_Frame_17
       frameIndex: 17
       cellRect:
         x: 0
         y: 0
         width: 32
         height: 32
-      spriteId: 99c2fd9a88d2f0041a44b0c7fe78f862
-    - name: fondation-copie-Sheet_Frame_18
+      spriteId: 67f26539beb4d974d91911cfb351e160
+    - name: Sprite Sheet_Frame_18
       frameIndex: 18
       cellRect:
         x: 0
         y: 0
         width: 32
         height: 32
-      spriteId: 6dbe35a6ff084c547bab7ded7aa9cdb8
+      spriteId: 809a39aa3a916674481f5e98556197c7
     linkedCells: []
     parentIndex: -1
-  platformSettings: []
+  platformSettings:
+  - name: DefaultTexturePlatform
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Standalone
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Server
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Android
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: iPhone
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: WebGL
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Windows Store Apps
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: tvOS
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
   secondarySpriteTextures: []
   spritePackingTag: 
   canvasSize: {x: 32, y: 32}

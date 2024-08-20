@@ -313,7 +313,7 @@ public class BlockGenerator : MonoBehaviour
             foreach (Collider2D neighbour in neighbours)
             {
                 if (!neighbour.transform.parent) continue ;
-                if (!neighbour.transform.parent.TryGetComponent<BlockGenerator>(out _)) continue ;
+                //if (!neighbour.transform.parent.TryGetComponent<BlockGenerator>(out _)) continue ;
                 GameObject parent = neighbour.transform.parent.gameObject;
                 if (!parent.TryGetComponent<Rigidbody2D>(out Rigidbody2D component)) continue;
                 var joint = gameObject.AddComponent<FixedJoint2D>();
