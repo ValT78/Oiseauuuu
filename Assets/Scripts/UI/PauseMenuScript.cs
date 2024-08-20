@@ -54,6 +54,8 @@ public class PauseMenuScript : MonoBehaviour
 
     public void QuitGame()
     {
+        // Canvas of the leaderboard is set to active, we need to see it when we go back to the main menu
+        LeaderBoardManagerScript.Instance.leaderBoardCanvas.gameObject.SetActive(true);
         UnityEngine.SceneManagement.SceneManager.LoadScene(mainMenuName);
     }
 

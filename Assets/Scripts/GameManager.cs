@@ -222,6 +222,7 @@ public class GameManager : MonoBehaviour
     private void GameOver()
     {
         PublishScore();
+        PauseMenuScript.Instance.QuitGame();
     }
 
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class MainMenu : MonoBehaviour
 {
@@ -42,6 +43,9 @@ public class MainMenu : MonoBehaviour
 
     public void StartGame()
     {
+        // Leaderboard canvas is set to inactive, we don't need to see it when we start the game
+        // Will be reactivated when we go back to the main menu, in the QuitGame function of PauseMenuScript
+        LeaderBoardManagerScript.Instance.leaderBoardCanvas.gameObject.SetActive(false);
         UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
     }
 }
