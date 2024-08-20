@@ -106,7 +106,7 @@ public class LeaderBoardManagerScript : MonoBehaviour
 
     public void GetLeaderBoard()
     {
-        int count = 50;
+        int count = 10;
 
         LootLockerSDKManager.GetScoreList(leaderboardKey, count, 0, (response) =>
         {
@@ -121,14 +121,18 @@ public class LeaderBoardManagerScript : MonoBehaviour
                     tempString += members[i].rank + ". ";
                     if (members[i].player.name != "")
                     {
-                        tempString += members[i].player.name+": ";
+                        string tempName = members[i].player.name;
+                        if (tempName.Length > 15)
+                        {
+                            tempName = tempName.Substring(0, 15);
+                        }
+                        tempString += tempName+": ";
                     }
                     else
                     {
                         tempString += members[i].player.id;
                     }
                     tempString += members[i].score + " citizens \n";
-                    tempString += "\n";
                 }
                 leaderBoard.text = tempString;
             }
