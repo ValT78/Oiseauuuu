@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 
 
@@ -55,10 +57,12 @@ public class ShopCard : MonoBehaviour
         StartCoroutine(LateStart());
     }
 
-    public void Initialize(bool isDirt)
+    public int Initialize(bool isDirt, List<int> alreadySorted)
     {
-        blockGenerator = Instantiate(GenerateRandomBlockType(isDirt));
+        int indicePrefab = GenerateRandomBlockType(isDirt, alreadySorted);
+        blockGenerator = Instantiate(buildingPrefabs[indicePrefab]);
         this.isDirt = isDirt;
+        return indicePrefab;
     }
     private IEnumerator LateStart()
     {
@@ -92,34 +96,43 @@ public class ShopCard : MonoBehaviour
         }
     }
 
-    private GameObject GenerateRandomBlockType(bool isDirt)
+    private int GenerateRandomBlockType(bool isDirt, List<int> alreadySorted)
     {
 
         if (isDirt)
         {
-            return buildingPrefabs[buildingPrefabs.Count - 1];
+            return buildingPrefabs.Count - 1;
         }
 
         float somme = 0;
-        foreach (GameObject building in buildingPrefabs)
+        for (int i = 0; i < buildingPrefabs.Count; i++)
         {
-            somme += building.GetComponent<BlockGenerator>().probabilityToSpawn;
+            if (alreadySorted.Contains(i))
+            {
+                continue;
+            }
+            somme += buildingPrefabs[i].GetComponent<BlockGenerator>().probabilityToSpawn;
         }
 
-        float randomValue = Random.Range(0f, somme);
+
+        float randomValue = UnityEngine.Random.Range(0f, somme);
         float cumulativeProbability = 0f;
 
-        foreach (GameObject building in buildingPrefabs)
+        for(int i =0; i<buildingPrefabs.Count; i++)
         {
-            cumulativeProbability += building.GetComponent<BlockGenerator>().probabilityToSpawn;
+            if (alreadySorted.Contains(i))
+            {
+                continue;
+            }
+            cumulativeProbability += buildingPrefabs[i].GetComponent<BlockGenerator>().probabilityToSpawn;
             if (randomValue <= cumulativeProbability)
             {
-                return building;
+                return i;
             }
         }
 
         Debug.LogError("Very Weird shouldn't happen");
-        return buildingPrefabs[Random.Range(0, buildingPrefabs.Count)];
+        return UnityEngine.Random.Range(0, buildingPrefabs.Count);
 
     }
 

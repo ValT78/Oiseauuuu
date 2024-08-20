@@ -91,16 +91,18 @@ public class ShopManager : MonoBehaviour
 
             float startY = 540 - cardSpacing - cardHeight * cardScale / 2; // Position de départ en haut de l'écran
 
+            List<int> alreadySorted = new();
+
             for (int i = 0; i < numberOfCards; i++)
             {
                 GameObject newCard = Instantiate(shopCardPrefab, parentTransform);
                 if (i == numberOfCards - 1)
                 {
-                    newCard.GetComponent<ShopCard>().Initialize(true);
+                    newCard.GetComponent<ShopCard>().Initialize(true, alreadySorted);
                 }
                 else
                 {
-                    newCard.GetComponent<ShopCard>().Initialize(false);
+                    alreadySorted.Add(newCard.GetComponent<ShopCard>().Initialize(false, alreadySorted));
                 }
                 RectTransform cardRectTransform = newCard.GetComponent<RectTransform>();
 

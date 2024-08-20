@@ -201,7 +201,7 @@ public class BlockGenerator : MonoBehaviour
             {
                 spriteRenderer = cube.AddComponent<SpriteRenderer>();
             }
-            if(sprites.Length > neighborCode-1)
+            if(neighborCode-1 < sprites.Length)
                 spriteRenderer.sprite = sprites[neighborCode - 1];
             else
             {
