@@ -23,6 +23,9 @@ public class LeaderBoardManagerScript : MonoBehaviour
     [HideInInspector]
     public string playerName;
 
+    public float timeBetweenScoreUpdate = 10f;
+    private float timer;
+
 
 
     private void Awake()
@@ -36,6 +39,7 @@ public class LeaderBoardManagerScript : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        timer = 3f;
     }
 
 
@@ -49,18 +53,12 @@ public class LeaderBoardManagerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        timer -= Time.deltaTime;
+        if (timer <= 0)
         {
-            Debug.Log("Getting score");
+            print("Updating leaderboard");
+            timer = timeBetweenScoreUpdate;
             GetLeaderBoard();
-
-        }
-
-        // Flemme de commentaire
-        if (Input.GetKeyDown(KeyCode.Return) && false)
-        {
-            Debug.Log("Publishing score");
-            PublishScore(GameManager.Instance.population);
         }
     }
 
@@ -97,7 +95,7 @@ public class LeaderBoardManagerScript : MonoBehaviour
             if (!response.success)
             {
                 Debug.Log("Could not submit score!");
-                Debug.Log(response.errorData.ToString());
+                //Debug.Log(response.errorData.ToString());
                 return;
             }
             Debug.Log("Successfully submitted score!");
@@ -108,7 +106,6 @@ public class LeaderBoardManagerScript : MonoBehaviour
 
     public void GetLeaderBoard()
     {
-        bool done = false;
         int count = 50;
 
         LootLockerSDKManager.GetScoreList(leaderboardKey, count, 0, (response) =>
@@ -133,13 +130,11 @@ public class LeaderBoardManagerScript : MonoBehaviour
                     tempString += members[i].score + " citizens \n";
                     tempString += "\n";
                 }
-                done = true;
                 leaderBoard.text = tempString;
             }
             else
             {
-                Debug.Log("Failed" + response.errorData);
-                done = true;
+                //Debug.Log("Failed" + response.errorData);
             }
         });
 
@@ -174,7 +169,8 @@ public class LeaderBoardManagerScript : MonoBehaviour
             }
             else
             {
-                Debug.Log("Could not set player name" + response.errorData.ToString());
+                Debug.Log("Could not set player name");
+                //Debug.Log(response.errorData.ToString());
                 return;
             }
         });
