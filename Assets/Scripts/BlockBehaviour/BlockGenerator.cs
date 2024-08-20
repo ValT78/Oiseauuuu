@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Unity.Mathematics;
+using UnityEditor;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -22,10 +23,13 @@ public class BlockGenerator : MonoBehaviour
         CropFields = 1,
         WoolFactory = 2,
         WoodFactory = 3,
-        CompostFactory = 4,
-        Wall = 5,
-        Dirt = 6
+        Composter = 4,
+        GlueBlock = 5,
+        SimpleBlock = 6
     }
+
+    // Sera normalisé, pas bessoin de check que la somme fasse 1
+    public float probabilityToSpawn = 1/(Enum.GetNames(typeof(BuildingType)).Length);
 
     public BuildingType buildingType;
     public bool canBeDestroyed = true;
@@ -47,25 +51,26 @@ public class BlockGenerator : MonoBehaviour
         GameManager.Instance.blockList.Add(this);
         numberOfCubesInBlock = GameManager.Instance.numberOfCubesInBlock;
 
+        // Wood, Wool, Compost
         Vector3Int prices = new Vector3Int();
         switch (buildingType)
         {
             case BuildingType.House:
-                prices = GetNewPrices(1, 3, 1);
+                prices = GetNewPrices(1, 1, 1);
                 break;
             case BuildingType.CropFields:
-                prices = GetNewPrices(1, 1, 3);
+                prices = GetNewPrices(1, 1, 2);
                 break;
             case BuildingType.WoolFactory:
-                prices = GetNewPrices(3, 1, 1);
+                prices = GetNewPrices(2, 0, 1);
                 break;
             case BuildingType.WoodFactory:
-                prices = GetNewPrices(3, 1, 1);
+                prices = GetNewPrices(0, 1, 1);
                 break;
-            case BuildingType.CompostFactory:
-                prices = GetNewPrices(3, 1, 1);
+            case BuildingType.Composter:
+                prices = GetNewPrices(2, 1, 0);
                 break;
-            case BuildingType.Wall:
+            case BuildingType.GlueBlock:
                 prices = GetNewPrices(1, 1, 1);
                 break;
         }   
@@ -276,10 +281,10 @@ public class BlockGenerator : MonoBehaviour
             case BuildingType.WoodFactory:
                 GameManager.Instance.woodProduction += numberOfCubesInBlock;
                 break;
-            case BuildingType.CompostFactory:
+            case BuildingType.Composter:
                 GameManager.Instance.compostProduction += numberOfCubesInBlock;
                 break;
-            case BuildingType.Wall:
+            case BuildingType.GlueBlock:
                 break;
         }
     }
@@ -313,7 +318,7 @@ public class BlockGenerator : MonoBehaviour
             foreach (Collider2D neighbour in neighbours)
             {
                 if (!neighbour.transform.parent) continue ;
-                if (!neighbour.transform.parent.TryGetComponent<BlockGenerator>(out _)) continue ;
+                //if (!neighbour.transform.parent.TryGetComponent<BlockGenerator>(out _)) continue ;
                 GameObject parent = neighbour.transform.parent.gameObject;
                 if (!parent.TryGetComponent<Rigidbody2D>(out Rigidbody2D component)) continue;
                 var joint = gameObject.AddComponent<FixedJoint2D>();
@@ -324,6 +329,7 @@ public class BlockGenerator : MonoBehaviour
 
     public void GetPlaced()
     {
+        HelperCanvasScript.Instance.DefaultHelper();
         StartCoroutine(GetPlacedCoroutine());
     }
 

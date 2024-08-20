@@ -1998,46 +1998,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: LeaderBoardManager
       objectReference: {fileID: 0}
-    - target: {fileID: 6814402593636549343, guid: 513a42c5a31258f40a62b7c29bf191c6, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6814402593636549343, guid: 513a42c5a31258f40a62b7c29bf191c6, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6814402593636549343, guid: 513a42c5a31258f40a62b7c29bf191c6, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6814402593636549343, guid: 513a42c5a31258f40a62b7c29bf191c6, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6814402593636549343, guid: 513a42c5a31258f40a62b7c29bf191c6, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 82.763916
-      objectReference: {fileID: 0}
-    - target: {fileID: 6814402593636549343, guid: 513a42c5a31258f40a62b7c29bf191c6, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 25.283386
-      objectReference: {fileID: 0}
-    - target: {fileID: 6814402593636549343, guid: 513a42c5a31258f40a62b7c29bf191c6, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 96.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6814402593636549343, guid: 513a42c5a31258f40a62b7c29bf191c6, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 41.899994
-      objectReference: {fileID: 0}
-    - target: {fileID: 6969741778976248322, guid: 513a42c5a31258f40a62b7c29bf191c6, type: 3}
-      propertyPath: m_text
-      value: Modify your name
-      objectReference: {fileID: 0}
-    - target: {fileID: 7957868709266730268, guid: 513a42c5a31258f40a62b7c29bf191c6, type: 3}
-      propertyPath: m_Name
-      value: LabelName
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2094,7 +2054,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:

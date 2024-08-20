@@ -8,6 +8,50 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 531875048388159118, guid: 9dcf1f7ce64334548803860febbbe61f, type: 3}
+      propertyPath: m_ActionEvents.Array.size
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 531875048388159118, guid: 9dcf1f7ce64334548803860febbbe61f, type: 3}
+      propertyPath: m_ActionEvents.Array.data[7].m_ActionId
+      value: 46d3bbdb-4145-418e-9b60-95c47d065057
+      objectReference: {fileID: 0}
+    - target: {fileID: 531875048388159118, guid: 9dcf1f7ce64334548803860febbbe61f, type: 3}
+      propertyPath: m_ActionEvents.Array.data[8].m_ActionId
+      value: 7adbfd53-270b-445e-8ce4-1d0b11e675f2
+      objectReference: {fileID: 0}
+    - target: {fileID: 531875048388159118, guid: 9dcf1f7ce64334548803860febbbe61f, type: 3}
+      propertyPath: m_ActionEvents.Array.data[9].m_ActionId
+      value: 5712e7ec-e600-40d6-a5b0-83fde75e7f8f
+      objectReference: {fileID: 0}
+    - target: {fileID: 531875048388159118, guid: 9dcf1f7ce64334548803860febbbe61f, type: 3}
+      propertyPath: m_ActionEvents.Array.data[10].m_ActionId
+      value: 4b42b3f7-7a45-40a0-8311-41e28f7156f0
+      objectReference: {fileID: 0}
+    - target: {fileID: 531875048388159118, guid: 9dcf1f7ce64334548803860febbbe61f, type: 3}
+      propertyPath: m_ActionEvents.Array.data[11].m_ActionId
+      value: 7935b855-5531-4a1b-b6d2-c9468bf65029
+      objectReference: {fileID: 0}
+    - target: {fileID: 531875048388159118, guid: 9dcf1f7ce64334548803860febbbe61f, type: 3}
+      propertyPath: m_ActionEvents.Array.data[7].m_ActionName
+      value: New action map/choice 1[/Keyboard/1,/Keyboard/numpad1]
+      objectReference: {fileID: 0}
+    - target: {fileID: 531875048388159118, guid: 9dcf1f7ce64334548803860febbbe61f, type: 3}
+      propertyPath: m_ActionEvents.Array.data[8].m_ActionName
+      value: New action map/choice 2[/Keyboard/2,/Keyboard/numpad2]
+      objectReference: {fileID: 0}
+    - target: {fileID: 531875048388159118, guid: 9dcf1f7ce64334548803860febbbe61f, type: 3}
+      propertyPath: m_ActionEvents.Array.data[9].m_ActionName
+      value: New action map/choice 3[/Keyboard/3,/Keyboard/numpad3]
+      objectReference: {fileID: 0}
+    - target: {fileID: 531875048388159118, guid: 9dcf1f7ce64334548803860febbbe61f, type: 3}
+      propertyPath: m_ActionEvents.Array.data[10].m_ActionName
+      value: New action map/choice 4[/Keyboard/4]
+      objectReference: {fileID: 0}
+    - target: {fileID: 531875048388159118, guid: 9dcf1f7ce64334548803860febbbe61f, type: 3}
+      propertyPath: m_ActionEvents.Array.data[11].m_ActionName
+      value: New action map/choice 5[/Keyboard/5,/Keyboard/numpad5]
+      objectReference: {fileID: 0}
     - target: {fileID: 1889613377739255431, guid: 9dcf1f7ce64334548803860febbbe61f, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -165,6 +209,7 @@ MonoBehaviour:
   - {fileID: 1881222922739326278, guid: f7ed3b5a3824dbf47a76b9a7cbbf0ebc, type: 3}
   - {fileID: -2770790216211026196, guid: f7ed3b5a3824dbf47a76b9a7cbbf0ebc, type: 3}
   - {fileID: -2164774523678522054, guid: f7ed3b5a3824dbf47a76b9a7cbbf0ebc, type: 3}
+  probabilityToSpawn: 0.2857143
   buildingType: 0
   canBeDestroyed: 1
   numberOfCubesInBlock: 0

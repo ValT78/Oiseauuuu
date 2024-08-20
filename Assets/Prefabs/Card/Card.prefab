@@ -489,11 +489,13 @@ MonoBehaviour:
   - {fileID: 4093784614052823934, guid: 500f1108f4a136949a4a2e869b2693dd, type: 3}
   - {fileID: 3512200373888051287, guid: 69effc6bf9d75a243954fe219adaa0f6, type: 3}
   - {fileID: 7900566688021967299, guid: fa59c5db61249b247b9d22cb84d10c04, type: 3}
+  - {fileID: 589166826019410495, guid: 82b4ff8c248f8144db690c988be6c4ee, type: 3}
+  - {fileID: 4731925781832866103, guid: ec8bfce1e081384448dc2c7e62956a61, type: 3}
   blockGenerator: {fileID: 0}
   inOutAnimationDuration: 0.3
   inOutEndPosition: {x: 0, y: 0, z: 0}
   selectDuration: 0.05
-  previewScale: 6
+  previewScale: 3
   growDuration: 0.1
   shrinkDuration: 0.3
 --- !u!1 &8060779354882488636

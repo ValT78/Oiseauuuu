@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+
+
+
 public class ShopCard : MonoBehaviour
 {
     [SerializeField] private TMP_Text text_title;
@@ -71,7 +74,6 @@ public class ShopCard : MonoBehaviour
         UpdateBlockSize(previewScale * rectTransform.localScale.x / maxDimension);
 
         center_offset = boundsBlockGenerator.center - blockGenerator.transform.position;
-        //print("Center offset: " + center_offset);
     }
 
     void Update()
@@ -90,12 +92,33 @@ public class ShopCard : MonoBehaviour
 
     private GameObject GenerateRandomBlockType(bool isDirt)
     {
+
         if (isDirt)
         {
-            return buildingPrefabs[buildingPrefabs.Count-1];
+            return buildingPrefabs[buildingPrefabs.Count - 1];
         }
-        return buildingPrefabs[Random.Range(0, buildingPrefabs.Count-1)];
-        
+
+        float somme = 0;
+        foreach (GameObject building in buildingPrefabs)
+        {
+            somme += building.GetComponent<BlockGenerator>().probabilityToSpawn;
+        }
+
+        float randomValue = Random.Range(0f, somme);
+        float cumulativeProbability = 0f;
+
+        foreach (GameObject building in buildingPrefabs)
+        {
+            cumulativeProbability += building.GetComponent<BlockGenerator>().probabilityToSpawn;
+            if (randomValue <= cumulativeProbability)
+            {
+                return building;
+            }
+        }
+
+        Debug.LogError("Very Weird shouldn't happen");
+        return buildingPrefabs[Random.Range(0, buildingPrefabs.Count)];
+
     }
 
     public void UpdateBlockSize(float size)

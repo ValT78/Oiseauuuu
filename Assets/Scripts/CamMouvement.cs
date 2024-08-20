@@ -45,11 +45,11 @@ public class CamMouvement : MonoBehaviour
         else
         {
             // Background x parallax
-            transform_bg4.Translate(new Vector3(toMove.x * 1.1f, 0, 0));
-            transform_bg3.Translate(new Vector3(toMove.x * 1.075f, 0, 0));
-            transform_bg2.Translate(new Vector3(toMove.x * 1.05f, 0, 0));
-            transform_bg1.Translate(new Vector3(toMove.x * 1.025f, 0, 0));
-            transform_bgm1.Translate(new Vector3(toMove.x, 0, 0));
+            transform_bg4.Translate(new Vector3(-toMove.x * 1f, 0, 0));
+            transform_bg3.Translate(new Vector3(-toMove.x * 0.8f, 0, 0));
+            transform_bg2.Translate(new Vector3(-toMove.x * 0.6f, 0, 0));
+            transform_bg1.Translate(new Vector3(-toMove.x * 0.4f, 0, 0));
+            transform_bgm1.Translate(new Vector3(toMove.x * 0.9f, 0, 0));
         }
 
         // Screen shake logic

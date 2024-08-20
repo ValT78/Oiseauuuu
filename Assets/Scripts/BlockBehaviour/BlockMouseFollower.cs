@@ -61,7 +61,9 @@ public class BlockMouseFollower : MonoBehaviour
             if (blockGenerator.woodCost > GameManager.Instance.wood) RessourceDisplay.Instance.ToggleWarning(RessourceDisplay.RessourceType.WOOD, true);
             if (blockGenerator.woolCost > GameManager.Instance.wool) RessourceDisplay.Instance.ToggleWarning(RessourceDisplay.RessourceType.WOOL, true);
             if (blockGenerator.compostCost > GameManager.Instance.compost) RessourceDisplay.Instance.ToggleWarning(RessourceDisplay.RessourceType.COMPOSTE, true);
+            
             Debug.Log("Not enough resources");
+            NotEnoughRessourceMessage.Instance.gameObject.SetActive(true);
             return false;
         }
         else
@@ -103,8 +105,8 @@ public class BlockMouseFollower : MonoBehaviour
             rb.gravityScale = 1; // Activer la gravit�
             rb.velocity = Vector2.zero;
             blockGenerator.isPlaced = true;
-            if (blockGenerator.buildingType == BlockGenerator.BuildingType.Wall) blockGenerator.Stick();
             transform.position = new Vector2(Mathf.Round(transform.position.x/ currentMoveUnit), Mathf.Round(transform.position.y/currentMoveUnit))*currentMoveUnit;
+            if (blockGenerator.buildingType == BlockGenerator.BuildingType.GlueBlock) blockGenerator.Stick();
             blockGenerator.GetPlaced();
             Destroy(this);
         }
@@ -184,6 +186,7 @@ public class BlockMouseFollower : MonoBehaviour
             collider.isTrigger = false; // D�sactiver les collisions physiques
         }
         blockGenerator.SetInitialPosition(transform.position);
+        HelperCanvasScript.Instance.MovingExplanation();
     }
     public void ToggleFastDrop(InputAction.CallbackContext context)
     {

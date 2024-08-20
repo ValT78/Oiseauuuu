@@ -50,6 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cubePrefab: {fileID: 5055607393679895339, guid: 217ab05eac726994f823b107709c1029, type: 3}
   rb: {fileID: 7881227437780812312}
+  bonusIndicator: {fileID: 0}
   sprites:
   - {fileID: 21300000, guid: 6580ac4ab9a364b4a9c89b30f924494b, type: 3}
   - {fileID: 21300000, guid: 022f4e50b6a2eef4a9f9dc3268bb8e0b, type: 3}
@@ -66,6 +67,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 5afd7649ea3f41d4b9862bcda2805218, type: 3}
   - {fileID: 21300000, guid: 046ef9f9e49fccb4ea706eb8bcef2c5f, type: 3}
   - {fileID: 21300000, guid: e78f3c65004bd0847ac26c35a71fbb19, type: 3}
+  probabilityToSpawn: 0
+  buildingType: 0
+  canBeDestroyed: 1
+  numberOfCubesInBlock: 0
   isPlaced: 0
   woolCost: 0
   woodCost: 0
@@ -152,6 +157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a60c8dba6ec3e9843a9cd9f834daff55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  notEnoughRessourceCanvas: {fileID: 7146651743086478317, guid: 317d2d25a2793bd4c9d95e091fed4ed5, type: 3}
   moveUnit: 0.5
   fallSpeedIncreaseFactor: 6
   baseFallSpeed: 2
@@ -268,6 +274,26 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: d989001c-c469-4444-bb7a-9512453e11af
     m_ActionName: New action map/select[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 46d3bbdb-4145-418e-9b60-95c47d065057
+    m_ActionName: New action map/choice 1[/Keyboard/1,/Keyboard/numpad1]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 7adbfd53-270b-445e-8ce4-1d0b11e675f2
+    m_ActionName: New action map/choice 2[/Keyboard/2,/Keyboard/numpad2]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 5712e7ec-e600-40d6-a5b0-83fde75e7f8f
+    m_ActionName: New action map/choice 3[/Keyboard/3,/Keyboard/numpad3]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 4b42b3f7-7a45-40a0-8311-41e28f7156f0
+    m_ActionName: New action map/choice 4[/Keyboard/4]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 7935b855-5531-4a1b-b6d2-c9468bf65029
+    m_ActionName: New action map/choice 5[/Keyboard/5,/Keyboard/numpad5]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: New action map

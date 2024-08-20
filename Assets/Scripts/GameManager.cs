@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
@@ -26,16 +27,35 @@ public class GameManager : MonoBehaviour
     public float blockSpawnOffset;
     public float buildPositionX;
 
+
+
     [Header("Ressources")]
-    public int wood;
-    public int wool;
-    public int compost;
+    public int _wood;
+    public int wood { get { return _wood;  } set { _wood = value > 0 ? value : 0; } }
+    public int _wool;
+    public int wool { get { return _wool; } set { _wool = value > 0 ? value : 0; } }
+
+    public int _compost;
+    public int compost { get { return _compost; } set { _compost = value > 0 ? value : 0; } }
     [HideInInspector] public int woodProduction;
     [HideInInspector] public int woolProduction;
     [HideInInspector] public int compostProduction;
-    [HideInInspector] public int population;
+    // food peut etre negatif, j'y touche pas jsp
     [HideInInspector] public int food;
     [HideInInspector] public int feededPopulation;
+
+    // Servira comme score
+    [HideInInspector] public int recordMaxPopulation;
+    // Custom setter pour le recordMaxPopulation
+    [HideInInspector] public int _population;
+    public int population { 
+        get { return _population; } 
+        set {
+            if (value > recordMaxPopulation) recordMaxPopulation = value;
+            _population = value;
+        } 
+    }
+
 
     [Header("Compute coast")]
     public float coastOffset;
@@ -158,7 +178,7 @@ public class GameManager : MonoBehaviour
                         block.SummonIndicator((int)math.max(0,math.min(block.numberOfCubesInBlock, tempWool)));
                         tempWool -= block.numberOfCubesInBlock;
                         break;
-                    case BlockGenerator.BuildingType.CompostFactory:
+                    case BlockGenerator.BuildingType.Composter:
                         block.SummonIndicator((int)math.max(0, math.min(block.numberOfCubesInBlock, tempWool)));
                         tempCompost -= block.numberOfCubesInBlock;
                         break;
@@ -212,11 +232,17 @@ public class GameManager : MonoBehaviour
                 GameOver();
             }
         }
-    }   
+    }
+    
+    public void PublishScore()
+    {
+        LeaderBoardManagerScript.Instance.PublishScore(GameManager.Instance.recordMaxPopulation);
+    }
 
     private void GameOver()
     {
-
+        PublishScore();
+        PauseMenuScript.Instance.QuitGame();
     }
 
 }
